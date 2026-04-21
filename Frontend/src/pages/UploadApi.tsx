@@ -3,37 +3,106 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { UploadCloud, FileJson, CheckCircle2, Globe, Sparkles, Loader2 } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { UploadCloud, FileJson, CheckCircle2, Globe, Sparkles, Loader2, Lock, MessageSquareText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
+import { useAppStore, type Environment, type AuthType } from "@/store/appStore";
+import { uploadSpec, generateTests } from "@/lib/api";
 
 export default function UploadApi() {
   const [dragging, setDragging] = useState(false);
   const [file, setFile] = useState<File | null>(null);
-  const [baseUrl, setBaseUrl] = useState("https://api.example.com");
-  const [loading, setLoading] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
+
+  const {
+    targetBaseUrl,
+    setTargetBaseUrl,
+    environment,
+    setEnvironment,
+    instructions,
+    setInstructions,
+    authType,
+    setAuthType,
+    authValue,
+    setAuthValue,
+    isGenerating,
+    setGenerating,
+    setRunId,
+    setSpecContent,
+    setParsedSpec,
+    setTestCases,
+  } = useAppStore();
 
   const handleDrop = (e: DragEvent) => {
     e.preventDefault();
     setDragging(false);
     const f = e.dataTransfer.files?.[0];
-    if (f) setFile(f);
+    if (f) handleFileSelected(f);
   };
 
-  const handleGenerate = () => {
+  const handleFileSelected = (f: File) => {
+    setFile(f);
+    // Read file content immediately and store in appStore
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result === "string") {
+        setSpecContent(reader.result);
+      }
+    };
+    reader.readAsText(f);
+  };
+
+  const handleGenerate = async () => {
     if (!file) {
       toast.error("Please upload an OpenAPI/Swagger file first.");
       return;
     }
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      toast.success("Generated 24 test cases from your spec.");
+
+    setGenerating(true);
+
+    try {
+      // Step 1: Upload the spec file
+      const uploadResponse = await uploadSpec(file, environment);
+      const parsed = uploadResponse.data;
+      setRunId(parsed.runId);
+      setParsedSpec(parsed);
+
+      // Step 2: Generate test cases
+      const specText = useAppStore.getState().specContent;
+      if (!specText) {
+        toast.error("Could not read spec file content.");
+        setGenerating(false);
+        return;
+      }
+
+      const generateResponse = await generateTests(specText, {
+        runId: parsed.runId,
+        instructions,
+        targetBaseUrl,
+        environment,
+        authType,
+        authValue,
+      });
+
+      setTestCases(generateResponse.data);
+      toast.success(`Generated ${generateResponse.data.length} test cases`);
       navigate("/test-cases");
-    }, 1400);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Failed to generate test cases";
+      toast.error(message);
+    } finally {
+      setGenerating(false);
+    }
   };
 
   return (
@@ -61,7 +130,7 @@ export default function UploadApi() {
             type="file"
             accept=".json,.yaml,.yml"
             className="hidden"
-            onChange={(e) => e.target.files?.[0] && setFile(e.target.files[0])}
+            onChange={(e) => e.target.files?.[0] && handleFileSelected(e.target.files[0])}
           />
           {file ? (
             <div className="flex flex-col items-center gap-3 animate-scale-in">
@@ -73,7 +142,7 @@ export default function UploadApi() {
                 <p className="text-xs text-muted-foreground">{(file.size / 1024).toFixed(1)} KB · ready to process</p>
               </div>
               <button
-                onClick={(e) => { e.stopPropagation(); setFile(null); }}
+                onClick={(e) => { e.stopPropagation(); setFile(null); setSpecContent(null); }}
                 className="text-xs font-medium text-primary hover:underline"
               >
                 Choose a different file
@@ -96,21 +165,84 @@ export default function UploadApi() {
             <Globe className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               id="baseUrl"
-              value={baseUrl}
-              onChange={(e) => setBaseUrl(e.target.value)}
+              value={targetBaseUrl}
+              onChange={(e) => setTargetBaseUrl(e.target.value)}
               className="pl-9"
               placeholder="https://api.example.com"
             />
           </div>
         </div>
 
+        {/* Instructions textarea */}
+        <div className="mt-4 space-y-2">
+          <Label htmlFor="instructions" className="text-sm font-medium flex items-center gap-1.5">
+            <MessageSquareText className="h-3.5 w-3.5" /> Instructions
+          </Label>
+          <Textarea
+            id="instructions"
+            value={instructions}
+            onChange={(e) => setInstructions(e.target.value)}
+            placeholder="e.g. Test creating a pet, test getting a pet by ID, test with missing required fields"
+            rows={3}
+          />
+        </div>
+
+        {/* Environment + Auth row */}
+        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="space-y-2">
+            <Label className="text-sm font-medium">Environment</Label>
+            <Select value={environment} onValueChange={(v) => setEnvironment(v as Environment)}>
+              <SelectTrigger>
+                <SelectValue placeholder="Select environment" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="dev">Development</SelectItem>
+                <SelectItem value="staging">Staging</SelectItem>
+                <SelectItem value="prod">Production</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div className="space-y-2">
+            <Label className="text-sm font-medium flex items-center gap-1.5">
+              <Lock className="h-3.5 w-3.5" /> Authentication
+            </Label>
+            <Select value={authType} onValueChange={(v) => setAuthType(v as AuthType)}>
+              <SelectTrigger>
+                <SelectValue placeholder="Auth type" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="NONE">None</SelectItem>
+                <SelectItem value="JWT">JWT Token</SelectItem>
+                <SelectItem value="API_KEY">API Key</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+
+        {/* Auth token input — shown only when auth is needed */}
+        {authType !== "NONE" && (
+          <div className="mt-4 space-y-2 animate-fade-in">
+            <Label htmlFor="authValue" className="text-sm font-medium">
+              {authType === "JWT" ? "Bearer Token" : "API Key"}
+            </Label>
+            <Input
+              id="authValue"
+              type="password"
+              value={authValue}
+              onChange={(e) => setAuthValue(e.target.value)}
+              placeholder={authType === "JWT" ? "eyJhbGciOiJIUzI1NiIs…" : "sk-live-xxxxxxxxxxxx"}
+            />
+          </div>
+        )}
+
         <Button
           size="lg"
           onClick={handleGenerate}
-          disabled={loading}
+          disabled={isGenerating}
           className="mt-6 w-full gradient-primary shadow-glow hover:opacity-95"
         >
-          {loading ? (
+          {isGenerating ? (
             <><Loader2 className="h-4 w-4 animate-spin" /> Analyzing spec…</>
           ) : (
             <><Sparkles className="h-4 w-4" /> Generate Test Cases</>

@@ -1,18 +1,96 @@
+import { useMemo } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { StatusBadge } from "@/components/testbuddy/StatusBadge";
-import { stats, testCases, performanceData } from "@/data/mock";
 import { Bar, BarChart, Cell, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis, Legend } from "recharts";
-import { Download } from "lucide-react";
+import { Download, Loader2, Upload } from "lucide-react";
+import { Link } from "react-router-dom";
+import { toast } from "sonner";
+import { useAppStore } from "@/store/appStore";
+import { exportReport } from "@/lib/api";
+import type { TestStatus } from "@/data/mock";
 
 const COLORS = ["hsl(var(--success))", "hsl(var(--destructive))"];
 
 export default function Results() {
-  const pieData = [
-    { name: "Passed", value: stats.passedTests },
-    { name: "Failed", value: stats.failedTests },
-  ];
+  const { results, runId, isExporting, setExporting } = useAppStore();
+
+  const passedCount = useMemo(() => results.filter((r) => r.passed).length, [results]);
+  const failedCount = useMemo(() => results.filter((r) => !r.passed).length, [results]);
+  const totalCount = results.length;
+
+  const pieData = useMemo(
+    () => [
+      { name: "Passed", value: passedCount },
+      { name: "Failed", value: failedCount },
+    ],
+    [passedCount, failedCount],
+  );
+
+  const performanceData = useMemo(() => {
+    // Group results by endpoint base path and compute average response time
+    const groups: Record<string, { total: number; count: number }> = {};
+    results.forEach((r) => {
+      // Use just the path without query params, shortened
+      const key = r.endpoint.split("?")[0].split("/").filter(Boolean).slice(-1)[0] || r.endpoint;
+      if (!groups[key]) groups[key] = { total: 0, count: 0 };
+      groups[key].total += r.responseTimeMs;
+      groups[key].count += 1;
+    });
+    return Object.entries(groups).map(([endpoint, { total, count }]) => ({
+      endpoint: `/${endpoint}`,
+      time: Math.round(total / count),
+    }));
+  }, [results]);
+
+  const handleExport = async () => {
+    if (!runId) {
+      toast.error("No run ID available for export.");
+      return;
+    }
+    setExporting(true);
+    try {
+      const blob = await exportReport(runId);
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `test-report-${runId}.xlsx`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      toast.success("Report downloaded successfully");
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Failed to export report";
+      toast.error(message);
+    } finally {
+      setExporting(false);
+    }
+  };
+
+  // Empty state when no results exist
+  if (results.length === 0) {
+    return (
+      <div className="space-y-6">
+        <div className="space-y-1">
+          <h1 className="text-2xl font-bold tracking-tight">Results Dashboard</h1>
+          <p className="text-sm text-muted-foreground">No test results available yet</p>
+        </div>
+        <Card className="flex flex-col items-center justify-center gap-4 p-12 shadow-card">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
+            <Upload className="h-7 w-7 text-primary" />
+          </div>
+          <p className="text-center text-sm text-muted-foreground">
+            Run your test cases to see results here.
+          </p>
+          <Button asChild className="gradient-primary shadow-glow">
+            <Link to="/test-cases">Go to Test Cases</Link>
+          </Button>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -21,13 +99,19 @@ export default function Results() {
           <h1 className="text-2xl font-bold tracking-tight">Results Dashboard</h1>
           <p className="text-sm text-muted-foreground">Latest test execution from {new Date().toLocaleDateString()}</p>
         </div>
-        <Button variant="outline"><Download className="h-4 w-4" /> Export report</Button>
+        <Button variant="outline" onClick={handleExport} disabled={isExporting}>
+          {isExporting ? (
+            <><Loader2 className="h-4 w-4 animate-spin" /> Exporting…</>
+          ) : (
+            <><Download className="h-4 w-4" /> Export report</>
+          )}
+        </Button>
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
         <Card className="p-5 shadow-card lg:col-span-2">
           <h2 className="mb-1 text-base font-semibold">Pass vs Fail</h2>
-          <p className="mb-3 text-xs text-muted-foreground">Out of {stats.totalTests} tests</p>
+          <p className="mb-3 text-xs text-muted-foreground">Out of {totalCount} tests</p>
           <div className="h-64">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
@@ -73,21 +157,24 @@ export default function Results() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {testCases.map((tc) => (
-                <TableRow key={tc.id} className="hover:bg-muted/40">
-                  <TableCell className="font-medium">{tc.name}</TableCell>
-                  <TableCell><StatusBadge status={tc.status} /></TableCell>
-                  <TableCell>
-                    <span className={`font-mono text-xs font-semibold ${tc.responseCode && tc.responseCode >= 400 ? "text-destructive" : "text-success"}`}>
-                      {tc.responseCode ?? "—"}
-                    </span>
-                  </TableCell>
-                  <TableCell className="text-xs text-muted-foreground">{tc.responseTime ? `${tc.responseTime}ms` : "—"}</TableCell>
-                  <TableCell className="max-w-md truncate text-xs text-muted-foreground" title={tc.errorMessage}>
-                    {tc.errorMessage ?? "—"}
-                  </TableCell>
-                </TableRow>
-              ))}
+              {results.map((r) => {
+                const status: TestStatus = r.passed ? "passed" : "failed";
+                return (
+                  <TableRow key={r.testCaseId} className="hover:bg-muted/40">
+                    <TableCell className="font-medium">{r.name}</TableCell>
+                    <TableCell><StatusBadge status={status} /></TableCell>
+                    <TableCell>
+                      <span className={`font-mono text-xs font-semibold ${r.actualStatus >= 400 ? "text-destructive" : "text-success"}`}>
+                        {r.actualStatus}
+                      </span>
+                    </TableCell>
+                    <TableCell className="text-xs text-muted-foreground">{r.responseTimeMs}ms</TableCell>
+                    <TableCell className="max-w-md truncate text-xs text-muted-foreground" title={r.errorMessage ?? undefined}>
+                      {r.errorMessage ?? "—"}
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
             </TableBody>
           </Table>
         </div>

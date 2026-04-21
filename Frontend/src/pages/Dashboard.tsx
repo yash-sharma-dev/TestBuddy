@@ -1,14 +1,53 @@
+import { useMemo } from "react";
 import { Activity, CheckCircle2, Network, XCircle, ArrowRight, Sparkles } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { StatCard } from "@/components/testbuddy/StatCard";
 import { MethodBadge } from "@/components/testbuddy/MethodBadge";
 import { StatusBadge } from "@/components/testbuddy/StatusBadge";
-import { stats, recentActivity, trendData } from "@/data/mock";
+import { trendData } from "@/data/mock";
+import type { HttpMethod, TestStatus } from "@/data/mock";
 import { Link } from "react-router-dom";
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { useAppStore } from "@/store/appStore";
 
 export default function Dashboard() {
+  const { results, testCases, parsedSpec } = useAppStore();
+
+  const stats = useMemo(() => {
+    const totalTests = results.length || testCases.length;
+    const passedTests = results.filter((r) => r.passed).length;
+    const failedTests = results.filter((r) => !r.passed).length;
+    const totalApis = parsedSpec?.endpointCount ?? new Set(testCases.map((tc) => tc.endpoint)).size;
+
+    return {
+      totalApis,
+      totalTests,
+      passedTests,
+      failedTests,
+      trends: {
+        apis: totalApis > 0 ? `${totalApis} endpoints` : "—",
+        tests: totalTests > 0 ? `${totalTests} total` : "—",
+        passed: passedTests > 0 ? `${Math.round((passedTests / (totalTests || 1)) * 100)}%` : "—",
+        failed: failedTests > 0 ? `${failedTests} issues` : "—",
+      },
+    };
+  }, [results, testCases, parsedSpec]);
+
+  const recentActivity = useMemo(() => {
+    // Take the last 6 results and map to the activity shape
+    return results.slice(-6).reverse().map((r, i) => ({
+      id: r.testCaseId,
+      name: r.name,
+      endpoint: r.endpoint,
+      method: r.method as HttpMethod,
+      status: (r.passed ? "passed" : "failed") as TestStatus,
+      time: `${r.responseTimeMs}ms`,
+      duration: `${r.responseTimeMs}ms`,
+      _index: i,
+    }));
+  }, [results]);
+
   return (
     <div className="space-y-6">
       {/* Hero */}
@@ -89,19 +128,25 @@ export default function Dashboard() {
             <Link to="/results" className="text-xs font-medium text-primary hover:underline">View all</Link>
           </div>
           <ul className="space-y-1">
-            {recentActivity.map((item) => (
-              <li key={item.id} className="group flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-muted/60">
-                <MethodBadge method={item.method} />
-                <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-medium">{item.name}</p>
-                  <p className="truncate text-xs text-muted-foreground">{item.endpoint}</p>
-                </div>
-                <div className="flex flex-col items-end gap-0.5">
-                  <StatusBadge status={item.status} />
-                  <span className="text-[10px] text-muted-foreground">{item.time}</span>
-                </div>
+            {recentActivity.length > 0 ? (
+              recentActivity.map((item) => (
+                <li key={`${item.id}-${item._index}`} className="group flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-muted/60">
+                  <MethodBadge method={item.method} />
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-sm font-medium">{item.name}</p>
+                    <p className="truncate text-xs text-muted-foreground">{item.endpoint}</p>
+                  </div>
+                  <div className="flex flex-col items-end gap-0.5">
+                    <StatusBadge status={item.status} />
+                    <span className="text-[10px] text-muted-foreground">{item.time}</span>
+                  </div>
+                </li>
+              ))
+            ) : (
+              <li className="py-8 text-center text-sm text-muted-foreground">
+                Run tests to see recent activity here.
               </li>
-            ))}
+            )}
           </ul>
         </Card>
       </div>
