@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TestBuddy Design System — all colors HSL */
+
+@layer base {
+  :root {
+    --background: 220 20% 98%;
+    --foreground: 220 39% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 39% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 39% 11%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 221 83% 65%;
+
+    --secondary: 239 84% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 189 94% 43%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.875rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%), hsl(239 84% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(239 84% 60%) 50%, hsl(189 94% 43%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(220 20% 98%), hsl(220 14% 96%));
+
+    --shadow-sm: 0 1px 2px 0 hsl(220 39% 11% / 0.04);
+    --shadow-md: 0 4px 12px -2px hsl(220 39% 11% / 0.06), 0 2px 4px -2px hsl(220 39% 11% / 0.04);
+    --shadow-lg: 0 12px 32px -8px hsl(221 83% 53% / 0.12), 0 4px 8px -4px hsl(220 39% 11% / 0.06);
+    --shadow-glow: 0 0 0 1px hsl(221 83% 53% / 0.1), 0 8px 24px -4px hsl(221 83% 53% / 0.25);
+
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 39% 11%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 221 83% 53%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 221 83% 53%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 220 20% 98%;
+    --card: 222 47% 9%;
+    --card-foreground: 220 20% 98%;
+    --popover: 222 47% 9%;
+    --popover-foreground: 220 20% 98%;
+    --primary: 221 83% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 221 83% 70%;
+    --secondary: 239 84% 65%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 189 94% 50%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 222 30% 14%;
+    --muted-foreground: 220 9% 65%;
+    --success: 160 84% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 55%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 221 83% 60%;
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 220 20% 98%;
+    --sidebar-primary: 221 83% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 30% 14%;
+    --sidebar-accent-foreground: 221 83% 70%;
+    --sidebar-border: 222 30% 18%;
+    --sidebar-ring: 221 83% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  h1, h2, h3, h4 {
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-md);
+  }
+  .shadow-card-lg {
+    box-shadow: var(--shadow-lg);
+  }
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+}
