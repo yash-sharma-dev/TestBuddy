@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 import type {
   ParsedSpec,
   TestCaseDto,
@@ -34,6 +35,10 @@ interface AppState {
   isRunning: boolean;
   isExporting: boolean;
 
+  // ── Session (UI; wire to real auth when backend exists) ─────────────────
+  isAuthenticated: boolean;
+  userEmail: string;
+
   // ── Actions ────────────────────────────────────────────────────────────
   setRunId: (runId: string | null) => void;
   setSpecContent: (content: string | null) => void;
@@ -49,16 +54,18 @@ interface AppState {
   setGenerating: (v: boolean) => void;
   setRunning: (v: boolean) => void;
   setExporting: (v: boolean) => void;
+  setSession: (email: string) => void;
   reset: () => void;
 }
 
-const initialState = {
+/** Workspace fields reset on sign-out and when clearing a run (via reset). */
+const workspaceDefaults = {
   runId: null,
   specContent: null,
   parsedSpec: null,
-  testCases: [],
-  results: [],
-  summary: null,
+  testCases: [] as TestCaseDto[],
+  results: [] as TestResult[],
+  summary: null as ResultSummary | null,
   environment: "dev" as Environment,
   targetBaseUrl: "https://api.example.com",
   instructions: "",
@@ -69,22 +76,56 @@ const initialState = {
   isExporting: false,
 };
 
-export const useAppStore = create<AppState>((set) => ({
-  ...initialState,
+/** Fresh app load: signed-in demo user so the header matches the product shell (bell + profile menu). */
+const demoSession = {
+  isAuthenticated: true,
+  userEmail: "jane@testbuddy.dev",
+};
 
-  setRunId: (runId) => set({ runId }),
-  setSpecContent: (specContent) => set({ specContent }),
-  setParsedSpec: (parsedSpec) => set({ parsedSpec }),
-  setTestCases: (testCases) => set({ testCases }),
-  setResults: (results) => set({ results }),
-  setSummary: (summary) => set({ summary }),
-  setEnvironment: (environment) => set({ environment }),
-  setTargetBaseUrl: (targetBaseUrl) => set({ targetBaseUrl }),
-  setInstructions: (instructions) => set({ instructions }),
-  setAuthType: (authType) => set({ authType }),
-  setAuthValue: (authValue) => set({ authValue }),
-  setGenerating: (isGenerating) => set({ isGenerating }),
-  setRunning: (isRunning) => set({ isRunning }),
-  setExporting: (isExporting) => set({ isExporting }),
-  reset: () => set(initialState),
-}));
+const signedOutSession = {
+  isAuthenticated: false,
+  userEmail: "",
+};
+
+const initialState = {
+  ...workspaceDefaults,
+  ...demoSession,
+};
+
+export const useAppStore = create<AppState>()(
+  persist(
+    (set) => ({
+      ...initialState,
+
+      setRunId: (runId) => set({ runId }),
+      setSpecContent: (specContent) => set({ specContent }),
+      setParsedSpec: (parsedSpec) => set({ parsedSpec }),
+      setTestCases: (testCases) => set({ testCases }),
+      setResults: (results) => set({ results }),
+      setSummary: (summary) => set({ summary }),
+      setEnvironment: (environment) => set({ environment }),
+      setTargetBaseUrl: (targetBaseUrl) => set({ targetBaseUrl }),
+      setInstructions: (instructions) => set({ instructions }),
+      setAuthType: (authType) => set({ authType }),
+      setAuthValue: (authValue) => set({ authValue }),
+      setGenerating: (isGenerating) => set({ isGenerating }),
+      setRunning: (isRunning) => set({ isRunning }),
+      setExporting: (isExporting) => set({ isExporting }),
+      setSession: (userEmail) => set({ isAuthenticated: true, userEmail }),
+      /** Full reset: clear workspace and sign out (does not restore demo session). */
+      reset: () =>
+        set({
+          ...workspaceDefaults,
+          ...signedOutSession,
+        }),
+    }),
+    {
+      // Bump when default session shape changes so users aren’t stuck signed-out with no profile UI.
+      name: "testbuddy-app-v2",
+      partialize: (state) => ({
+        isAuthenticated: state.isAuthenticated,
+        userEmail: state.userEmail,
+      }),
+    },
+  ),
+);
