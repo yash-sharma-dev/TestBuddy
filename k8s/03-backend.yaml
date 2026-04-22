@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: DOCKER_HUB_USERNAME/testbuddy-backend:latest
+          image: zb8ne/testbuddy-backend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

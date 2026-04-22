@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: DOCKER_HUB_USERNAME/testbuddy-frontend:latest
+          image: zb8ne/testbuddy-frontend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80
