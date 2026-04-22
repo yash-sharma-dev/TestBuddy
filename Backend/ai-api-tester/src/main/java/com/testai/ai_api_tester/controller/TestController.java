@@ -241,17 +241,7 @@ public class TestController {
         }
     }
 
-    @PostMapping("/insights/explain")
-    public ApiResponse<InsightResponse> explainFailure(@RequestBody InsightRequest request) {
-        try {
-            log.info("Explaining failure for test: {}", request.getTestCaseName());
-            InsightResponse response = claudeService.explainFailure(request);
-            return ApiResponse.ok(response);
-        } catch (Exception e) {
-            log.error("Failed to explain failure: {}", e.getMessage());
-            return ApiResponse.error("Failed to generate insight: " + e.getMessage());
-        }
-    }
+
 
     private String toJsonSafe(Object obj) {
         if (obj == null) return null;

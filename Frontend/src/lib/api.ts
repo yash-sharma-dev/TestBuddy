@@ -88,9 +88,9 @@ export interface InsightExplainRequest {
 
 /** Response from POST /api/insights/explain */
 export interface InsightExplainResponse {
-  rootCause: string;
+  technical: string;
+  human: string;
   suggestion: string;
-  snippet: string;
 }
 
 // ── Axios instance ───────────────────────────────────────────────────────────
@@ -236,7 +236,7 @@ export async function explainFailure(
 ): Promise<ApiResponse<InsightExplainResponse>> {
   try {
     const { data } = await api.post<ApiResponse<InsightExplainResponse>>(
-      "/api/tests/insights/explain",
+      "/api/insights/explain",
       request,
     );
     return data;
