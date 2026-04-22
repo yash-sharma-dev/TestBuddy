@@ -1,16 +1,18 @@
 spring:
   datasource:
+
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/testai}
     username: ${SPRING_DATASOURCE_USERNAME:postgres}
     password: ${POSTGRES_PASSWORD}
+
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
   flyway:
-    enabled: true
+    enabled: false
   servlet:
     multipart:
       max-file-size: 10MB
@@ -18,7 +20,7 @@ spring:
 
 claude:
   api:
-    key: ${CLAUDE_API_KEY}
+    key: dummy
     url: https://api.anthropic.com/v1/messages
     model: claude-haiku-4-5
     max-tokens: 10000
