@@ -219,12 +219,17 @@ kubectl apply -f k8s/02-postgres.yaml
 kubectl apply -f k8s/03-backend.yaml
 kubectl apply -f k8s/04-frontend.yaml
 
-# 5. Port-forward
+# 5. Port-forward — open two separate terminals and run one command in each
+# Terminal 1:
 kubectl port-forward svc/frontend 30000:80 -n testbuddy
+
+# Terminal 2:
 kubectl port-forward svc/backend 8080:8080 -n testbuddy
 ```
 
-Visit `http://localhost:30000`
+Keep both terminals open while using the app.
+
+Frontend: `http://localhost:30000` | Backend: `http://localhost:8080`
 
 ---
 
