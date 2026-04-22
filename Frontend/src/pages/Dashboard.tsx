@@ -65,6 +65,15 @@ export default function Dashboard() {
             <p className="max-w-xl text-sm text-primary-foreground/85 md:text-base">
               Upload your OpenAPI spec, generate intelligent test cases, and let AI explain every failure.
             </p>
+            <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-primary-foreground/80 md:text-sm">
+              <Link to="/signup" className="font-medium underline-offset-4 hover:underline">
+                Sign up
+              </Link>
+              <span className="text-primary-foreground/50">·</span>
+              <Link to="/signin" className="font-medium underline-offset-4 hover:underline">
+                Sign in
+              </Link>
+            </p>
           </div>
           <Button asChild size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
             <Link to="/upload">
