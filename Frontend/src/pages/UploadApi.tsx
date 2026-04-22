@@ -85,7 +85,7 @@ export default function UploadApi() {
         return;
       }
 
-      const generateResponse = await generateTests(specText, {
+      const testCases = await generateTests(specText, {
         runId: parsed.runId,
         instructions,
         targetBaseUrl,
@@ -93,10 +93,14 @@ export default function UploadApi() {
         authType,
         authValue,
       });
-
-      setTestCases(generateResponse.data);
-      toast.success(`Generated ${generateResponse.data.length} test cases`);
-      navigate("/test-cases");
+      
+      if (testCases && Array.isArray(testCases)) {
+        setTestCases(testCases);
+        toast.success(`Generated ${testCases.length} test cases`);
+        navigate("/test-cases");
+      } else {
+        throw new Error("No test cases were generated");
+      }
     } catch (err) {
       const message = err instanceof Error ? err.message : "Failed to generate test cases";
       toast.error(message);

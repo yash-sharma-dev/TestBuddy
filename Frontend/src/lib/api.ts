@@ -147,21 +147,26 @@ export async function uploadSpec(
 export async function generateTests(
   specContent: string,
   params: GenerateTestsParams,
-): Promise<ApiResponse<TestCaseDto[]>> {
+): Promise<TestCaseDto[]> {
   try {
     const { data } = await api.post<ApiResponse<TestCaseDto[]>>(
       "/api/tests/generate",
       {
         runId: params.runId,
         instructions: params.instructions,
+        spec: specContent,
         targetBaseUrl: params.targetBaseUrl,
         environment: params.environment,
         authType: params.authType,
         authValue: params.authValue,
       },
-      { params: { spec: specContent } },
     );
-    return data;
+    
+    if (!data.success) {
+      throw new Error(data.error || "Failed to generate tests");
+    }
+    
+    return data.data || [];
   } catch (err) {
     throw new Error(extractErrorMessage(err));
   }
@@ -231,7 +236,7 @@ export async function explainFailure(
 ): Promise<ApiResponse<InsightExplainResponse>> {
   try {
     const { data } = await api.post<ApiResponse<InsightExplainResponse>>(
-      "/api/insights/explain",
+      "/api/tests/insights/explain",
       request,
     );
     return data;
