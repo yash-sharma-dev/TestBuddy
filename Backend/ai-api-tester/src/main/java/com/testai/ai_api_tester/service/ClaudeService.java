@@ -3,8 +3,6 @@ package com.testai.ai_api_tester.service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.testai.ai_api_tester.dto.InsightRequest;
-import com.testai.ai_api_tester.dto.InsightResponse;
 import com.testai.ai_api_tester.dto.TestCaseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -66,19 +64,6 @@ public class ClaudeService {
             Return ONLY the JSON array. Nothing else.
             """;
 
-    private static final String INSIGHT_SYSTEM_PROMPT = """
-            You are a senior API debugging expert. Analyze why an API test failed and provide actionable fixes.
-            
-            You MUST return ONLY a valid JSON object with this exact schema:
-            {
-              "rootCause": "<clear explanation of why the test failed>",
-              "suggestion": "<actionable fix or next step>",
-              "snippet": "<code snippet showing the fix, with before/after if applicable>"
-            }
-            
-            Be specific, technical, and concise. No markdown, no code fences around the JSON.
-            """;
-
     /**
      * Generate test cases from a parsed API spec using Claude.
      */
@@ -114,53 +99,6 @@ public class ClaudeService {
         } catch (Exception e) {
             log.error("Failed to generate test cases via Claude: {}", e.getMessage());
             throw new RuntimeException("Failed to generate test cases: " + e.getMessage());
-        }
-    }
-
-    /**
-     * Explain why a specific API test failed using Claude.
-     */
-    public InsightResponse explainFailure(InsightRequest request) {
-        try {
-            String userMessage = String.format(
-                    """
-                    API Test Failure Details:
-                    - Test Name: %s
-                    - Endpoint: %s %s
-                    - Payload: %s
-                    - Expected Status: %d
-                    - Actual Status: %d
-                    - Error Message: %s
-                    
-                    Why did this test fail? Provide root cause, suggestion, and a code snippet to fix it.
-                    """,
-                    request.getTestCaseName(),
-                    request.getMethod(),
-                    request.getEndpoint(),
-                    request.getPayload() != null ? objectMapper.writeValueAsString(request.getPayload()) : "null",
-                    request.getExpectedStatus(),
-                    request.getActualStatus(),
-                    request.getErrorMessage() != null ? request.getErrorMessage() : "none"
-            );
-
-            String responseText = callClaude(INSIGHT_SYSTEM_PROMPT, userMessage);
-            responseText = stripMarkdownFences(responseText);
-
-            JsonNode json = objectMapper.readTree(responseText);
-
-            return InsightResponse.builder()
-                    .rootCause(json.has("rootCause") ? json.get("rootCause").asText() : "Unable to determine root cause")
-                    .suggestion(json.has("suggestion") ? json.get("suggestion").asText() : "Review the endpoint configuration")
-                    .snippet(json.has("snippet") ? json.get("snippet").asText() : "// No code snippet available")
-                    .build();
-
-        } catch (Exception e) {
-            log.error("Failed to explain failure via Claude: {}", e.getMessage());
-            return InsightResponse.builder()
-                    .rootCause("AI analysis failed: " + e.getMessage())
-                    .suggestion("Check the endpoint manually and review server logs.")
-                    .snippet("// Error during AI analysis")
-                    .build();
         }
     }
 

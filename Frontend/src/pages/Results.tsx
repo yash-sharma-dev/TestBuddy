@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -8,13 +8,18 @@ import { Download, Loader2, Upload } from "lucide-react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { useAppStore } from "@/store/appStore";
-import { exportReport } from "@/lib/api";
+import { exportReport, explainFailure as explainFailureApi } from "@/lib/api";
 import type { TestStatus } from "@/data/mock";
+import type { InsightExplainResponse } from "@/lib/api";
 
 const COLORS = ["hsl(var(--success))", "hsl(var(--destructive))"];
 
 export default function Results() {
   const { results, runId, isExporting, setExporting } = useAppStore();
+
+  const [insights, setInsights] = useState<Record<string, InsightExplainResponse | null>>({});
+  const [loadingInsight, setLoadingInsight] = useState<Record<string, boolean>>({});
+  const [openInsight, setOpenInsight] = useState<Record<string, boolean>>({});
 
   const passedCount = useMemo(() => results.filter((r) => r.passed).length, [results]);
   const failedCount = useMemo(() => results.filter((r) => !r.passed).length, [results]);
@@ -66,6 +71,37 @@ export default function Results() {
       toast.error(message);
     } finally {
       setExporting(false);
+    }
+  };
+
+  const handleExplainFailure = async (result: typeof results[0]) => {
+    const id = result.testCaseId;
+
+    // Toggle if already loaded
+    if (insights[id]) {
+      setOpenInsight(prev => ({ ...prev, [id]: !prev[id] }));
+      return;
+    }
+
+    setLoadingInsight(prev => ({ ...prev, [id]: true }));
+    setOpenInsight(prev => ({ ...prev, [id]: true }));
+
+    try {
+      const response = await explainFailureApi({
+        testCaseName: result.name,
+        endpoint: result.endpoint,
+        method: result.method,
+        payload: result.payload,
+        expectedStatus: result.expectedStatus,
+        actualStatus: result.actualStatus,
+        errorMessage: result.errorMessage,
+      });
+      setInsights(prev => ({ ...prev, [id]: response.data }));
+    } catch (err) {
+      toast.error("Could not load explanation");
+      setOpenInsight(prev => ({ ...prev, [id]: false }));
+    } finally {
+      setLoadingInsight(prev => ({ ...prev, [id]: false }));
     }
   };
 
@@ -154,25 +190,64 @@ export default function Results() {
                 <TableHead>Response</TableHead>
                 <TableHead>Time</TableHead>
                 <TableHead>Error</TableHead>
+                <TableHead>Why</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {results.map((r) => {
                 const status: TestStatus = r.passed ? "passed" : "failed";
                 return (
-                  <TableRow key={r.testCaseId} className="hover:bg-muted/40">
-                    <TableCell className="font-medium">{r.name}</TableCell>
-                    <TableCell><StatusBadge status={status} /></TableCell>
-                    <TableCell>
-                      <span className={`font-mono text-xs font-semibold ${r.actualStatus >= 400 ? "text-destructive" : "text-success"}`}>
-                        {r.actualStatus}
-                      </span>
-                    </TableCell>
-                    <TableCell className="text-xs text-muted-foreground">{r.responseTimeMs}ms</TableCell>
-                    <TableCell className="max-w-md truncate text-xs text-muted-foreground" title={r.errorMessage ?? undefined}>
-                      {r.errorMessage ?? "—"}
-                    </TableCell>
-                  </TableRow>
+                  <>
+                    <TableRow key={r.testCaseId} className="hover:bg-muted/40">
+                      <TableCell className="font-medium">{r.name}</TableCell>
+                      <TableCell><StatusBadge status={status} /></TableCell>
+                      <TableCell>
+                        <span className={`font-mono text-xs font-semibold ${r.actualStatus >= 400 ? "text-destructive" : "text-success"}`}>
+                          {r.actualStatus}
+                        </span>
+                      </TableCell>
+                      <TableCell className="text-xs text-muted-foreground">{r.responseTimeMs}ms</TableCell>
+                      <TableCell className="max-w-md truncate text-xs text-muted-foreground" title={r.errorMessage ?? undefined}>
+                        {r.errorMessage ?? "—"}
+                      </TableCell>
+                      <TableCell>
+                        {!r.passed && (
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="h-7 gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground"
+                            onClick={() => handleExplainFailure(r)}
+                            disabled={loadingInsight[r.testCaseId]}
+                          >
+                            {loadingInsight[r.testCaseId]
+                              ? <Loader2 className="h-3 w-3 animate-spin" />
+                              : 'Why?'
+                            }
+                          </Button>
+                        )}
+                      </TableCell>
+                    </TableRow>
+                    {openInsight[r.testCaseId] && insights[r.testCaseId] && (
+                      <TableRow key={`${r.testCaseId}-insight`} className="bg-muted/30 hover:bg-muted/30">
+                        <TableCell colSpan={6} className="py-3 px-4">
+                          <div className="grid grid-cols-1 gap-2 md:grid-cols-3">
+                            <div className="space-y-0.5">
+                              <p className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">Technical</p>
+                              <p className="text-sm text-foreground">{insights[r.testCaseId]!.technical}</p>
+                            </div>
+                            <div className="space-y-0.5">
+                              <p className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">In plain terms</p>
+                              <p className="text-sm text-foreground">{insights[r.testCaseId]!.human}</p>
+                            </div>
+                            <div className="space-y-0.5">
+                              <p className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">What to check</p>
+                              <p className="text-sm text-foreground">{insights[r.testCaseId]!.suggestion}</p>
+                            </div>
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    )}
+                  </>
                 );
               })}
             </TableBody>

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class InsightResponse {
 
-    private String rootCause;
+    private String technical;
+    private String human;
     private String suggestion;
-    private String snippet;
 }

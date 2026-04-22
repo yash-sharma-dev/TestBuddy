@@ -1,8 +1,10 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: krishna123
+
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/testai}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${POSTGRES_PASSWORD}
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -20,8 +22,13 @@ claude:
   api:
     key: dummy
     url: https://api.anthropic.com/v1/messages
-    model: claude-sonnet-4-6
+    model: claude-haiku-4-5
     max-tokens: 10000
+
+gemini:
+  api:
+    key: ${GEMINI_API_KEY}
+    url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent
 
 server:
   port: 8080

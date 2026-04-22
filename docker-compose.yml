@@ -1,0 +1,62 @@
+services:
+
+  # ── PostgreSQL Database ────────────────────────────────────────────────────
+  db:
+    image: postgres:15-alpine
+    container_name: testbuddy-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: testai
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d testai"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - testbuddy-net
+
+  # ── Spring Boot Backend ────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./Backend/ai-api-tester
+      dockerfile: Dockerfile
+    container_name: testbuddy-backend
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      CLAUDE_API_KEY: ${CLAUDE_API_KEY}
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/testai
+      SPRING_DATASOURCE_USERNAME: postgres
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - testbuddy-net
+
+  # ── React Frontend ─────────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    container_name: testbuddy-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - testbuddy-net
+
+volumes:
+  postgres_data:
+
+networks:
+  testbuddy-net:
+    driver: bridge

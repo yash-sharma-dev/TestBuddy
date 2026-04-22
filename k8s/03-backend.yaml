@@ -1,0 +1,62 @@
+# ── Deployment ────────────────────────────────────────────────────────────────
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: testbuddy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: zb8ne/testbuddy-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres:5432/testai
+            - name: SPRING_DATASOURCE_USERNAME
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: testbuddy-secrets
+                  key: POSTGRES_PASSWORD
+            - name: CLAUDE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: testbuddy-secrets
+                  key: CLAUDE_API_KEY
+            - name: GEMINI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: testbuddy-secrets
+                  key: GEMINI_API_KEY
+          readinessProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 40
+            periodSeconds: 10
+            failureThreshold: 6
+
+---
+# ── Service ───────────────────────────────────────────────────────────────────
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: testbuddy
+spec:
+  selector:
+    app: backend
+  ports:
+    - port: 8080
+      targetPort: 8080
