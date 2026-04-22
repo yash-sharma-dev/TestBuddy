@@ -185,14 +185,17 @@ test_results       -- Execution results per test case
 git clone <repo>
 cd TestBuddy
 
-# Create .env at root with your keys
-cp .env.example .env.local
-# Fill in CLAUDE_API_KEY, GEMINI_API_KEY, POSTGRES_PASSWORD
+# 1. Copy the example env file and fill in your keys
+cp .env.example .env
+# Edit .env — add your CLAUDE_API_KEY, GEMINI_API_KEY, POSTGRES_PASSWORD
 
-docker-compose up
+# 2. Build and start everything
+docker-compose up --build
 ```
 
 Frontend: `http://localhost:3000` | Backend: `http://localhost:8080`
+
+> On subsequent runs (no code changes) you can skip `--build` and just run `docker-compose up`.
 
 ### Option 2 — Kubernetes
 
