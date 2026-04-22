@@ -24,7 +24,10 @@ public class TestService {
             String endpoint = (String) testCase.get("endpoint");
             String method = (String) testCase.get("method");
 
-            String url = "http://localhost:8080" + endpoint;
+            String baseUrl = (String) testCase.get("baseUrl");
+            if (baseUrl == null) baseUrl = "http://localhost:8080";
+
+            String url = baseUrl + endpoint;
 
             Map<String, Object> expected =
                     (Map<String, Object>) testCase.get("expected");
