@@ -41,12 +41,11 @@ spec:
                   name: testbuddy-secrets
                   key: GEMINI_API_KEY
           readinessProbe:
-            httpGet:
-              path: /actuator/health
+            tcpSocket:
               port: 8080
-            initialDelaySeconds: 30
+            initialDelaySeconds: 40
             periodSeconds: 10
-            failureThreshold: 5
+            failureThreshold: 6
 
 ---
 # ── Service ───────────────────────────────────────────────────────────────────
