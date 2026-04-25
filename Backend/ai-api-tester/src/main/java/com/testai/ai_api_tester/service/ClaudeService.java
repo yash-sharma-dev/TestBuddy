@@ -3,6 +3,8 @@ package com.testai.ai_api_tester.service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.testai.ai_api_tester.dto.InsightRequest;
+import com.testai.ai_api_tester.dto.InsightResponse;
 import com.testai.ai_api_tester.dto.TestCaseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -93,12 +95,85 @@ public class ClaudeService {
                 testCases.add(dto);
             }
 
-            log.info("Claude generated {} test cases", testCases.size());
+            log.info("Claude generated {} test cases:", testCases.size());
+            int i = 1;
+            for (TestCaseDto tc : testCases) {
+                log.info("--- Test {} ---", i++);
+                log.info("Name:        {}", tc.getName());
+                log.info("Type:        {}", tc.getTestType());
+                log.info("Endpoint:    {} {}", tc.getMethod(), tc.getEndpoint());
+                log.info("Expected:    Status {}", tc.getExpectedStatus());
+                if (tc.getPayload() != null && !tc.getPayload().toString().equals("null")) {
+                    try {
+                        log.info("Payload:     \n{}", objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(tc.getPayload()));
+                    } catch (Exception e) {
+                        log.info("Payload:     {}", tc.getPayload());
+                    }
+                }
+                log.info("----------------");
+            }
             return testCases;
 
         } catch (Exception e) {
             log.error("Failed to generate test cases via Claude: {}", e.getMessage());
             throw new RuntimeException("Failed to generate test cases: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Explain why an API test failed using Claude.
+     */
+    public InsightResponse explainFailure(InsightRequest request) {
+        try {
+            log.info("Calling Claude to explain failure for test '{}'", request.getTestCaseName());
+
+            String payloadStr = request.getPayload() != null
+                    ? objectMapper.writeValueAsString(request.getPayload())
+                    : "null";
+
+            String systemPrompt = "You are an API testing expert. A test just failed. Analyze the failure and explain it clearly.\n" +
+                    "Your job: Return ONLY a valid JSON object. No markdown. No code blocks. No explanation outside the JSON. Start with { and end with }.\n" +
+                    "JSON schema:\n" +
+                    "{\n" +
+                    "  \"technical\": \"One precise sentence explaining the root cause from an API/HTTP perspective. Include the status codes and what they mean. Be specific about what went wrong technically.\",\n" +
+                    "  \"human\": \"One sentence explaining the same failure as if talking to a business stakeholder or product manager. Use a real-world analogy. No acronyms. No HTTP codes. Make it relatable and slightly witty.\",\n" +
+                    "  \"suggestion\": \"One actionable sentence telling the developer exactly what to check or fix to resolve this. Be specific — mention the field, endpoint, or config to look at.\"\n" +
+                    "}";
+
+            String userMessage = String.format("TEST DETAILS:\n" +
+                            "- Test Name: %s\n" +
+                            "- Endpoint: %s %s\n" +
+                            "- Request Payload: %s\n" +
+                            "- Expected HTTP Status: %d\n" +
+                            "- Actual HTTP Status: %d\n" +
+                            "- Error Message: %s",
+                    request.getTestCaseName(),
+                    request.getMethod(),
+                    request.getEndpoint(),
+                    payloadStr,
+                    request.getExpectedStatus(),
+                    request.getActualStatus(),
+                    request.getErrorMessage() != null ? request.getErrorMessage() : "none"
+            );
+
+            String responseText = callClaude(systemPrompt, userMessage);
+            responseText = stripMarkdownFences(responseText);
+
+            JsonNode json = objectMapper.readTree(responseText);
+
+            return InsightResponse.builder()
+                    .technical(json.has("technical") ? json.get("technical").asText() : "Unable to determine technical cause")
+                    .human(json.has("human") ? json.get("human").asText() : "Something went wrong with this API call")
+                    .suggestion(json.has("suggestion") ? json.get("suggestion").asText() : "Review the endpoint configuration and request parameters")
+                    .build();
+
+        } catch (Exception e) {
+            log.error("Failed to explain failure via Claude for test '{}': {}", request.getTestCaseName(), e.getMessage());
+            return InsightResponse.builder()
+                    .technical("AI analysis unavailable: " + e.getMessage())
+                    .human("We couldn't get an explanation right now — like a librarian on a coffee break.")
+                    .suggestion("Check the endpoint manually and review server logs.")
+                    .build();
         }
     }
 
@@ -115,6 +190,11 @@ public class ClaudeService {
         ));
 
         log.debug("Calling Claude API: model={}, max_tokens={}", model, maxTokens);
+        try {
+            log.info("Claude API Payload:\n{}", objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(requestBody));
+        } catch (Exception e) {
+            log.warn("Could not log Claude API payload", e);
+        }
 
         String responseBody = webClient.post()
                 .uri(apiUrl)
