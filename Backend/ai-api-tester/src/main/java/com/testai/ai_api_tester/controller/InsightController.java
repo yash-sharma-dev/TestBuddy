@@ -19,13 +19,7 @@ public class InsightController {
 
     @PostMapping("/explain")
     public ApiResponse<InsightResponse> explain(@Valid @RequestBody InsightRequest request) {
-        try {
-            log.info("Explaining failure for test '{}'", request.getTestCaseName());
-            InsightResponse insight = claudeService.explainFailure(request);
-            return ApiResponse.ok(insight);
-        } catch (Exception e) {
-            log.error("Failed to generate insight", e);
-            return ApiResponse.error("Failed to generate insight: " + e.getMessage());
-        }
+        log.info("Explaining failure for test '{}'", request.getTestCaseName());
+        return ApiResponse.ok(claudeService.explainFailure(request));
     }
 }

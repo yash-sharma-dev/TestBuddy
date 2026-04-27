@@ -27,6 +27,11 @@ claude:
     url: https://api.anthropic.com/v1/messages
     model: claude-haiku-4-5
     max-tokens: 10000
+  pricing:
+    input-per-million: ${CLAUDE_PRICING_INPUT:1.0}
+    output-per-million: ${CLAUDE_PRICING_OUTPUT:5.0}
+    cache-read-per-million: ${CLAUDE_PRICING_CACHE_READ:0.1}
+    cache-creation-per-million: ${CLAUDE_PRICING_CACHE_CREATE:1.25}
 
 jwt:
   secret: ${JWT_SECRET:testbuddy-jwt-secret-key-change-me-in-production-must-be-256-bits}

@@ -120,6 +120,13 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- Configuration processor — IDE autocompletion for @ConfigurationProperties -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <!-- Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

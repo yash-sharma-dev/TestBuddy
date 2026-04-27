@@ -3,18 +3,25 @@ package com.testai.ai_api_tester.service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.testai.ai_api_tester.config.ClaudeProperties;
 import com.testai.ai_api_tester.dto.InsightRequest;
 import com.testai.ai_api_tester.dto.InsightResponse;
 import com.testai.ai_api_tester.dto.TestCaseDto;
 import com.testai.ai_api_tester.model.TokenUsageLog;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import com.testai.ai_api_tester.repository.TokenUsageLogRepository;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 @Slf4j
@@ -25,6 +32,7 @@ public class ClaudeService {
     private final WebClient webClient;
     private final ObjectMapper objectMapper;
     private final TokenUsageLogRepository tokenUsageLogRepository;
+    private final ClaudeProperties claudeProperties;
 
     @Value("${claude.api.key}")
     private String apiKey;
@@ -38,23 +46,16 @@ public class ClaudeService {
     @Value("${claude.api.max-tokens}")
     private int maxTokens;
 
-    private static final String SYSTEM_PROMPT = """
-            You are a senior API test engineer. Your job is to generate comprehensive test cases for REST APIs.
-            
-            Generate 5 to 8 high-value test cases including:
-            - Happy path tests (valid inputs, expected success responses)
-            - Negative tests (missing required fields, wrong data types, invalid values, unauthorized access)
-            - Edge case tests (null values, empty strings, boundary values, special characters, very long strings)
-            
-            Keep the "description" field extremely short (under 5 words).
-            For POST/PUT/PATCH endpoints, always include realistic request payloads.
-            For endpoints with path parameters, use realistic sample values.
-            Match the expected status codes to what the API spec documents.
-            """;
+    @Value("classpath:prompts/test-generation.txt")
+    private Resource systemPromptResource;
 
-    /**
-     * Generate test cases from a parsed API spec using Claude.
-     */
+    private String systemPrompt;
+
+    @PostConstruct
+    public void init() throws IOException {
+        this.systemPrompt = StreamUtils.copyToString(systemPromptResource.getInputStream(), StandardCharsets.UTF_8);
+    }
+
     public List<TestCaseDto> generateTestCases(Map<String, Object> parsedSpec, String instructions) {
         try {
             String specJson = objectMapper.writeValueAsString(parsedSpec);
@@ -95,7 +96,7 @@ public class ClaudeService {
             List<Map<String, Object>> tools = List.of(toolSchema);
             Map<String, Object> toolChoice = Map.of("type", "tool", "name", "generate_tests");
 
-            String responseText = callClaude(SYSTEM_PROMPT, userMessage, tools, toolChoice, "test_generation", "bulk_generation");
+            String responseText = callClaude(systemPrompt, userMessage, tools, toolChoice, "test_generation", "bulk_generation");
 
             JsonNode resultNode = objectMapper.readTree(responseText);
             JsonNode testsNode = resultNode.get("tests");
@@ -136,9 +137,6 @@ public class ClaudeService {
         }
     }
 
-    /**
-     * Explain why an API test failed using Claude.
-     */
     public InsightResponse explainFailure(InsightRequest request) {
         try {
             log.info("Calling Claude to explain failure for test '{}'", request.getTestCaseName());
@@ -151,7 +149,7 @@ public class ClaudeService {
                 payloadStr = payloadStr.substring(0, 500) + "...[TRUNCATED]";
             }
 
-            String systemPrompt = "You are an API testing expert. A test just failed. Analyze the failure and explain it clearly.\n" +
+            String systemPromptInsight = "You are an API testing expert. A test just failed. Analyze the failure and explain it clearly.\n" +
                     "Your job: Return ONLY a valid JSON object. No markdown. No code blocks. No explanation outside the JSON. Start with { and end with }.\n" +
                     "JSON schema:\n" +
                     "{\n" +
@@ -169,7 +167,7 @@ public class ClaudeService {
                     payloadStr
             );
 
-            String responseText = callClaude(systemPrompt, userMessage, null, null, "failure_analysis", request.getMethod() + " " + request.getEndpoint());
+            String responseText = callClaude(systemPromptInsight, userMessage, null, null, "failure_analysis", request.getMethod() + " " + request.getEndpoint());
             responseText = stripMarkdownFences(responseText);
 
             JsonNode json = objectMapper.readTree(responseText);
@@ -190,22 +188,19 @@ public class ClaudeService {
         }
     }
 
-    /**
-     * Call the Anthropic Messages API.
-     */
-    private String callClaude(String systemPrompt, String userMessage, List<Map<String, Object>> tools, Map<String, Object> toolChoice, String operationType, String endpointPath) {
+    private String callClaude(String prompt, String userMessage, List<Map<String, Object>> tools, Map<String, Object> toolChoice, String operationType, String endpointPath) {
         Map<String, Object> requestBody = new LinkedHashMap<>();
         requestBody.put("model", model);
         requestBody.put("max_tokens", maxTokens);
-        
+
         requestBody.put("system", List.of(
                 Map.of(
                         "type", "text",
-                        "text", systemPrompt,
+                        "text", prompt,
                         "cache_control", Map.of("type", "ephemeral")
                 )
         ));
-        
+
         requestBody.put("messages", List.of(
                 Map.of("role", "user", "content", userMessage)
         ));
@@ -219,7 +214,7 @@ public class ClaudeService {
 
         log.debug("Calling Claude API: model={}, max_tokens={}", model, maxTokens);
         try {
-            log.info("Claude API Payload:\n{}", objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(requestBody));
+            log.debug("Claude API Payload:\n{}", objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(requestBody));
         } catch (Exception e) {
             log.warn("Could not log Claude API payload", e);
         }
@@ -241,7 +236,7 @@ public class ClaudeService {
 
         try {
             JsonNode root = objectMapper.readTree(responseBody);
-            
+
             if (root.has("error")) {
                 String errorMsg = root.get("error").has("message")
                         ? root.get("error").get("message").asText()
@@ -250,37 +245,7 @@ public class ClaudeService {
             }
 
             if (root.has("usage")) {
-                JsonNode usageNode = root.get("usage");
-                int inputTokens = usageNode.has("input_tokens") ? usageNode.get("input_tokens").asInt() : 0;
-                int outputTokens = usageNode.has("output_tokens") ? usageNode.get("output_tokens").asInt() : 0;
-                int cacheCreationTokens = usageNode.has("cache_creation_input_tokens") ? usageNode.get("cache_creation_input_tokens").asInt() : 0;
-                int cacheReadTokens = usageNode.has("cache_read_input_tokens") ? usageNode.get("cache_read_input_tokens").asInt() : 0;
-
-                // Claude 3.5 Haiku pricing baseline: $1.00/1M input, $5.00/1M output, $1.25/1M cache creation, $0.10/1M cache read
-                BigDecimal inputCost = BigDecimal.valueOf(inputTokens).multiply(new BigDecimal("0.000001"));
-                BigDecimal cacheReadCost = BigDecimal.valueOf(cacheReadTokens).multiply(new BigDecimal("0.0000001"));
-                BigDecimal cacheCreationCost = BigDecimal.valueOf(cacheCreationTokens).multiply(new BigDecimal("0.00000125"));
-                BigDecimal outputCost = BigDecimal.valueOf(outputTokens).multiply(new BigDecimal("0.000005"));
-                BigDecimal totalCost = inputCost.add(cacheReadCost).add(cacheCreationCost).add(outputCost);
-
-                TokenUsageLog logEntry = TokenUsageLog.builder()
-                        .endpointPath(endpointPath != null && endpointPath.length() > 255 ? endpointPath.substring(0, 255) : endpointPath)
-                        .operationType(operationType)
-                        .inputTokens(inputTokens)
-                        .outputTokens(outputTokens)
-                        .cacheReadTokens(cacheReadTokens)
-                        .cacheCreationTokens(cacheCreationTokens)
-                        .costUsd(totalCost)
-                        .build();
-
-                java.util.concurrent.CompletableFuture.runAsync(() -> {
-                    try {
-                        tokenUsageLogRepository.save(logEntry);
-                        log.info("Token usage logged: {} input, {} output, cost ${}", inputTokens, outputTokens, totalCost.toPlainString());
-                    } catch (Exception e) {
-                        log.error("Failed to save token usage log", e);
-                    }
-                });
+                logTokenUsage(root.get("usage"), operationType, endpointPath);
             }
 
             JsonNode content = root.get("content");
@@ -306,13 +271,43 @@ public class ClaudeService {
         }
     }
 
-    /**
-     * Strip markdown code fences if Claude accidentally wraps JSON in them.
-     */
+    private void logTokenUsage(JsonNode usageNode, String operationType, String endpointPath) {
+        int inputTokens = usageNode.has("input_tokens") ? usageNode.get("input_tokens").asInt() : 0;
+        int outputTokens = usageNode.has("output_tokens") ? usageNode.get("output_tokens").asInt() : 0;
+        int cacheCreationTokens = usageNode.has("cache_creation_input_tokens") ? usageNode.get("cache_creation_input_tokens").asInt() : 0;
+        int cacheReadTokens = usageNode.has("cache_read_input_tokens") ? usageNode.get("cache_read_input_tokens").asInt() : 0;
+
+        BigDecimal million = new BigDecimal("1000000");
+        BigDecimal inputCost = BigDecimal.valueOf(inputTokens).multiply(claudeProperties.getInputPerMillion()).divide(million, 10, RoundingMode.HALF_UP);
+        BigDecimal cacheReadCost = BigDecimal.valueOf(cacheReadTokens).multiply(claudeProperties.getCacheReadPerMillion()).divide(million, 10, RoundingMode.HALF_UP);
+        BigDecimal cacheCreationCost = BigDecimal.valueOf(cacheCreationTokens).multiply(claudeProperties.getCacheCreationPerMillion()).divide(million, 10, RoundingMode.HALF_UP);
+        BigDecimal outputCost = BigDecimal.valueOf(outputTokens).multiply(claudeProperties.getOutputPerMillion()).divide(million, 10, RoundingMode.HALF_UP);
+        BigDecimal totalCost = inputCost.add(cacheReadCost).add(cacheCreationCost).add(outputCost);
+
+        String path = endpointPath != null && endpointPath.length() > 255 ? endpointPath.substring(0, 255) : endpointPath;
+        TokenUsageLog logEntry = TokenUsageLog.builder()
+                .endpointPath(path)
+                .operationType(operationType)
+                .inputTokens(inputTokens)
+                .outputTokens(outputTokens)
+                .cacheReadTokens(cacheReadTokens)
+                .cacheCreationTokens(cacheCreationTokens)
+                .costUsd(totalCost)
+                .build();
+
+        java.util.concurrent.CompletableFuture.runAsync(() -> {
+            try {
+                tokenUsageLogRepository.save(logEntry);
+                log.info("Token usage logged: {} input, {} output, cost ${}", inputTokens, outputTokens, totalCost.toPlainString());
+            } catch (Exception e) {
+                log.error("Failed to save token usage log", e);
+            }
+        });
+    }
+
     private String stripMarkdownFences(String text) {
         if (text == null) return null;
         text = text.trim();
-        // Remove ```json ... ``` or ``` ... ```
         if (text.startsWith("```")) {
             int firstNewline = text.indexOf('\n');
             if (firstNewline > 0) {
