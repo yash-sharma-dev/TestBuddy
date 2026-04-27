@@ -1,6 +1,5 @@
 package com.testai.ai_api_tester.service;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.testai.ai_api_tester.config.ClaudeProperties;
@@ -8,8 +7,6 @@ import com.testai.ai_api_tester.dto.InsightRequest;
 import com.testai.ai_api_tester.dto.InsightResponse;
 import com.testai.ai_api_tester.dto.TestCaseDto;
 import com.testai.ai_api_tester.model.TokenUsageLog;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import com.testai.ai_api_tester.repository.TokenUsageLogRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -18,9 +15,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StreamUtils;
-import org.springframework.web.reactive.function.client.WebClient;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
@@ -29,16 +27,10 @@ import java.util.*;
 @RequiredArgsConstructor
 public class ClaudeService {
 
-    private final WebClient webClient;
+    private final ClaudeApiClient claudeApiClient;
     private final ObjectMapper objectMapper;
     private final TokenUsageLogRepository tokenUsageLogRepository;
     private final ClaudeProperties claudeProperties;
-
-    @Value("${claude.api.key}")
-    private String apiKey;
-
-    @Value("${claude.api.url}")
-    private String apiUrl;
 
     @Value("${claude.api.model}")
     private String model;
@@ -149,7 +141,7 @@ public class ClaudeService {
                 payloadStr = payloadStr.substring(0, 500) + "...[TRUNCATED]";
             }
 
-            String systemPromptInsight = "You are an API testing expert. A test just failed. Analyze the failure and explain it clearly.\n" +
+            String insightSystemPrompt = "You are an API testing expert. A test just failed. Analyze the failure and explain it clearly.\n" +
                     "Your job: Return ONLY a valid JSON object. No markdown. No code blocks. No explanation outside the JSON. Start with { and end with }.\n" +
                     "JSON schema:\n" +
                     "{\n" +
@@ -167,7 +159,7 @@ public class ClaudeService {
                     payloadStr
             );
 
-            String responseText = callClaude(systemPromptInsight, userMessage, null, null, "failure_analysis", request.getMethod() + " " + request.getEndpoint());
+            String responseText = callClaude(insightSystemPrompt, userMessage, null, null, "failure_analysis", request.getMethod() + " " + request.getEndpoint());
             responseText = stripMarkdownFences(responseText);
 
             JsonNode json = objectMapper.readTree(responseText);
@@ -212,27 +204,13 @@ public class ClaudeService {
             }
         }
 
-        log.debug("Calling Claude API: model={}, max_tokens={}", model, maxTokens);
         try {
             log.debug("Claude API Payload:\n{}", objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(requestBody));
         } catch (Exception e) {
             log.warn("Could not log Claude API payload", e);
         }
 
-        String responseBody = webClient.post()
-                .uri(apiUrl)
-                .header("x-api-key", apiKey)
-                .header("anthropic-version", "2023-06-01")
-                .header("anthropic-beta", "prompt-caching-2024-07-31")
-                .header("Content-Type", "application/json")
-                .bodyValue(requestBody)
-                .retrieve()
-                .bodyToMono(String.class)
-                .block();
-
-        if (responseBody == null) {
-            throw new RuntimeException("Empty response from Claude API");
-        }
+        String responseBody = claudeApiClient.call(requestBody);
 
         try {
             JsonNode root = objectMapper.readTree(responseBody);
