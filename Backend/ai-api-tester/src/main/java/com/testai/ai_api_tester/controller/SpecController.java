@@ -15,7 +15,6 @@ import java.util.Map;
 @Slf4j
 @RestController
 @RequestMapping("/api/spec")
-@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class SpecController {
 

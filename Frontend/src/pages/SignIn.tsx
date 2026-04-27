@@ -9,6 +9,12 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useAppStore } from "@/store/appStore";
 
+interface AuthResponse {
+  success: boolean;
+  data: { token: string; email: string };
+  error?: string;
+}
+
 export default function SignIn() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -17,6 +23,7 @@ export default function SignIn() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -26,23 +33,24 @@ export default function SignIn() {
       return;
     }
 
+    setLoading(true);
     try {
-      const res = await axios.post("http://localhost:8080/api/auth/signin", {
-        email,
-        password,
-      });
+      const res = await axios.post<AuthResponse>(
+        `${import.meta.env.VITE_API_URL ?? "http://localhost:8080"}/api/auth/signin`,
+        { email, password },
+      );
 
       if (res.data.success) {
-        localStorage.setItem("token", res.data.token);
-        setSession(email.trim());
-
+        setSession(res.data.data.email, res.data.data.token);
         toast.success("Signed in");
         navigate(from, { replace: true });
       } else {
-        toast.error(res.data.message || "Login failed");
+        toast.error(res.data.error ?? "Login failed");
       }
-    } catch (err) {
-      toast.error("Server error");
+    } catch {
+      toast.error("Server error — check that the backend is running");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -60,7 +68,7 @@ export default function SignIn() {
           <CardHeader>
             <CardTitle className="text-lg">Sign in</CardTitle>
             <CardDescription>
-              Now connected to backend
+              Enter your credentials to access TestBuddy
             </CardDescription>
           </CardHeader>
 
@@ -72,6 +80,7 @@ export default function SignIn() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                autoComplete="email"
               />
             </div>
 
@@ -82,13 +91,14 @@ export default function SignIn() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                autoComplete="current-password"
               />
             </div>
           </CardContent>
 
           <CardFooter className="flex flex-col gap-4">
-            <Button type="submit" className="w-full gradient-primary">
-              Sign in
+            <Button type="submit" className="w-full gradient-primary" disabled={loading}>
+              {loading ? "Signing in…" : "Sign in"}
             </Button>
 
             <p className="text-center text-sm text-muted-foreground">

@@ -35,9 +35,10 @@ interface AppState {
   isRunning: boolean;
   isExporting: boolean;
 
-  // ── Session (UI; wire to real auth when backend exists) ─────────────────
+  // ── Session ────────────────────────────────────────────────────────────
   isAuthenticated: boolean;
   userEmail: string;
+  authToken: string | null;
 
   // ── Actions ────────────────────────────────────────────────────────────
   setRunId: (runId: string | null) => void;
@@ -54,15 +55,14 @@ interface AppState {
   setGenerating: (v: boolean) => void;
   setRunning: (v: boolean) => void;
   setExporting: (v: boolean) => void;
-  setSession: (email: string) => void;
+  setSession: (email: string, token: string) => void;
   reset: () => void;
 }
 
-/** Workspace fields reset on sign-out and when clearing a run (via reset). */
 const workspaceDefaults = {
-  runId: null,
-  specContent: null,
-  parsedSpec: null,
+  runId: null as string | null,
+  specContent: null as string | null,
+  parsedSpec: null as ParsedSpec | null,
   testCases: [] as TestCaseDto[],
   results: [] as TestResult[],
   summary: null as ResultSummary | null,
@@ -76,20 +76,15 @@ const workspaceDefaults = {
   isExporting: false,
 };
 
-/** Fresh app load: signed-in demo user so the header matches the product shell (bell + profile menu). */
-const demoSession = {
-  isAuthenticated: true,
-  userEmail: "jane@testbuddy.dev",
-};
-
 const signedOutSession = {
   isAuthenticated: false,
   userEmail: "",
+  authToken: null as string | null,
 };
 
 const initialState = {
   ...workspaceDefaults,
-  ...demoSession,
+  ...signedOutSession,
 };
 
 export const useAppStore = create<AppState>()(
@@ -111,20 +106,21 @@ export const useAppStore = create<AppState>()(
       setGenerating: (isGenerating) => set({ isGenerating }),
       setRunning: (isRunning) => set({ isRunning }),
       setExporting: (isExporting) => set({ isExporting }),
-      setSession: (userEmail) => set({ isAuthenticated: true, userEmail }),
-      /** Full reset: clear workspace and sign out (does not restore demo session). */
-      reset: () =>
-        set({
-          ...workspaceDefaults,
-          ...signedOutSession,
-        }),
+      setSession: (userEmail, token) => {
+        localStorage.setItem("token", token);
+        set({ isAuthenticated: true, userEmail, authToken: token });
+      },
+      reset: () => {
+        localStorage.removeItem("token");
+        set({ ...workspaceDefaults, ...signedOutSession });
+      },
     }),
     {
-      // Bump when default session shape changes so users aren’t stuck signed-out with no profile UI.
-      name: "testbuddy-app-v2",
+      name: "testbuddy-app-v3",
       partialize: (state) => ({
         isAuthenticated: state.isAuthenticated,
         userEmail: state.userEmail,
+        authToken: state.authToken,
       }),
     },
   ),

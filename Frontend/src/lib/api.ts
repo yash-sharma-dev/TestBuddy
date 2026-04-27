@@ -7,18 +7,17 @@ export type HttpMethod = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
 export interface ApiResponse<T> {
   success: boolean;
   data: T;
+  error?: string;
 }
 
-/** Shape returned by POST /api/spec/upload */
 export interface ParsedSpec {
   runId: string;
   title: string;
   endpointCount: number;
   endpoints: string[];
-  [key: string]: unknown; // additional fields from the backend
+  [key: string]: unknown;
 }
 
-/** Shape returned by POST /api/tests/generate and sent back on run */
 export interface TestCaseDto {
   id: string;
   name: string;
@@ -33,7 +32,6 @@ export interface TestCaseDto {
   description: string;
 }
 
-/** Shape returned inside POST /api/tests/run results array */
 export interface TestResult {
   testCaseId: string;
   name: string;
@@ -48,7 +46,6 @@ export interface TestResult {
   errorMessage: string | null;
 }
 
-/** Summary block inside GET /api/tests/results/{runId} */
 export interface ResultSummary {
   total: number;
   passed: number;
@@ -56,7 +53,6 @@ export interface ResultSummary {
   avgResponseTime: number;
 }
 
-/** Params for POST /api/tests/generate */
 export interface GenerateTestsParams {
   runId: string;
   instructions: string;
@@ -66,7 +62,6 @@ export interface GenerateTestsParams {
   authValue: string;
 }
 
-/** Params for POST /api/tests/run */
 export interface RunTestsParams {
   runId: string;
   testCases: TestCaseDto[];
@@ -75,7 +70,6 @@ export interface RunTestsParams {
   authValue: string;
 }
 
-/** Request body for POST /api/insights/explain */
 export interface InsightExplainRequest {
   testCaseName: string;
   endpoint: string;
@@ -86,7 +80,6 @@ export interface InsightExplainRequest {
   errorMessage: string | null;
 }
 
-/** Response from POST /api/insights/explain */
 export interface InsightExplainResponse {
   technical: string;
   human: string;
@@ -98,14 +91,25 @@ export interface InsightExplainResponse {
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || "http://localhost:8080",
   headers: { "Content-Type": "application/json" },
+  timeout: 30_000,
 });
 
-/** Extract a human-readable error message from any Axios error. */
+// Attach JWT from localStorage on every request
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+// ── Error utility ────────────────────────────────────────────────────────────
+
 function extractErrorMessage(error: unknown): string {
   if (error instanceof AxiosError) {
     const data = error.response?.data as Record<string, unknown> | undefined;
-    if (data?.message && typeof data.message === "string") return data.message;
-    if (data?.error && typeof data.error === "string") return data.error;
+    if (typeof data?.message === "string") return data.message;
+    if (typeof data?.error === "string") return data.error;
     if (error.response) return `Server responded with ${error.response.status}`;
     if (error.request) return "No response from server — is the backend running?";
     return error.message;
@@ -116,10 +120,6 @@ function extractErrorMessage(error: unknown): string {
 
 // ── API Functions ────────────────────────────────────────────────────────────
 
-/**
- * Upload an OpenAPI spec file.
- * POST /api/spec/upload (multipart/form-data)
- */
 export async function uploadSpec(
   file: File,
   environment: string,
@@ -140,10 +140,6 @@ export async function uploadSpec(
   }
 }
 
-/**
- * Generate test cases from a parsed spec.
- * POST /api/tests/generate?spec=<raw content>
- */
 export async function generateTests(
   specContent: string,
   params: GenerateTestsParams,
@@ -161,21 +157,17 @@ export async function generateTests(
         authValue: params.authValue,
       },
     );
-    
+
     if (!data.success) {
-      throw new Error(data.error || "Failed to generate tests");
+      throw new Error(data.error ?? "Failed to generate tests");
     }
-    
-    return data.data || [];
+
+    return data.data ?? [];
   } catch (err) {
     throw new Error(extractErrorMessage(err));
   }
 }
 
-/**
- * Execute test cases against the target API.
- * POST /api/tests/run
- */
 export async function runTests(
   params: RunTestsParams,
 ): Promise<ApiResponse<{ runId: string; results: TestResult[] }>> {
@@ -189,10 +181,6 @@ export async function runTests(
   }
 }
 
-/**
- * Fetch results for a completed run.
- * GET /api/tests/results/{runId}
- */
 export async function getResults(
   runId: string,
 ): Promise<
@@ -212,10 +200,6 @@ export async function getResults(
   }
 }
 
-/**
- * Download an Excel report for a run.
- * GET /api/tests/export/{runId}
- */
 export async function exportReport(runId: string): Promise<Blob> {
   try {
     const { data } = await api.get<Blob>(`/api/tests/export/${runId}`, {
@@ -227,10 +211,6 @@ export async function exportReport(runId: string): Promise<Blob> {
   }
 }
 
-/**
- * Get AI-generated insights for a failed test.
- * POST /api/insights/explain
- */
 export async function explainFailure(
   request: InsightExplainRequest,
 ): Promise<ApiResponse<InsightExplainResponse>> {

@@ -588,13 +588,13 @@ CREATE INDEX idx_test_runs_user_id ON test_runs(user_id);
 
 ## 7. Priority Roadmap
 
-### Phase 1 — Security & Stability (Weeks 1–2)
-- [ ] Implement JWT authentication end-to-end (backend + frontend interceptor)
-- [ ] Enable Flyway, write `V1__init.sql`
-- [ ] Add `GlobalExceptionHandler` (`@ControllerAdvice`)
-- [ ] Restrict CORS to configured origin whitelist
-- [ ] Enable TypeScript `strict` mode; fix type errors
-- [ ] Add `@Valid` to all controller request bodies
+### Phase 1 — Security & Stability ✅ COMPLETED 2026-04-27
+- [x] Implement JWT authentication end-to-end — `JwtUtil`, `JwtAuthenticationFilter`, `SecurityConfig`, `AuthController` (BCrypt + real JWT), `SignIn/SignUp` pages store real token
+- [x] Enable Flyway — `V4__create_users_table.sql` added, `baseline-on-migrate: true`, `ddl-auto: none`
+- [x] Add `GlobalExceptionHandler` (`@ControllerAdvice`) — `controller/advice/GlobalExceptionHandler.java`
+- [x] Restrict CORS — `SecurityConfig.corsConfigurationSource()` from `app.cors.allowed-origins` config; `@CrossOrigin("*")` removed from all controllers
+- [x] Enable TypeScript `strict` mode — `tsconfig.app.json` `strict: true`
+- [x] Add `@Valid` to all controller request bodies + `@NotBlank`/`@NotEmpty` on DTOs
 
 ### Phase 2 — Code Quality (Weeks 2–3)
 - [ ] Create `TestOrchestrationService` (extract logic from `TestController`)

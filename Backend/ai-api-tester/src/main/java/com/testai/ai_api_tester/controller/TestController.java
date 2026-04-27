@@ -9,6 +9,7 @@ import com.testai.ai_api_tester.repository.TestResultRepository;
 import com.testai.ai_api_tester.repository.TestRunRepository;
 import com.testai.ai_api_tester.service.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -22,7 +23,6 @@ import java.util.stream.Collectors;
 @Slf4j
 @RestController
 @RequestMapping("/api/tests")
-@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class TestController {
 
@@ -37,7 +37,7 @@ public class TestController {
 
     @PostMapping("/generate")
     public ApiResponse<List<TestCaseDto>> generateTests(
-            @RequestBody GenerateRequest request
+            @Valid @RequestBody GenerateRequest request
     ) {
         try {
             log.info("Generating tests for runId={}", request.getRunId());
@@ -91,7 +91,7 @@ public class TestController {
     }
 
     @PostMapping("/run")
-    public ApiResponse<ResultsSummaryDto> runTests(@RequestBody RunTestsRequest request) {
+    public ApiResponse<ResultsSummaryDto> runTests(@Valid @RequestBody RunTestsRequest request) {
         try {
             log.info("Running {} tests for runId={}", request.getTestCases().size(), request.getRunId());
 

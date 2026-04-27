@@ -9,6 +9,12 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useAppStore } from "@/store/appStore";
 
+interface AuthResponse {
+  success: boolean;
+  data: { token: string; email: string };
+  error?: string;
+}
+
 export default function SignUp() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -17,6 +23,7 @@ export default function SignUp() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -26,25 +33,29 @@ export default function SignUp() {
       return;
     }
 
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters");
+      return;
+    }
+
+    setLoading(true);
     try {
-      const res = await axios.post("http://localhost:8080/api/auth/signup", {
-        email,
-        password,
-      });
+      const res = await axios.post<AuthResponse>(
+        `${import.meta.env.VITE_API_URL ?? "http://localhost:8080"}/api/auth/signup`,
+        { email, password },
+      );
 
       if (res.data.success) {
-        toast.success("Account created successfully");
-
-        // auto login after signup
-        localStorage.setItem("token", "dummy-token");
-        setSession(email.trim());
-
+        setSession(res.data.data.email, res.data.data.token);
+        toast.success("Account created — welcome to TestBuddy!");
         navigate(from, { replace: true });
       } else {
-        toast.error(res.data.message || "Signup failed");
+        toast.error(res.data.error ?? "Signup failed");
       }
-    } catch (err) {
-      toast.error("Server error");
+    } catch {
+      toast.error("Server error — check that the backend is running");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -64,7 +75,7 @@ export default function SignUp() {
           <CardHeader>
             <CardTitle className="text-lg">Sign up</CardTitle>
             <CardDescription>
-              Now connected to backend
+              Join TestBuddy — free to get started
             </CardDescription>
           </CardHeader>
 
@@ -76,6 +87,7 @@ export default function SignUp() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                autoComplete="email"
               />
             </div>
 
@@ -86,13 +98,14 @@ export default function SignUp() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                autoComplete="new-password"
               />
             </div>
           </CardContent>
 
           <CardFooter className="flex flex-col gap-4">
-            <Button type="submit" className="w-full gradient-primary">
-              Sign up
+            <Button type="submit" className="w-full gradient-primary" disabled={loading}>
+              {loading ? "Creating account…" : "Sign up"}
             </Button>
 
             <p className="text-center text-sm text-muted-foreground">
