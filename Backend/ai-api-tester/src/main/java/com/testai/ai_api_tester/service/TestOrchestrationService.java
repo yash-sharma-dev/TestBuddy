@@ -12,6 +12,8 @@ import com.testai.ai_api_tester.repository.TestRunRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -85,14 +87,48 @@ public class TestOrchestrationService {
         );
 
         log.info("Completed {} tests for runId={}", results.size(), runId);
-        return buildSummaryDto(request.getRunId(), results);
+        return buildInMemorySummaryDto(request.getRunId(), results);
     }
 
-    public ResultsSummaryDto getResults(String runId) {
+    // Paginated — efficient: only loads the current page of results from DB,
+    // computes summary stats (total, passed, avgResponseTime) via aggregation queries.
+    public ResultsSummaryDto getResults(String runId, Pageable pageable) {
         UUID uuid = UUID.fromString(runId);
-        List<TestResult> entities = testResultRepository.findByRunId(uuid);
-        Map<UUID, TestCase> casesMap = buildCasesMap(uuid);
-        return buildSummaryDto(runId, toResultDtos(entities, casesMap));
+        Page<TestResult> page = testResultRepository.findByRunId(uuid, pageable);
+
+        // Load only the test cases needed for this page
+        Set<UUID> pageTestCaseIds = page.getContent().stream()
+                .map(TestResult::getTestCaseId)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toSet());
+        Map<UUID, TestCase> casesMap = pageTestCaseIds.isEmpty()
+                ? Map.of()
+                : testCaseRepository.findAllById(pageTestCaseIds).stream()
+                        .collect(Collectors.toMap(TestCase::getId, tc -> tc));
+
+        List<TestResultDto> results = page.getContent().stream()
+                .map(r -> testResultMapper.toDto(r, casesMap.get(r.getTestCaseId())))
+                .toList();
+
+        long total = page.getTotalElements();
+        long passed = testResultRepository.countByRunIdAndPassed(uuid, true);
+        double avgResponseTime = total > 0 ? testResultRepository.findAvgResponseTimeByRunId(uuid) : 0.0;
+
+        Map<String, Object> summary = new LinkedHashMap<>();
+        summary.put("total", total);
+        summary.put("passed", passed);
+        summary.put("failed", total - passed);
+        summary.put("avgResponseTime", Math.round(avgResponseTime));
+
+        return ResultsSummaryDto.builder()
+                .runId(runId)
+                .results(results)
+                .summary(summary)
+                .totalElements(total)
+                .totalPages(page.getTotalPages())
+                .currentPage(page.getNumber())
+                .pageSize(page.getSize())
+                .build();
     }
 
     public List<TestResultDto> getResultsForExport(String runId) {
@@ -113,7 +149,8 @@ public class TestOrchestrationService {
                 .toList();
     }
 
-    private ResultsSummaryDto buildSummaryDto(String runId, List<TestResultDto> results) {
+    // Used by runTests (in-memory results — no DB round-trip needed for summary)
+    private ResultsSummaryDto buildInMemorySummaryDto(String runId, List<TestResultDto> results) {
         long passed = results.stream().filter(TestResultDto::getPassed).count();
         long failed = results.stream().filter(r -> !r.getPassed()).count();
         double avgResponseTime = results.stream()

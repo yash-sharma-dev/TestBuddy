@@ -17,4 +17,10 @@ public class ResultsSummaryDto {
     private String runId;
     private List<TestResultDto> results;
     private Map<String, Object> summary;
+
+    // Pagination metadata — null when not a paginated response (e.g. runTests, export)
+    private Long totalElements;
+    private Integer totalPages;
+    private Integer currentPage;
+    private Integer pageSize;
 }

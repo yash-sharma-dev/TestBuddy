@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.testai.ai_api_tester.dto.TestCaseDto;
 import com.testai.ai_api_tester.dto.TestResultDto;
 import com.testai.ai_api_tester.model.TestResult;
-import com.testai.ai_api_tester.model.TestRun;
 import com.testai.ai_api_tester.repository.TestResultRepository;
 import com.testai.ai_api_tester.repository.TestRunRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +18,7 @@ import reactor.core.publisher.Mono;
 import java.time.Duration;
 import java.time.OffsetDateTime;
 import java.util.*;
+import java.util.concurrent.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -33,13 +33,11 @@ public class TestExecutorService {
     private final TestRunRepository testRunRepository;
 
     private static final Duration REQUEST_TIMEOUT = Duration.ofSeconds(30);
+    private static final int MAX_PARALLEL_TESTS = 10;
     private static final Pattern UUID_PATTERN = Pattern.compile(
             "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}");
     private static final Pattern ID_PATTERN = Pattern.compile("\"id\"\\s*:\\s*\"?([^,\"\\}]+)\"?");
 
-    /**
-     * Execute all test cases against the target API.
-     */
     public List<TestResultDto> executeTests(
             List<TestCaseDto> testCases,
             String targetBaseUrl,
@@ -49,33 +47,51 @@ public class TestExecutorService {
     ) {
         log.info("Executing {} test cases against {} (runId={})", testCases.size(), targetBaseUrl, runId);
 
-        // Store results for chaining lookups
-        Map<String, TestResultDto> resultsByTestId = new LinkedHashMap<>();
-        List<TestResultDto> results = new ArrayList<>();
+        // Partition: independent tests can run in parallel; chained tests must run sequentially
+        List<TestCaseDto> independent = testCases.stream()
+                .filter(tc -> tc.getChainFrom() == null || tc.getChainFrom().isBlank())
+                .toList();
+        List<TestCaseDto> chained = testCases.stream()
+                .filter(tc -> tc.getChainFrom() != null && !tc.getChainFrom().isBlank())
+                .toList();
 
-        for (TestCaseDto tc : testCases) {
-            String endpoint = tc.getEndpoint();
+        // ConcurrentHashMap because independent tests write from multiple threads
+        Map<String, TestResultDto> resultsByTestId = new ConcurrentHashMap<>();
 
-            // Handle chaining: substitute IDs from a previous test's response
-            if (tc.getChainFrom() != null && !tc.getChainFrom().isBlank()) {
-                TestResultDto chainSource = resultsByTestId.get(tc.getChainFrom());
-                if (chainSource != null && chainSource.getActualResponse() != null) {
-                    String extractedId = extractIdFromResponse(chainSource.getActualResponse());
-                    if (extractedId != null) {
-                        // Replace path params like {id}, :id, or the last path segment
-                        endpoint = substituteId(endpoint, extractedId);
-                        log.debug("Chained ID '{}' into endpoint: {}", extractedId, endpoint);
-                    }
-                }
+        // Independent tests — parallel with bounded thread pool
+        if (!independent.isEmpty()) {
+            int threads = Math.min(independent.size(), MAX_PARALLEL_TESTS);
+            ExecutorService executor = Executors.newFixedThreadPool(threads);
+            try {
+                List<CompletableFuture<Void>> futures = independent.stream()
+                        .map(tc -> CompletableFuture.runAsync(() -> {
+                            String url = normalizeUrl(targetBaseUrl) + tc.getEndpoint();
+                            TestResultDto result = executeSingleTest(tc, url, authType, authValue, runId);
+                            resultsByTestId.put(tc.getId(), result);
+                        }, executor))
+                        .toList();
+                CompletableFuture.allOf(futures.toArray(new CompletableFuture[0])).join();
+            } finally {
+                executor.shutdownNow();
             }
+            log.info("Parallel execution complete: {} independent tests (runId={})", independent.size(), runId);
+        }
 
-            String fullUrl = normalizeUrl(targetBaseUrl) + endpoint;
-            TestResultDto result = executeSingleTest(tc, fullUrl, authType, authValue, runId);
-            results.add(result);
+        // Chained tests — sequential, each may depend on a prior test's response
+        for (TestCaseDto tc : chained) {
+            String endpoint = resolveChainedEndpoint(tc, resultsByTestId);
+            String url = normalizeUrl(targetBaseUrl) + endpoint;
+            TestResultDto result = executeSingleTest(tc, url, authType, authValue, runId);
             resultsByTestId.put(tc.getId(), result);
         }
 
-        // Save all results to database
+        // Reassemble in original input order
+        List<TestResultDto> results = testCases.stream()
+                .map(tc -> resultsByTestId.get(tc.getId()))
+                .filter(Objects::nonNull)
+                .toList();
+
+        // Persist results and mark run complete
         List<TestResult> entities = results.stream()
                 .map(r -> TestResult.builder()
                         .testCaseId(parseUuidSafe(r.getTestCaseId()))
@@ -88,10 +104,8 @@ public class TestExecutorService {
                         .executedAt(OffsetDateTime.now())
                         .build())
                 .toList();
-
         testResultRepository.saveAll(entities);
 
-        // Update run status
         testRunRepository.findById(runId).ifPresent(run -> {
             run.setStatus("COMPLETED");
             run.setCompletedAt(OffsetDateTime.now());
@@ -102,6 +116,19 @@ public class TestExecutorService {
         log.info("Execution complete: {}/{} passed (runId={})", passed, results.size(), runId);
 
         return results;
+    }
+
+    private String resolveChainedEndpoint(TestCaseDto tc, Map<String, TestResultDto> resultsByTestId) {
+        TestResultDto chainSource = resultsByTestId.get(tc.getChainFrom());
+        if (chainSource != null && chainSource.getActualResponse() != null) {
+            String extractedId = extractIdFromResponse(chainSource.getActualResponse());
+            if (extractedId != null) {
+                String resolved = substituteId(tc.getEndpoint(), extractedId);
+                log.debug("Chained ID '{}' into endpoint: {}", extractedId, resolved);
+                return resolved;
+            }
+        }
+        return tc.getEndpoint();
     }
 
     private TestResultDto executeSingleTest(
@@ -117,21 +144,18 @@ public class TestExecutorService {
                     .header("Content-Type", "application/json")
                     .header("Accept", "application/json");
 
-            // Authentication headers
             if ("JWT".equalsIgnoreCase(authType) && authValue != null && !authValue.isBlank()) {
                 requestSpec = requestSpec.header("Authorization", "Bearer " + authValue);
             } else if ("API_KEY".equalsIgnoreCase(authType) && authValue != null && !authValue.isBlank()) {
                 requestSpec = requestSpec.header("X-API-Key", authValue);
             }
 
-            // Inject custom headers from test case
             if (tc.getHeaders() != null) {
                 for (Map.Entry<String, String> header : tc.getHeaders().entrySet()) {
                     requestSpec = requestSpec.header(header.getKey(), header.getValue());
                 }
             }
 
-            // Send body for POST/PUT/PATCH
             Mono<String> responseMono;
             if (tc.getPayload() != null && isBodyMethod(tc.getMethod())) {
                 responseMono = requestSpec
@@ -163,7 +187,6 @@ public class TestExecutorService {
             int actualStatus = Integer.parseInt(parts[0]);
             String responseBody = parts.length > 1 ? parts[1] : "";
 
-            // Parse response body as JSON if possible
             Object actualResponse = parseResponseBody(responseBody);
             boolean passed = actualStatus == tc.getExpectedStatus();
 
@@ -240,7 +263,7 @@ public class TestExecutorService {
         try {
             return objectMapper.readTree(body);
         } catch (Exception e) {
-            return body; // Return as string if not valid JSON
+            return body;
         }
     }
 
@@ -255,13 +278,11 @@ public class TestExecutorService {
                 json = objectMapper.writeValueAsString(response);
             }
 
-            // Try to find a UUID first
             Matcher uuidMatcher = UUID_PATTERN.matcher(json);
             if (uuidMatcher.find()) {
                 return uuidMatcher.group();
             }
 
-            // Try to find an "id" field
             Matcher idMatcher = ID_PATTERN.matcher(json);
             if (idMatcher.find()) {
                 return idMatcher.group(1).trim();
@@ -284,14 +305,10 @@ public class TestExecutorService {
     }
 
     private String substituteId(String endpoint, String id) {
-        // Replace {id}, {userId}, etc.
         String substituted = endpoint.replaceAll("\\{[^}]*[iI]d[^}]*}", id);
         if (!substituted.equals(endpoint)) return substituted;
-
-        // Replace :id
         substituted = endpoint.replaceAll(":[a-zA-Z]*[iI]d", id);
         if (!substituted.equals(endpoint)) return substituted;
-
         return endpoint;
     }
 

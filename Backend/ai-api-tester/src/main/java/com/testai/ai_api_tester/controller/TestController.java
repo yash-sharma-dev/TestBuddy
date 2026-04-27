@@ -6,6 +6,8 @@ import com.testai.ai_api_tester.service.TestOrchestrationService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -34,9 +36,13 @@ public class TestController {
         return ApiResponse.ok(testOrchestrationService.runTests(request));
     }
 
+    // Supports ?page=0&size=50&sort=executedAt,desc — defaults to page 0, size 50
     @GetMapping("/results/{runId}")
-    public ApiResponse<ResultsSummaryDto> getResults(@PathVariable String runId) {
-        return ApiResponse.ok(testOrchestrationService.getResults(runId));
+    public ApiResponse<ResultsSummaryDto> getResults(
+            @PathVariable String runId,
+            @PageableDefault(size = 50) Pageable pageable
+    ) {
+        return ApiResponse.ok(testOrchestrationService.getResults(runId, pageable));
     }
 
     @GetMapping("/export/{runId}")

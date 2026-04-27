@@ -5,7 +5,7 @@ metadata:
   name: backend
   namespace: testbuddy
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: backend
@@ -25,6 +25,8 @@ spec:
               value: jdbc:postgresql://postgres:5432/testai
             - name: SPRING_DATASOURCE_USERNAME
               value: postgres
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -35,17 +37,37 @@ spec:
                 secretKeyRef:
                   name: testbuddy-secrets
                   key: CLAUDE_API_KEY
-            - name: GEMINI_API_KEY
+            - name: JWT_SECRET
               valueFrom:
                 secretKeyRef:
                   name: testbuddy-secrets
-                  key: GEMINI_API_KEY
+                  key: JWT_SECRET
+            - name: CORS_ALLOWED_ORIGINS
+              valueFrom:
+                secretKeyRef:
+                  name: testbuddy-secrets
+                  key: CORS_ALLOWED_ORIGINS
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "1000m"
+              memory: "1Gi"
           readinessProbe:
-            tcpSocket:
+            httpGet:
+              path: /actuator/health
               port: 8080
             initialDelaySeconds: 40
             periodSeconds: 10
             failureThreshold: 6
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            failureThreshold: 3
 
 ---
 # ── Service ───────────────────────────────────────────────────────────────────
