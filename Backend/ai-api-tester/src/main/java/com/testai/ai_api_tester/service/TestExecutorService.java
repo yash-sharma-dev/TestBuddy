@@ -2,6 +2,10 @@ package com.testai.ai_api_tester.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.networknt.schema.JsonSchema;
+import com.networknt.schema.JsonSchemaFactory;
+import com.networknt.schema.SpecVersion;
+import com.networknt.schema.ValidationMessage;
 import com.testai.ai_api_tester.dto.TestCaseDto;
 import com.testai.ai_api_tester.dto.TestResultDto;
 import com.testai.ai_api_tester.model.TestResult;
@@ -101,6 +105,7 @@ public class TestExecutorService {
                         .responseTimeMs(r.getResponseTimeMs())
                         .passed(r.getPassed())
                         .errorMessage(r.getErrorMessage())
+                        .schemaValid(r.getSchemaValid())
                         .executedAt(OffsetDateTime.now())
                         .build())
                 .toList();
@@ -189,6 +194,9 @@ public class TestExecutorService {
 
             Object actualResponse = parseResponseBody(responseBody);
             boolean passed = actualStatus == tc.getExpectedStatus();
+            Boolean schemaValid = (tc.getExpectedSchema() != null && actualResponse != null)
+                    ? validateSchema(actualResponse, tc.getExpectedSchema())
+                    : null;
 
             return TestResultDto.builder()
                     .testCaseId(tc.getId())
@@ -202,6 +210,7 @@ public class TestExecutorService {
                     .responseTimeMs(responseTime)
                     .passed(passed)
                     .errorMessage(passed ? null : "Expected " + tc.getExpectedStatus() + " but got " + actualStatus)
+                    .schemaValid(schemaValid)
                     .build();
 
         } catch (WebClientResponseException e) {
@@ -220,6 +229,7 @@ public class TestExecutorService {
                     .errorMessage(e.getStatusCode().value() != tc.getExpectedStatus()
                             ? "Expected " + tc.getExpectedStatus() + " but got " + e.getStatusCode().value()
                             : null)
+                    .schemaValid(null)
                     .build();
 
         } catch (Exception e) {
@@ -245,7 +255,22 @@ public class TestExecutorService {
                 .responseTimeMs(responseTime)
                 .passed(false)
                 .errorMessage(errorMessage)
+                .schemaValid(null)
                 .build();
+    }
+
+    private Boolean validateSchema(Object actualResponse, Object expectedSchema) {
+        try {
+            JsonNode responseNode = objectMapper.valueToTree(actualResponse);
+            JsonNode schemaNode = objectMapper.valueToTree(expectedSchema);
+            JsonSchemaFactory factory = JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V7);
+            JsonSchema schema = factory.getSchema(schemaNode);
+            Set<ValidationMessage> errors = schema.validate(responseNode);
+            return errors.isEmpty();
+        } catch (Exception e) {
+            log.warn("Schema validation failed: {}", e.getMessage());
+            return null;
+        }
     }
 
     private boolean isBodyMethod(String method) {

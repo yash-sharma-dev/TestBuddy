@@ -1,0 +1,6599 @@
+{
+  "nodes": [
+    {
+      "id": "g0",
+      "type": "group",
+      "label": "Frontend App Shell",
+      "x": 0,
+      "y": 0,
+      "width": 1540,
+      "height": 1520,
+      "color": "1"
+    },
+    {
+      "id": "n_excelexportservice_excelexportservice_createcell",
+      "type": "file",
+      "file": ".createCell().md",
+      "x": 20,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_apiresponse_apiresponse_error",
+      "type": "file",
+      "file": ".error().md",
+      "x": 220,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_insightcontroller_insightcontroller_explain",
+      "type": "file",
+      "file": ".explain().md",
+      "x": 420,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testcontroller_testcontroller_exportresults",
+      "type": "file",
+      "file": ".exportResults().md",
+      "x": 20,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_specparserservice_specparserservice_extractoperations",
+      "type": "file",
+      "file": ".extractOperations().md",
+      "x": 220,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testresultrepository_testresultrepository_findbyrunid",
+      "type": "file",
+      "file": ".findByRunId()_1.md",
+      "x": 420,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_excelexportservice_excelexportservice_generatereport",
+      "type": "file",
+      "file": ".generateReport().md",
+      "x": 20,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testcontroller_testcontroller_generatetests",
+      "type": "file",
+      "file": ".generateTests().md",
+      "x": 220,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testcontroller_testcontroller_getresults",
+      "type": "file",
+      "file": ".getResults().md",
+      "x": 420,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_apiresponse_apiresponse_ok",
+      "type": "file",
+      "file": ".ok().md",
+      "x": 20,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_specparserservice_specparserservice_parsespec",
+      "type": "file",
+      "file": ".parseSpec().md",
+      "x": 220,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_specparserservice_specparserservice_parsespeccontent",
+      "type": "file",
+      "file": ".parseSpecContent().md",
+      "x": 420,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testcontroller_testcontroller_parseuuidsafe",
+      "type": "file",
+      "file": ".parseUuidSafe().md",
+      "x": 20,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testcontroller_testcontroller_runtests",
+      "type": "file",
+      "file": ".runTests().md",
+      "x": 220,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testcontroller_testcontroller_tojsonsafe",
+      "type": "file",
+      "file": ".toJsonSafe().md",
+      "x": 420,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_speccontroller_speccontroller_uploadspec",
+      "type": "file",
+      "file": ".uploadSpec().md",
+      "x": 20,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_apiresponse_apiresponse",
+      "type": "file",
+      "file": "ApiResponse.md",
+      "x": 220,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_apiresponse_java",
+      "type": "file",
+      "file": "ApiResponse.java.md",
+      "x": 420,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_apiresponse_java",
+      "type": "file",
+      "file": "ApiResponse.java_1.md",
+      "x": 20,
+      "y": 560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_excelexportservice_excelexportservice",
+      "type": "file",
+      "file": "ExcelExportService.md",
+      "x": 220,
+      "y": 560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_excelexportservice_java",
+      "type": "file",
+      "file": "ExcelExportService.java.md",
+      "x": 420,
+      "y": 560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_excelexportservice_java",
+      "type": "file",
+      "file": "ExcelExportService.java_1.md",
+      "x": 20,
+      "y": 640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_insightcontroller_insightcontroller",
+      "type": "file",
+      "file": "InsightController.md",
+      "x": 220,
+      "y": 640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_insightcontroller_java",
+      "type": "file",
+      "file": "InsightController.java.md",
+      "x": 420,
+      "y": 640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_insightcontroller_java",
+      "type": "file",
+      "file": "InsightController.java_1.md",
+      "x": 20,
+      "y": 720,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_pages_results_tsx",
+      "type": "file",
+      "file": "Results.tsx_1.md",
+      "x": 220,
+      "y": 720,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_pages_results_tsx",
+      "type": "file",
+      "file": "Results.tsx.md",
+      "x": 420,
+      "y": 720,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_speccontroller_speccontroller",
+      "type": "file",
+      "file": "SpecController.md",
+      "x": 20,
+      "y": 800,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_speccontroller_java",
+      "type": "file",
+      "file": "SpecController.java.md",
+      "x": 220,
+      "y": 800,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_speccontroller_java",
+      "type": "file",
+      "file": "SpecController.java_1.md",
+      "x": 420,
+      "y": 800,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_specparserservice_specparserservice",
+      "type": "file",
+      "file": "SpecParserService.md",
+      "x": 20,
+      "y": 880,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_specparserservice_java",
+      "type": "file",
+      "file": "SpecParserService.java.md",
+      "x": 220,
+      "y": 880,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_specparserservice_java",
+      "type": "file",
+      "file": "SpecParserService.java_1.md",
+      "x": 420,
+      "y": 880,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testcontroller_testcontroller",
+      "type": "file",
+      "file": "TestController.md",
+      "x": 20,
+      "y": 960,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_testcontroller_java",
+      "type": "file",
+      "file": "TestController.java.md",
+      "x": 220,
+      "y": 960,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_testcontroller_java",
+      "type": "file",
+      "file": "TestController.java_1.md",
+      "x": 420,
+      "y": 960,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testresultrepository_testresultrepository",
+      "type": "file",
+      "file": "TestResultRepository.md",
+      "x": 20,
+      "y": 1040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_testresultrepository_java",
+      "type": "file",
+      "file": "TestResultRepository.java.md",
+      "x": 220,
+      "y": 1040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_testresultrepository_java",
+      "type": "file",
+      "file": "TestResultRepository.java_1.md",
+      "x": 420,
+      "y": 1040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_results_handleexplainfailure",
+      "type": "file",
+      "file": "handleExplainFailure().md",
+      "x": 20,
+      "y": 1120,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_results_handleexport",
+      "type": "file",
+      "file": "handleExport().md",
+      "x": 220,
+      "y": 1120,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g1",
+      "type": "group",
+      "label": "API Response DTOs",
+      "x": 1620,
+      "y": 0,
+      "width": 1320,
+      "height": 1220,
+      "color": "2"
+    },
+    {
+      "id": "n_readme_aiinsights",
+      "type": "file",
+      "file": "AI Insights Page.md",
+      "x": 1640,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_testbuddy_problem",
+      "type": "file",
+      "file": "API Testing Problem Domain.md",
+      "x": 1840,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_helpmd_maven",
+      "type": "file",
+      "file": "Apache Maven Build Tool.md",
+      "x": 2040,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_apachepoi",
+      "type": "file",
+      "file": "Apache POI.md",
+      "x": 1640,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_helpmd_backend",
+      "type": "file",
+      "file": "Backend HELP.md (Spring Boot Setup Notes).md",
+      "x": 1840,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_claudehaiku",
+      "type": "file",
+      "file": "Claude Haiku 4.5.md",
+      "x": 2040,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_claudeservice",
+      "type": "file",
+      "file": "ClaudeService_1.md",
+      "x": 1640,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_docker",
+      "type": "file",
+      "file": "Docker + Docker Compose.md",
+      "x": 1840,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_excelsexport",
+      "type": "file",
+      "file": "Excel Export Feature.md",
+      "x": 2040,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_excelexportservice",
+      "type": "file",
+      "file": "ExcelExportService_1.md",
+      "x": 1640,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_flyway",
+      "type": "file",
+      "file": "Flyway Migrations.md",
+      "x": 1840,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_geminiflash",
+      "type": "file",
+      "file": "Gemini 2.5 Flash.md",
+      "x": 2040,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_geminiservice",
+      "type": "file",
+      "file": "GeminiService.md",
+      "x": 1640,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_insightcontroller",
+      "type": "file",
+      "file": "InsightController_1.md",
+      "x": 1840,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_kubernetes",
+      "type": "file",
+      "file": "Kubernetes Deployment.md",
+      "x": 2040,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_k8s_secrets",
+      "type": "file",
+      "file": "Kubernetes Secrets Management.md",
+      "x": 1640,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_markdownstripping",
+      "type": "file",
+      "file": "Markdown Stripping (AI Response Parsing).md",
+      "x": 1840,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_openapi_spec",
+      "type": "file",
+      "file": "OpenAPI  Swagger Spec Input.md",
+      "x": 2040,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_helpmd_packagename",
+      "type": "file",
+      "file": "Package Name Fix com.testai.ai_api_tester.md",
+      "x": 1640,
+      "y": 560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_postgresql",
+      "type": "file",
+      "file": "PostgreSQL 15 with JSONB.md",
+      "x": 1840,
+      "y": 560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_testbuddy_rationale_dualmodel",
+      "type": "file",
+      "file": "Rationale Dual-Model AI Architecture.md",
+      "x": 2040,
+      "y": 560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_requestchaining",
+      "type": "file",
+      "file": "Request Chaining Feature.md",
+      "x": 1640,
+      "y": 640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_speccontroller",
+      "type": "file",
+      "file": "SpecController_1.md",
+      "x": 1840,
+      "y": 640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_specparserservice",
+      "type": "file",
+      "file": "SpecParserService_1.md",
+      "x": 2040,
+      "y": 640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_springboot",
+      "type": "file",
+      "file": "Spring Boot 3.2 Backend.md",
+      "x": 1640,
+      "y": 720,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_helpmd_springdatajpa",
+      "type": "file",
+      "file": "Spring Data JPA.md",
+      "x": 1840,
+      "y": 720,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_helpmd_springreactiveweb",
+      "type": "file",
+      "file": "Spring Reactive Web.md",
+      "x": 2040,
+      "y": 720,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_springwebflux",
+      "type": "file",
+      "file": "Spring WebFlux.md",
+      "x": 1640,
+      "y": 800,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_swaggerparser",
+      "type": "file",
+      "file": "Swagger Parser v3.md",
+      "x": 1840,
+      "y": 800,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_testbuddy",
+      "type": "file",
+      "file": "TestBuddy Project.md",
+      "x": 2040,
+      "y": 800,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_testcontroller",
+      "type": "file",
+      "file": "TestController_1.md",
+      "x": 1640,
+      "y": 880,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_testexecutorservice",
+      "type": "file",
+      "file": "TestExecutorService_1.md",
+      "x": 1840,
+      "y": 880,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g2",
+      "type": "group",
+      "label": "API Client Layer",
+      "x": 3020,
+      "y": 0,
+      "width": 880,
+      "height": 620,
+      "color": "3"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_pages_uploadapi_tsx",
+      "type": "file",
+      "file": "UploadApi.tsx_1.md",
+      "x": 3040,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_pages_uploadapi_tsx",
+      "type": "file",
+      "file": "UploadApi.tsx.md",
+      "x": 3240,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_lib_api_ts",
+      "type": "file",
+      "file": "api.ts_1.md",
+      "x": 3440,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_lib_api_ts",
+      "type": "file",
+      "file": "api.ts.md",
+      "x": 3040,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_api_explainfailure",
+      "type": "file",
+      "file": "explainFailure().md",
+      "x": 3240,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_api_exportreport",
+      "type": "file",
+      "file": "exportReport().md",
+      "x": 3440,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_api_extracterrormessage",
+      "type": "file",
+      "file": "extractErrorMessage().md",
+      "x": 3040,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_api_generatetests",
+      "type": "file",
+      "file": "generateTests().md",
+      "x": 3240,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_api_getresults",
+      "type": "file",
+      "file": "getResults().md",
+      "x": 3440,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_uploadapi_handledrop",
+      "type": "file",
+      "file": "handleDrop().md",
+      "x": 3040,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_uploadapi_handlefileselected",
+      "type": "file",
+      "file": "handleFileSelected().md",
+      "x": 3240,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_uploadapi_handlegenerate",
+      "type": "file",
+      "file": "handleGenerate().md",
+      "x": 3440,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_api_runtests",
+      "type": "file",
+      "file": "runTests().md",
+      "x": 3040,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_api_uploadspec",
+      "type": "file",
+      "file": "uploadSpec().md",
+      "x": 3240,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g3",
+      "type": "group",
+      "label": "Test Execution Service",
+      "x": 3980,
+      "y": 0,
+      "width": 880,
+      "height": 620,
+      "color": "4"
+    },
+    {
+      "id": "n_testexecutorservice_testexecutorservice_buildfailedresult",
+      "type": "file",
+      "file": ".buildFailedResult().md",
+      "x": 4000,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testexecutorservice_testexecutorservice_executesingletest",
+      "type": "file",
+      "file": ".executeSingleTest().md",
+      "x": 4200,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testexecutorservice_testexecutorservice_executetests",
+      "type": "file",
+      "file": ".executeTests().md",
+      "x": 4400,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testexecutorservice_testexecutorservice_extractidfromresponse",
+      "type": "file",
+      "file": ".extractIdFromResponse().md",
+      "x": 4000,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testexecutorservice_testexecutorservice_isbodymethod",
+      "type": "file",
+      "file": ".isBodyMethod().md",
+      "x": 4200,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testexecutorservice_testexecutorservice_normalizeurl",
+      "type": "file",
+      "file": ".normalizeUrl().md",
+      "x": 4400,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testexecutorservice_testexecutorservice_parseresponsebody",
+      "type": "file",
+      "file": ".parseResponseBody().md",
+      "x": 4000,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testexecutorservice_testexecutorservice_parseuuidsafe",
+      "type": "file",
+      "file": ".parseUuidSafe()_1.md",
+      "x": 4200,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testexecutorservice_testexecutorservice_substituteid",
+      "type": "file",
+      "file": ".substituteId().md",
+      "x": 4400,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testexecutorservice_testexecutorservice_tojsonsafe",
+      "type": "file",
+      "file": ".toJsonSafe()_1.md",
+      "x": 4000,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testexecutorservice_testexecutorservice",
+      "type": "file",
+      "file": "TestExecutorService.md",
+      "x": 4200,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_testexecutorservice_java",
+      "type": "file",
+      "file": "TestExecutorService.java.md",
+      "x": 4400,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_testexecutorservice_java",
+      "type": "file",
+      "file": "TestExecutorService.java_1.md",
+      "x": 4000,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g4",
+      "type": "group",
+      "label": "Toast Notification System",
+      "x": 4940,
+      "y": 0,
+      "width": 880,
+      "height": 520,
+      "color": "5"
+    },
+    {
+      "id": "n_readme_axiosclient",
+      "type": "file",
+      "file": "Axios HTTP Client.md",
+      "x": 4960,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_indexhtml",
+      "type": "file",
+      "file": "Frontend Entry Point (index.html).md",
+      "x": 5160,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_maintsx",
+      "type": "file",
+      "file": "Frontend Main Entry (main.tsx).md",
+      "x": 5360,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_readme",
+      "type": "file",
+      "file": "Frontend README (Lovable Project).md",
+      "x": 4960,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_lovable",
+      "type": "file",
+      "file": "Lovable.dev Platform.md",
+      "x": 5160,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_react18",
+      "type": "file",
+      "file": "React 18 + TypeScript 5.8 Frontend.md",
+      "x": 5360,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_reacthookform",
+      "type": "file",
+      "file": "React Hook Form + Zod.md",
+      "x": 4960,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_recharts",
+      "type": "file",
+      "file": "Recharts.md",
+      "x": 5160,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_resultsdashboard",
+      "type": "file",
+      "file": "Results Dashboard.md",
+      "x": 5360,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_shadcnui",
+      "type": "file",
+      "file": "Shadcnui (Radix UI + Tailwind CSS).md",
+      "x": 4960,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_vite",
+      "type": "file",
+      "file": "Vite 5.4.md",
+      "x": 5160,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_zustand",
+      "type": "file",
+      "file": "Zustand v5 State Management.md",
+      "x": 5360,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g5",
+      "type": "group",
+      "label": "Auth Controller",
+      "x": 5900,
+      "y": 0,
+      "width": 880,
+      "height": 520,
+      "color": "6"
+    },
+    {
+      "id": "n_toaster_toaster",
+      "type": "file",
+      "file": "Toaster()_1.md",
+      "x": 5920,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_use_toast_addtoremovequeue",
+      "type": "file",
+      "file": "addToRemoveQueue().md",
+      "x": 6120,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_use_toast_dispatch",
+      "type": "file",
+      "file": "dispatch().md",
+      "x": 6320,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_use_toast_genid",
+      "type": "file",
+      "file": "genId().md",
+      "x": 5920,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_use_toast_reducer",
+      "type": "file",
+      "file": "reducer().md",
+      "x": 6120,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_use_toast_toast",
+      "type": "file",
+      "file": "toast().md",
+      "x": 6320,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_toaster_tsx",
+      "type": "file",
+      "file": "toaster.tsx_1.md",
+      "x": 5920,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_components_ui_toaster_tsx",
+      "type": "file",
+      "file": "toaster.tsx.md",
+      "x": 6120,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_hooks_use_toast_ts",
+      "type": "file",
+      "file": "use-toast.ts_3.md",
+      "x": 6320,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_hooks_use_toast_ts",
+      "type": "file",
+      "file": "use-toast.ts_1.md",
+      "x": 5920,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_use_toast_usetoast",
+      "type": "file",
+      "file": "useToast().md",
+      "x": 6120,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g6",
+      "type": "group",
+      "label": "Frontend Pages and Utils",
+      "x": 6860,
+      "y": 0,
+      "width": 660,
+      "height": 420,
+      "color": "1"
+    },
+    {
+      "id": "n_userrepository_userrepository_findbyemail",
+      "type": "file",
+      "file": ".findByEmail().md",
+      "x": 6880,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_authcontroller_authcontroller_signin",
+      "type": "file",
+      "file": ".signin().md",
+      "x": 7080,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_authcontroller_authcontroller_signup",
+      "type": "file",
+      "file": ".signup().md",
+      "x": 7280,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_authcontroller_authcontroller",
+      "type": "file",
+      "file": "AuthController.md",
+      "x": 6880,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_authcontroller_java",
+      "type": "file",
+      "file": "AuthController.java.md",
+      "x": 7080,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_authcontroller_java",
+      "type": "file",
+      "file": "AuthController.java_1.md",
+      "x": 7280,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_userrepository_userrepository",
+      "type": "file",
+      "file": "UserRepository.md",
+      "x": 6880,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_userrepository_java",
+      "type": "file",
+      "file": "UserRepository.java.md",
+      "x": 7080,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_userrepository_java",
+      "type": "file",
+      "file": "UserRepository.java_1.md",
+      "x": 7280,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g7",
+      "type": "group",
+      "label": "Claude AI Service",
+      "x": 7600,
+      "y": 0,
+      "width": 660,
+      "height": 420,
+      "color": "2"
+    },
+    {
+      "id": "n_profile_profile",
+      "type": "file",
+      "file": "Profile().md",
+      "x": 7620,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_pages_profile_tsx",
+      "type": "file",
+      "file": "Profile.tsx_1.md",
+      "x": 7820,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_pages_profile_tsx",
+      "type": "file",
+      "file": "Profile.tsx.md",
+      "x": 8020,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_utils_accountdisplayname",
+      "type": "file",
+      "file": "accountDisplayName().md",
+      "x": 7620,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_utils_cn",
+      "type": "file",
+      "file": "cn()_1.md",
+      "x": 7820,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_utils_displaynamefromemail",
+      "type": "file",
+      "file": "displayNameFromEmail().md",
+      "x": 8020,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_utils_initialsfromemail",
+      "type": "file",
+      "file": "initialsFromEmail().md",
+      "x": 7620,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_lib_utils_ts",
+      "type": "file",
+      "file": "utils.ts_1.md",
+      "x": 7820,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_lib_utils_ts",
+      "type": "file",
+      "file": "utils.ts.md",
+      "x": 8020,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g8",
+      "type": "group",
+      "label": "Pagination Component",
+      "x": 8340,
+      "y": 0,
+      "width": 660,
+      "height": 420,
+      "color": "3"
+    },
+    {
+      "id": "n_claudeservice_claudeservice_callclaude",
+      "type": "file",
+      "file": ".callClaude().md",
+      "x": 8360,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_claudeservice_claudeservice_explainfailure",
+      "type": "file",
+      "file": ".explainFailure().md",
+      "x": 8560,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_claudeservice_claudeservice_generatetestcases",
+      "type": "file",
+      "file": ".generateTestCases().md",
+      "x": 8760,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_claudeservice_claudeservice_stripmarkdownfences",
+      "type": "file",
+      "file": ".stripMarkdownFences().md",
+      "x": 8360,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_claudeservice_claudeservice",
+      "type": "file",
+      "file": "ClaudeService.md",
+      "x": 8560,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_claudeservice_java",
+      "type": "file",
+      "file": "ClaudeService.java.md",
+      "x": 8760,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_claudeservice_java",
+      "type": "file",
+      "file": "ClaudeService.java_1.md",
+      "x": 8360,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g9",
+      "type": "group",
+      "label": "Frontend Routing",
+      "x": 9080,
+      "y": 0,
+      "width": 660,
+      "height": 420,
+      "color": "4"
+    },
+    {
+      "id": "n_pagination_pagination",
+      "type": "file",
+      "file": "Pagination().md",
+      "x": 9100,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_pagination_paginationellipsis",
+      "type": "file",
+      "file": "PaginationEllipsis().md",
+      "x": 9300,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_pagination_paginationlink",
+      "type": "file",
+      "file": "PaginationLink().md",
+      "x": 9500,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_pagination_paginationnext",
+      "type": "file",
+      "file": "PaginationNext().md",
+      "x": 9100,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_pagination_paginationprevious",
+      "type": "file",
+      "file": "PaginationPrevious().md",
+      "x": 9300,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_pagination_tsx",
+      "type": "file",
+      "file": "pagination.tsx_1.md",
+      "x": 9500,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_components_ui_pagination_tsx",
+      "type": "file",
+      "file": "pagination.tsx.md",
+      "x": 9100,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g10",
+      "type": "group",
+      "label": "Brand Assets and Favicon",
+      "x": 9820,
+      "y": 0,
+      "width": 660,
+      "height": 420,
+      "color": "5"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_app_tsx",
+      "type": "file",
+      "file": "App.tsx_1.md",
+      "x": 9840,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_app_tsx",
+      "type": "file",
+      "file": "App.tsx.md",
+      "x": 10040,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_notfound_notfound",
+      "type": "file",
+      "file": "NotFound().md",
+      "x": 10240,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_pages_notfound_tsx",
+      "type": "file",
+      "file": "NotFound.tsx_1.md",
+      "x": 9840,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_pages_notfound_tsx",
+      "type": "file",
+      "file": "NotFound.tsx.md",
+      "x": 10040,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_main_tsx",
+      "type": "file",
+      "file": "main.tsx_1.md",
+      "x": 10240,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_main_tsx",
+      "type": "file",
+      "file": "main.tsx.md",
+      "x": 9840,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g11",
+      "type": "group",
+      "label": "HTTP Client Config",
+      "x": 10560,
+      "y": 0,
+      "width": 660,
+      "height": 420,
+      "color": "6"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_pages_testcases_tsx",
+      "type": "file",
+      "file": "TestCases.tsx_1.md",
+      "x": 10580,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_pages_testcases_tsx",
+      "type": "file",
+      "file": "TestCases.tsx.md",
+      "x": 10780,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testcases_getresponsecode",
+      "type": "file",
+      "file": "getResponseCode().md",
+      "x": 10980,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testcases_getresponsetime",
+      "type": "file",
+      "file": "getResponseTime().md",
+      "x": 10580,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testcases_mapstatus",
+      "type": "file",
+      "file": "mapStatus().md",
+      "x": 10780,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testcases_runall",
+      "type": "file",
+      "file": "runAll().md",
+      "x": 10980,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testcases_runsingle",
+      "type": "file",
+      "file": "runSingle().md",
+      "x": 10580,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g12",
+      "type": "group",
+      "label": "Excel Export Service",
+      "x": 11300,
+      "y": 0,
+      "width": 660,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_favicon_blue_gradient",
+      "type": "file",
+      "file": "Blue-to-Indigo Linear Gradient.md",
+      "x": 11320,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_lucide_icons",
+      "type": "file",
+      "file": "Lucide Icon Library.md",
+      "x": 11520,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_favicon_rounded_square",
+      "type": "file",
+      "file": "Rounded Square Background Shape.md",
+      "x": 11720,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_favicon_sparkles_icon",
+      "type": "file",
+      "file": "Sparkles Icon (Lucide).md",
+      "x": 11320,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_favicon_svg",
+      "type": "file",
+      "file": "TestBuddy Favicon SVG.md",
+      "x": 11520,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_project_testbuddy",
+      "type": "file",
+      "file": "TestBuddy Project_1.md",
+      "x": 11720,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g13",
+      "type": "group",
+      "label": "Drawer UI Component",
+      "x": 0,
+      "y": 1600,
+      "width": 660,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_webclientconfig_webclientconfig_objectmapper",
+      "type": "file",
+      "file": ".objectMapper().md",
+      "x": 20,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_webclientconfig_webclientconfig_webclient",
+      "type": "file",
+      "file": ".webClient().md",
+      "x": 220,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_webclientconfig_webclientconfig",
+      "type": "file",
+      "file": "WebClientConfig.md",
+      "x": 420,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_config_webclientconfig_java",
+      "type": "file",
+      "file": "WebClientConfig.java.md",
+      "x": 20,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_config_webclientconfig_java",
+      "type": "file",
+      "file": "WebClientConfig.java_1.md",
+      "x": 220,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g14",
+      "type": "group",
+      "label": "Sidebar Navigation",
+      "x": 1620,
+      "y": 1600,
+      "width": 660,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_drawer_drawer",
+      "type": "file",
+      "file": "Drawer().md",
+      "x": 1640,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_drawer_drawerfooter",
+      "type": "file",
+      "file": "DrawerFooter().md",
+      "x": 1840,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_drawer_drawerheader",
+      "type": "file",
+      "file": "DrawerHeader().md",
+      "x": 2040,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_drawer_tsx",
+      "type": "file",
+      "file": "drawer.tsx_1.md",
+      "x": 1640,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_components_ui_drawer_tsx",
+      "type": "file",
+      "file": "drawer.tsx.md",
+      "x": 1840,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g15",
+      "type": "group",
+      "label": "Spring Boot Entry",
+      "x": 3020,
+      "y": 1600,
+      "width": 660,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_sidebar_cn",
+      "type": "file",
+      "file": "cn().md",
+      "x": 3040,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_sidebar_handlekeydown",
+      "type": "file",
+      "file": "handleKeyDown().md",
+      "x": 3240,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_sidebar_tsx",
+      "type": "file",
+      "file": "sidebar.tsx_1.md",
+      "x": 3440,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_components_ui_sidebar_tsx",
+      "type": "file",
+      "file": "sidebar.tsx.md",
+      "x": 3040,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_sidebar_usesidebar",
+      "type": "file",
+      "file": "useSidebar().md",
+      "x": 3240,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g16",
+      "type": "group",
+      "label": "TestCase Domain Model",
+      "x": 3980,
+      "y": 1600,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_aiapitesterapplication_aiapitesterapplication_main",
+      "type": "file",
+      "file": ".main().md",
+      "x": 4000,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_aiapitesterapplication_aiapitesterapplication",
+      "type": "file",
+      "file": "AiApiTesterApplication.md",
+      "x": 4200,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_aiapitesterapplication_java",
+      "type": "file",
+      "file": "AiApiTesterApplication.java.md",
+      "x": 4400,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_aiapitesterapplication_java",
+      "type": "file",
+      "file": "AiApiTesterApplication.java_1.md",
+      "x": 4000,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g17",
+      "type": "group",
+      "label": "TestResult Domain Model",
+      "x": 4940,
+      "y": 1600,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_testcase_testcase_prepersist",
+      "type": "file",
+      "file": ".prePersist().md",
+      "x": 4960,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testcase_testcase",
+      "type": "file",
+      "file": "TestCase.md",
+      "x": 5160,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_model_testcase_java",
+      "type": "file",
+      "file": "TestCase.java.md",
+      "x": 5360,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_model_testcase_java",
+      "type": "file",
+      "file": "TestCase.java_1.md",
+      "x": 4960,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g18",
+      "type": "group",
+      "label": "TestRun Domain Model",
+      "x": 5900,
+      "y": 1600,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_testresult_testresult_prepersist",
+      "type": "file",
+      "file": ".prePersist()_1.md",
+      "x": 5920,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testresult_testresult",
+      "type": "file",
+      "file": "TestResult.md",
+      "x": 6120,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_model_testresult_java",
+      "type": "file",
+      "file": "TestResult.java.md",
+      "x": 6320,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_model_testresult_java",
+      "type": "file",
+      "file": "TestResult.java_1.md",
+      "x": 5920,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g19",
+      "type": "group",
+      "label": "TestCase Repository",
+      "x": 6860,
+      "y": 1600,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_testrun_testrun_prepersist",
+      "type": "file",
+      "file": ".prePersist()_2.md",
+      "x": 6880,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testrun_testrun",
+      "type": "file",
+      "file": "TestRun.md",
+      "x": 7080,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_model_testrun_java",
+      "type": "file",
+      "file": "TestRun.java.md",
+      "x": 7280,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_model_testrun_java",
+      "type": "file",
+      "file": "TestRun.java_1.md",
+      "x": 6880,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g20",
+      "type": "group",
+      "label": "Component 20",
+      "x": 7600,
+      "y": 1600,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_testcaserepository_testcaserepository_findbyrunid",
+      "type": "file",
+      "file": ".findByRunId().md",
+      "x": 7620,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_testcaserepository_testcaserepository",
+      "type": "file",
+      "file": "TestCaseRepository.md",
+      "x": 7820,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_testcaserepository_java",
+      "type": "file",
+      "file": "TestCaseRepository.java.md",
+      "x": 8020,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_testcaserepository_java",
+      "type": "file",
+      "file": "TestCaseRepository.java_1.md",
+      "x": 7620,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g21",
+      "type": "group",
+      "label": "Component 21",
+      "x": 8340,
+      "y": 1600,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_aiapitesterapplicationtests_aiapitesterapplicationtests_contextloads",
+      "type": "file",
+      "file": ".contextLoads().md",
+      "x": 8360,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_aiapitesterapplicationtests_aiapitesterapplicationtests",
+      "type": "file",
+      "file": "AiApiTesterApplicationTests.md",
+      "x": 8560,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_test_java_com_testai_ai_api_tester_aiapitesterapplicationtests_java",
+      "type": "file",
+      "file": "AiApiTesterApplicationTests.java.md",
+      "x": 8760,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_test_java_com_testai_ai_api_tester_aiapitesterapplicationtests_java",
+      "type": "file",
+      "file": "AiApiTesterApplicationTests.java_1.md",
+      "x": 8360,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g22",
+      "type": "group",
+      "label": "Component 22",
+      "x": 9080,
+      "y": 1600,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_themeprovider_themeprovider",
+      "type": "file",
+      "file": "ThemeProvider().md",
+      "x": 9100,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_theme_themeprovider_tsx",
+      "type": "file",
+      "file": "ThemeProvider.tsx_1.md",
+      "x": 9300,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_components_theme_themeprovider_tsx",
+      "type": "file",
+      "file": "ThemeProvider.tsx.md",
+      "x": 9500,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_themeprovider_getinitialtheme",
+      "type": "file",
+      "file": "getInitialTheme().md",
+      "x": 9100,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g23",
+      "type": "group",
+      "label": "Component 23",
+      "x": 9820,
+      "y": 1600,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_breadcrumb_breadcrumbellipsis",
+      "type": "file",
+      "file": "BreadcrumbEllipsis().md",
+      "x": 9840,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_breadcrumb_breadcrumbseparator",
+      "type": "file",
+      "file": "BreadcrumbSeparator().md",
+      "x": 10040,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_breadcrumb_tsx",
+      "type": "file",
+      "file": "breadcrumb.tsx_1.md",
+      "x": 10240,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_components_ui_breadcrumb_tsx",
+      "type": "file",
+      "file": "breadcrumb.tsx.md",
+      "x": 9840,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g24",
+      "type": "group",
+      "label": "Component 24",
+      "x": 10560,
+      "y": 1600,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_apikeys_apikeys",
+      "type": "file",
+      "file": "ApiKeys().md",
+      "x": 10580,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_pages_apikeys_tsx",
+      "type": "file",
+      "file": "ApiKeys.tsx_1.md",
+      "x": 10780,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_pages_apikeys_tsx",
+      "type": "file",
+      "file": "ApiKeys.tsx.md",
+      "x": 10980,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_apikeys_randomkeysegment",
+      "type": "file",
+      "file": "randomKeySegment().md",
+      "x": 10580,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g25",
+      "type": "group",
+      "label": "Component 25",
+      "x": 11300,
+      "y": 1600,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_pages_notifications_tsx",
+      "type": "file",
+      "file": "Notifications.tsx_1.md",
+      "x": 11320,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_pages_notifications_tsx",
+      "type": "file",
+      "file": "Notifications.tsx.md",
+      "x": 11520,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_notifications_markallread",
+      "type": "file",
+      "file": "markAllRead().md",
+      "x": 11720,
+      "y": 1680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_notifications_toggleread",
+      "type": "file",
+      "file": "toggleRead().md",
+      "x": 11320,
+      "y": 1760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g26",
+      "type": "group",
+      "label": "Component 26",
+      "x": 0,
+      "y": 2080,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_generaterequest_generaterequest",
+      "type": "file",
+      "file": "GenerateRequest.md",
+      "x": 20,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_generaterequest_java",
+      "type": "file",
+      "file": "GenerateRequest.java.md",
+      "x": 220,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_generaterequest_java",
+      "type": "file",
+      "file": "GenerateRequest.java_1.md",
+      "x": 420,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g27",
+      "type": "group",
+      "label": "Component 27",
+      "x": 1620,
+      "y": 2080,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_insightrequest_insightrequest",
+      "type": "file",
+      "file": "InsightRequest.md",
+      "x": 1640,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_insightrequest_java",
+      "type": "file",
+      "file": "InsightRequest.java.md",
+      "x": 1840,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_insightrequest_java",
+      "type": "file",
+      "file": "InsightRequest.java_1.md",
+      "x": 2040,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g28",
+      "type": "group",
+      "label": "Component 28",
+      "x": 3020,
+      "y": 2080,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_insightresponse_insightresponse",
+      "type": "file",
+      "file": "InsightResponse.md",
+      "x": 3040,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_insightresponse_java",
+      "type": "file",
+      "file": "InsightResponse.java.md",
+      "x": 3240,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_insightresponse_java",
+      "type": "file",
+      "file": "InsightResponse.java_1.md",
+      "x": 3440,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g29",
+      "type": "group",
+      "label": "Component 29",
+      "x": 3980,
+      "y": 2080,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_resultssummarydto_resultssummarydto",
+      "type": "file",
+      "file": "ResultsSummaryDto.md",
+      "x": 4000,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_resultssummarydto_java",
+      "type": "file",
+      "file": "ResultsSummaryDto.java.md",
+      "x": 4200,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_resultssummarydto_java",
+      "type": "file",
+      "file": "ResultsSummaryDto.java_1.md",
+      "x": 4400,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g30",
+      "type": "group",
+      "label": "Component 30",
+      "x": 4940,
+      "y": 2080,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_runtestsrequest_runtestsrequest",
+      "type": "file",
+      "file": "RunTestsRequest.md",
+      "x": 4960,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_runtestsrequest_java",
+      "type": "file",
+      "file": "RunTestsRequest.java.md",
+      "x": 5160,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_runtestsrequest_java",
+      "type": "file",
+      "file": "RunTestsRequest.java_1.md",
+      "x": 5360,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g31",
+      "type": "group",
+      "label": "Component 31",
+      "x": 5900,
+      "y": 2080,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_testcasedto_testcasedto",
+      "type": "file",
+      "file": "TestCaseDto.md",
+      "x": 5920,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_testcasedto_java",
+      "type": "file",
+      "file": "TestCaseDto.java.md",
+      "x": 6120,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_testcasedto_java",
+      "type": "file",
+      "file": "TestCaseDto.java_1.md",
+      "x": 6320,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g32",
+      "type": "group",
+      "label": "Component 32",
+      "x": 6860,
+      "y": 2080,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_testresultdto_testresultdto",
+      "type": "file",
+      "file": "TestResultDto.md",
+      "x": 6880,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_testresultdto_java",
+      "type": "file",
+      "file": "TestResultDto.java.md",
+      "x": 7080,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_testresultdto_java",
+      "type": "file",
+      "file": "TestResultDto.java_1.md",
+      "x": 7280,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g33",
+      "type": "group",
+      "label": "Component 33",
+      "x": 7600,
+      "y": 2080,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_user_user",
+      "type": "file",
+      "file": "User.md",
+      "x": 7620,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_entity_user_java",
+      "type": "file",
+      "file": "User.java.md",
+      "x": 7820,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_entity_user_java",
+      "type": "file",
+      "file": "User.java_1.md",
+      "x": 8020,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g34",
+      "type": "group",
+      "label": "Component 34",
+      "x": 8340,
+      "y": 2080,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_testrunrepository_testrunrepository",
+      "type": "file",
+      "file": "TestRunRepository.md",
+      "x": 8360,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_testrunrepository_java",
+      "type": "file",
+      "file": "TestRunRepository.java.md",
+      "x": 8560,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_testrunrepository_java",
+      "type": "file",
+      "file": "TestRunRepository.java_1.md",
+      "x": 8760,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g35",
+      "type": "group",
+      "label": "Component 35",
+      "x": 9080,
+      "y": 2080,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_layout_appheader_tsx",
+      "type": "file",
+      "file": "AppHeader.tsx_1.md",
+      "x": 9100,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_components_layout_appheader_tsx",
+      "type": "file",
+      "file": "AppHeader.tsx.md",
+      "x": 9300,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_appheader_handlesignout",
+      "type": "file",
+      "file": "handleSignOut().md",
+      "x": 9500,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g36",
+      "type": "group",
+      "label": "Component 36",
+      "x": 9820,
+      "y": 2080,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_applayout_applayout",
+      "type": "file",
+      "file": "AppLayout().md",
+      "x": 9840,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_layout_applayout_tsx",
+      "type": "file",
+      "file": "AppLayout.tsx_1.md",
+      "x": 10040,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_components_layout_applayout_tsx",
+      "type": "file",
+      "file": "AppLayout.tsx.md",
+      "x": 10240,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g37",
+      "type": "group",
+      "label": "Component 37",
+      "x": 10560,
+      "y": 2080,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_protectedoutlet_protectedoutlet",
+      "type": "file",
+      "file": "ProtectedOutlet().md",
+      "x": 10580,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_layout_protectedoutlet_tsx",
+      "type": "file",
+      "file": "ProtectedOutlet.tsx_1.md",
+      "x": 10780,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_components_layout_protectedoutlet_tsx",
+      "type": "file",
+      "file": "ProtectedOutlet.tsx.md",
+      "x": 10980,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g38",
+      "type": "group",
+      "label": "Component 38",
+      "x": 11300,
+      "y": 2080,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_methodbadge_methodbadge",
+      "type": "file",
+      "file": "MethodBadge().md",
+      "x": 11320,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_testbuddy_methodbadge_tsx",
+      "type": "file",
+      "file": "MethodBadge.tsx_1.md",
+      "x": 11520,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_components_testbuddy_methodbadge_tsx",
+      "type": "file",
+      "file": "MethodBadge.tsx.md",
+      "x": 11720,
+      "y": 2160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g39",
+      "type": "group",
+      "label": "Component 39",
+      "x": 0,
+      "y": 2560,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_statusbadge_statusbadge",
+      "type": "file",
+      "file": "StatusBadge().md",
+      "x": 20,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_testbuddy_statusbadge_tsx",
+      "type": "file",
+      "file": "StatusBadge.tsx_1.md",
+      "x": 220,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_components_testbuddy_statusbadge_tsx",
+      "type": "file",
+      "file": "StatusBadge.tsx.md",
+      "x": 420,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g40",
+      "type": "group",
+      "label": "Component 40",
+      "x": 1620,
+      "y": 2560,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_calendar_calendar",
+      "type": "file",
+      "file": "Calendar().md",
+      "x": 1640,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_calendar_tsx",
+      "type": "file",
+      "file": "calendar.tsx_1.md",
+      "x": 1840,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_components_ui_calendar_tsx",
+      "type": "file",
+      "file": "calendar.tsx.md",
+      "x": 2040,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g41",
+      "type": "group",
+      "label": "Component 41",
+      "x": 3020,
+      "y": 2560,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_carousel_tsx",
+      "type": "file",
+      "file": "carousel.tsx_1.md",
+      "x": 3040,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_components_ui_carousel_tsx",
+      "type": "file",
+      "file": "carousel.tsx.md",
+      "x": 3240,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_carousel_usecarousel",
+      "type": "file",
+      "file": "useCarousel().md",
+      "x": 3440,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g42",
+      "type": "group",
+      "label": "Component 42",
+      "x": 3980,
+      "y": 2560,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_chart_tsx",
+      "type": "file",
+      "file": "chart.tsx_1.md",
+      "x": 4000,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_components_ui_chart_tsx",
+      "type": "file",
+      "file": "chart.tsx.md",
+      "x": 4200,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_chart_usechart",
+      "type": "file",
+      "file": "useChart().md",
+      "x": 4400,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g43",
+      "type": "group",
+      "label": "Component 43",
+      "x": 4940,
+      "y": 2560,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_form_tsx",
+      "type": "file",
+      "file": "form.tsx_1.md",
+      "x": 4960,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_components_ui_form_tsx",
+      "type": "file",
+      "file": "form.tsx.md",
+      "x": 5160,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_form_useformfield",
+      "type": "file",
+      "file": "useFormField().md",
+      "x": 5360,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g44",
+      "type": "group",
+      "label": "Component 44",
+      "x": 5900,
+      "y": 2560,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_resizable_resizablepanelgroup",
+      "type": "file",
+      "file": "ResizablePanelGroup().md",
+      "x": 5920,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_resizable_tsx",
+      "type": "file",
+      "file": "resizable.tsx_1.md",
+      "x": 6120,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_components_ui_resizable_tsx",
+      "type": "file",
+      "file": "resizable.tsx.md",
+      "x": 6320,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g45",
+      "type": "group",
+      "label": "Component 45",
+      "x": 6860,
+      "y": 2560,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_sonner_toaster",
+      "type": "file",
+      "file": "Toaster().md",
+      "x": 6880,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_sonner_tsx",
+      "type": "file",
+      "file": "sonner.tsx_1.md",
+      "x": 7080,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_components_ui_sonner_tsx",
+      "type": "file",
+      "file": "sonner.tsx.md",
+      "x": 7280,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g46",
+      "type": "group",
+      "label": "Component 46",
+      "x": 7600,
+      "y": 2560,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_hooks_use_mobile_tsx",
+      "type": "file",
+      "file": "use-mobile.tsx_1.md",
+      "x": 7620,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_hooks_use_mobile_tsx",
+      "type": "file",
+      "file": "use-mobile.tsx.md",
+      "x": 7820,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_use_mobile_useismobile",
+      "type": "file",
+      "file": "useIsMobile().md",
+      "x": 8020,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g47",
+      "type": "group",
+      "label": "Component 47",
+      "x": 8340,
+      "y": 2560,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_signin_signin",
+      "type": "file",
+      "file": "SignIn().md",
+      "x": 8360,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_pages_signin_tsx",
+      "type": "file",
+      "file": "SignIn.tsx_1.md",
+      "x": 8560,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_pages_signin_tsx",
+      "type": "file",
+      "file": "SignIn.tsx.md",
+      "x": 8760,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g48",
+      "type": "group",
+      "label": "Component 48",
+      "x": 9080,
+      "y": 2560,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_signup_signup",
+      "type": "file",
+      "file": "SignUp().md",
+      "x": 9100,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_pages_signup_tsx",
+      "type": "file",
+      "file": "SignUp.tsx_1.md",
+      "x": 9300,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_frontend_src_pages_signup_tsx",
+      "type": "file",
+      "file": "SignUp.tsx.md",
+      "x": 9500,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g49",
+      "type": "group",
+      "label": "Component 49",
+      "x": 9820,
+      "y": 2560,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_readme_db_testcases",
+      "type": "file",
+      "file": "DB Table test_cases.md",
+      "x": 9840,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_db_testresults",
+      "type": "file",
+      "file": "DB Table test_results.md",
+      "x": 10040,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_db_testruns",
+      "type": "file",
+      "file": "DB Table test_runs.md",
+      "x": 10240,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g50",
+      "type": "group",
+      "label": "Component 50",
+      "x": 10560,
+      "y": 2560,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_placeholder_svg_asset",
+      "type": "file",
+      "file": "Placeholder SVG Logo.md",
+      "x": 10580,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_placeholder_svg_wordmark",
+      "type": "file",
+      "file": "Text Wordmark Design.md",
+      "x": 10780,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g51",
+      "type": "group",
+      "label": "Component 51",
+      "x": 11300,
+      "y": 2560,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_build_and_push_ps1",
+      "type": "file",
+      "file": "build-and-push.ps1.md",
+      "x": 11320,
+      "y": 2640,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g52",
+      "type": "group",
+      "label": "Component 52",
+      "x": 0,
+      "y": 3040,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_frontend_eslint_config_js",
+      "type": "file",
+      "file": "eslint.config.js.md",
+      "x": 20,
+      "y": 3120,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g53",
+      "type": "group",
+      "label": "Component 53",
+      "x": 1620,
+      "y": 3040,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_frontend_postcss_config_js",
+      "type": "file",
+      "file": "postcss.config.js.md",
+      "x": 1640,
+      "y": 3120,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g54",
+      "type": "group",
+      "label": "Component 54",
+      "x": 3020,
+      "y": 3040,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_frontend_tailwind_config_ts",
+      "type": "file",
+      "file": "tailwind.config.ts.md",
+      "x": 3040,
+      "y": 3120,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g55",
+      "type": "group",
+      "label": "Component 55",
+      "x": 3980,
+      "y": 3040,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_frontend_vite_config_ts",
+      "type": "file",
+      "file": "vite.config.ts.md",
+      "x": 4000,
+      "y": 3120,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g56",
+      "type": "group",
+      "label": "Component 56",
+      "x": 4940,
+      "y": 3040,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_frontend_vitest_config_ts",
+      "type": "file",
+      "file": "vitest.config.ts.md",
+      "x": 4960,
+      "y": 3120,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g57",
+      "type": "group",
+      "label": "Component 57",
+      "x": 5900,
+      "y": 3040,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_frontend_src_vite_env_d_ts",
+      "type": "file",
+      "file": "vite-env.d.ts.md",
+      "x": 5920,
+      "y": 3120,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g58",
+      "type": "group",
+      "label": "Component 58",
+      "x": 6860,
+      "y": 3040,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_frontend_src_components_navlink_tsx",
+      "type": "file",
+      "file": "NavLink.tsx.md",
+      "x": 6880,
+      "y": 3120,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g59",
+      "type": "group",
+      "label": "Component 59",
+      "x": 7600,
+      "y": 3040,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_frontend_src_components_layout_appsidebar_tsx",
+      "type": "file",
+      "file": "AppSidebar.tsx.md",
+      "x": 7620,
+      "y": 3120,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g60",
+      "type": "group",
+      "label": "Component 60",
+      "x": 8340,
+      "y": 3040,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_frontend_src_components_testbuddy_statcard_tsx",
+      "type": "file",
+      "file": "StatCard.tsx.md",
+      "x": 8360,
+      "y": 3120,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g61",
+      "type": "group",
+      "label": "Component 61",
+      "x": 9080,
+      "y": 3040,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_frontend_src_components_ui_accordion_tsx",
+      "type": "file",
+      "file": "accordion.tsx.md",
+      "x": 9100,
+      "y": 3120,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g62",
+      "type": "group",
+      "label": "Component 62",
+      "x": 9820,
+      "y": 3040,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_frontend_src_components_ui_alert_dialog_tsx",
+      "type": "file",
+      "file": "alert-dialog.tsx.md",
+      "x": 9840,
+      "y": 3120,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g63",
+      "type": "group",
+      "label": "Component 63",
+      "x": 10560,
+      "y": 3040,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_frontend_src_components_ui_alert_tsx",
+      "type": "file",
+      "file": "alert.tsx.md",
+      "x": 10580,
+      "y": 3120,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g64",
+      "type": "group",
+      "label": "Component 64",
+      "x": 11300,
+      "y": 3040,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_frontend_src_components_ui_aspect_ratio_tsx",
+      "type": "file",
+      "file": "aspect-ratio.tsx.md",
+      "x": 11320,
+      "y": 3120,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g65",
+      "type": "group",
+      "label": "Component 65",
+      "x": 0,
+      "y": 3520,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_frontend_src_components_ui_avatar_tsx",
+      "type": "file",
+      "file": "avatar.tsx.md",
+      "x": 20,
+      "y": 3600,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g66",
+      "type": "group",
+      "label": "Component 66",
+      "x": 1620,
+      "y": 3520,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_frontend_src_components_ui_badge_tsx",
+      "type": "file",
+      "file": "badge.tsx.md",
+      "x": 1640,
+      "y": 3600,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g67",
+      "type": "group",
+      "label": "Component 67",
+      "x": 3020,
+      "y": 3520,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_frontend_src_components_ui_button_tsx",
+      "type": "file",
+      "file": "button.tsx.md",
+      "x": 3040,
+      "y": 3600,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g68",
+      "type": "group",
+      "label": "Component 68",
+      "x": 3980,
+      "y": 3520,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_frontend_src_components_ui_card_tsx",
+      "type": "file",
+      "file": "card.tsx.md",
+      "x": 4000,
+      "y": 3600,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g69",
+      "type": "group",
+      "label": "Component 69",
+      "x": 4940,
+      "y": 3520,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_frontend_src_components_ui_checkbox_tsx",
+      "type": "file",
+      "file": "checkbox.tsx.md",
+      "x": 4960,
+      "y": 3600,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g70",
+      "type": "group",
+      "label": "Component 70",
+      "x": 5900,
+      "y": 3520,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_frontend_src_components_ui_collapsible_tsx",
+      "type": "file",
+      "file": "collapsible.tsx.md",
+      "x": 5920,
+      "y": 3600,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g71",
+      "type": "group",
+      "label": "Component 71",
+      "x": 6860,
+      "y": 3520,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_frontend_src_components_ui_command_tsx",
+      "type": "file",
+      "file": "command.tsx.md",
+      "x": 6880,
+      "y": 3600,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g72",
+      "type": "group",
+      "label": "Component 72",
+      "x": 7600,
+      "y": 3520,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_frontend_src_components_ui_context_menu_tsx",
+      "type": "file",
+      "file": "context-menu.tsx.md",
+      "x": 7620,
+      "y": 3600,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g73",
+      "type": "group",
+      "label": "Component 73",
+      "x": 8340,
+      "y": 3520,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_frontend_src_components_ui_dialog_tsx",
+      "type": "file",
+      "file": "dialog.tsx.md",
+      "x": 8360,
+      "y": 3600,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g74",
+      "type": "group",
+      "label": "Component 74",
+      "x": 9080,
+      "y": 3520,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_frontend_src_components_ui_dropdown_menu_tsx",
+      "type": "file",
+      "file": "dropdown-menu.tsx.md",
+      "x": 9100,
+      "y": 3600,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g75",
+      "type": "group",
+      "label": "Component 75",
+      "x": 9820,
+      "y": 3520,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_frontend_src_components_ui_hover_card_tsx",
+      "type": "file",
+      "file": "hover-card.tsx.md",
+      "x": 9840,
+      "y": 3600,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g76",
+      "type": "group",
+      "label": "Component 76",
+      "x": 10560,
+      "y": 3520,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_frontend_src_components_ui_input_otp_tsx",
+      "type": "file",
+      "file": "input-otp.tsx.md",
+      "x": 10580,
+      "y": 3600,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g77",
+      "type": "group",
+      "label": "Component 77",
+      "x": 11300,
+      "y": 3520,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_frontend_src_components_ui_input_tsx",
+      "type": "file",
+      "file": "input.tsx.md",
+      "x": 11320,
+      "y": 3600,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g78",
+      "type": "group",
+      "label": "Component 78",
+      "x": 0,
+      "y": 4000,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_frontend_src_components_ui_label_tsx",
+      "type": "file",
+      "file": "label.tsx.md",
+      "x": 20,
+      "y": 4080,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g79",
+      "type": "group",
+      "label": "Component 79",
+      "x": 1620,
+      "y": 4000,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_frontend_src_components_ui_menubar_tsx",
+      "type": "file",
+      "file": "menubar.tsx.md",
+      "x": 1640,
+      "y": 4080,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g80",
+      "type": "group",
+      "label": "Component 80",
+      "x": 3020,
+      "y": 4000,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_frontend_src_components_ui_navigation_menu_tsx",
+      "type": "file",
+      "file": "navigation-menu.tsx.md",
+      "x": 3040,
+      "y": 4080,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g81",
+      "type": "group",
+      "label": "Component 81",
+      "x": 3980,
+      "y": 4000,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_frontend_src_components_ui_popover_tsx",
+      "type": "file",
+      "file": "popover.tsx.md",
+      "x": 4000,
+      "y": 4080,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g82",
+      "type": "group",
+      "label": "Component 82",
+      "x": 4940,
+      "y": 4000,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_frontend_src_components_ui_progress_tsx",
+      "type": "file",
+      "file": "progress.tsx.md",
+      "x": 4960,
+      "y": 4080,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g83",
+      "type": "group",
+      "label": "Component 83",
+      "x": 5900,
+      "y": 4000,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_frontend_src_components_ui_radio_group_tsx",
+      "type": "file",
+      "file": "radio-group.tsx.md",
+      "x": 5920,
+      "y": 4080,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g84",
+      "type": "group",
+      "label": "Component 84",
+      "x": 6860,
+      "y": 4000,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_frontend_src_components_ui_scroll_area_tsx",
+      "type": "file",
+      "file": "scroll-area.tsx.md",
+      "x": 6880,
+      "y": 4080,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g85",
+      "type": "group",
+      "label": "Component 85",
+      "x": 7600,
+      "y": 4000,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_frontend_src_components_ui_select_tsx",
+      "type": "file",
+      "file": "select.tsx.md",
+      "x": 7620,
+      "y": 4080,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g86",
+      "type": "group",
+      "label": "Component 86",
+      "x": 8340,
+      "y": 4000,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_frontend_src_components_ui_separator_tsx",
+      "type": "file",
+      "file": "separator.tsx.md",
+      "x": 8360,
+      "y": 4080,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g87",
+      "type": "group",
+      "label": "Component 87",
+      "x": 9080,
+      "y": 4000,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_frontend_src_components_ui_sheet_tsx",
+      "type": "file",
+      "file": "sheet.tsx.md",
+      "x": 9100,
+      "y": 4080,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g88",
+      "type": "group",
+      "label": "Component 88",
+      "x": 9820,
+      "y": 4000,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_frontend_src_components_ui_skeleton_tsx",
+      "type": "file",
+      "file": "skeleton.tsx.md",
+      "x": 9840,
+      "y": 4080,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g89",
+      "type": "group",
+      "label": "Component 89",
+      "x": 10560,
+      "y": 4000,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_frontend_src_components_ui_slider_tsx",
+      "type": "file",
+      "file": "slider.tsx.md",
+      "x": 10580,
+      "y": 4080,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g90",
+      "type": "group",
+      "label": "Component 90",
+      "x": 11300,
+      "y": 4000,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_frontend_src_components_ui_switch_tsx",
+      "type": "file",
+      "file": "switch.tsx.md",
+      "x": 11320,
+      "y": 4080,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g91",
+      "type": "group",
+      "label": "Component 91",
+      "x": 0,
+      "y": 4480,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_frontend_src_components_ui_table_tsx",
+      "type": "file",
+      "file": "table.tsx.md",
+      "x": 20,
+      "y": 4560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g92",
+      "type": "group",
+      "label": "Component 92",
+      "x": 1620,
+      "y": 4480,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_frontend_src_components_ui_tabs_tsx",
+      "type": "file",
+      "file": "tabs.tsx.md",
+      "x": 1640,
+      "y": 4560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g93",
+      "type": "group",
+      "label": "Component 93",
+      "x": 3020,
+      "y": 4480,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_frontend_src_components_ui_textarea_tsx",
+      "type": "file",
+      "file": "textarea.tsx.md",
+      "x": 3040,
+      "y": 4560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g94",
+      "type": "group",
+      "label": "Component 94",
+      "x": 3980,
+      "y": 4480,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_frontend_src_components_ui_toast_tsx",
+      "type": "file",
+      "file": "toast.tsx.md",
+      "x": 4000,
+      "y": 4560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g95",
+      "type": "group",
+      "label": "Component 95",
+      "x": 4940,
+      "y": 4480,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_frontend_src_components_ui_toggle_group_tsx",
+      "type": "file",
+      "file": "toggle-group.tsx.md",
+      "x": 4960,
+      "y": 4560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g96",
+      "type": "group",
+      "label": "Component 96",
+      "x": 5900,
+      "y": 4480,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_frontend_src_components_ui_toggle_tsx",
+      "type": "file",
+      "file": "toggle.tsx.md",
+      "x": 5920,
+      "y": 4560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g97",
+      "type": "group",
+      "label": "Component 97",
+      "x": 6860,
+      "y": 4480,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_frontend_src_components_ui_tooltip_tsx",
+      "type": "file",
+      "file": "tooltip.tsx.md",
+      "x": 6880,
+      "y": 4560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g98",
+      "type": "group",
+      "label": "Component 98",
+      "x": 7600,
+      "y": 4480,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_frontend_src_components_ui_use_toast_ts",
+      "type": "file",
+      "file": "use-toast.ts.md",
+      "x": 7620,
+      "y": 4560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g99",
+      "type": "group",
+      "label": "Component 99",
+      "x": 8340,
+      "y": 4480,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_frontend_src_data_mock_ts",
+      "type": "file",
+      "file": "mock.ts.md",
+      "x": 8360,
+      "y": 4560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g100",
+      "type": "group",
+      "label": "Component 100",
+      "x": 9080,
+      "y": 4480,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_frontend_src_pages_dashboard_tsx",
+      "type": "file",
+      "file": "Dashboard.tsx.md",
+      "x": 9100,
+      "y": 4560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g101",
+      "type": "group",
+      "label": "Component 101",
+      "x": 9820,
+      "y": 4480,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_frontend_src_pages_index_tsx",
+      "type": "file",
+      "file": "Index.tsx.md",
+      "x": 9840,
+      "y": 4560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g102",
+      "type": "group",
+      "label": "Component 102",
+      "x": 10560,
+      "y": 4480,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_frontend_src_pages_insights_tsx",
+      "type": "file",
+      "file": "Insights.tsx.md",
+      "x": 10580,
+      "y": 4560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g103",
+      "type": "group",
+      "label": "Component 103",
+      "x": 11300,
+      "y": 4480,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_frontend_src_pages_settings_tsx",
+      "type": "file",
+      "file": "Settings.tsx.md",
+      "x": 11320,
+      "y": 4560,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g104",
+      "type": "group",
+      "label": "Component 104",
+      "x": 0,
+      "y": 4960,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_frontend_src_store_appstore_ts",
+      "type": "file",
+      "file": "appStore.ts.md",
+      "x": 20,
+      "y": 5040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g105",
+      "type": "group",
+      "label": "Component 105",
+      "x": 1620,
+      "y": 4960,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_frontend_src_test_example_test_ts",
+      "type": "file",
+      "file": "example.test.ts.md",
+      "x": 1640,
+      "y": 5040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g106",
+      "type": "group",
+      "label": "Component 106",
+      "x": 3020,
+      "y": 4960,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_frontend_src_test_setup_ts",
+      "type": "file",
+      "file": "setup.ts.md",
+      "x": 3040,
+      "y": 5040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g107",
+      "type": "group",
+      "label": "Component 107",
+      "x": 3980,
+      "y": 4960,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_build_and_push_ps1",
+      "type": "file",
+      "file": "build-and-push.ps1_1.md",
+      "x": 4000,
+      "y": 5040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g108",
+      "type": "group",
+      "label": "Component 108",
+      "x": 4940,
+      "y": 4960,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_eslint_config_js",
+      "type": "file",
+      "file": "eslint.config.js_1.md",
+      "x": 4960,
+      "y": 5040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g109",
+      "type": "group",
+      "label": "Component 109",
+      "x": 5900,
+      "y": 4960,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_postcss_config_js",
+      "type": "file",
+      "file": "postcss.config.js_1.md",
+      "x": 5920,
+      "y": 5040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g110",
+      "type": "group",
+      "label": "Component 110",
+      "x": 6860,
+      "y": 4960,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_tailwind_config_ts",
+      "type": "file",
+      "file": "tailwind.config.ts_1.md",
+      "x": 6880,
+      "y": 5040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g111",
+      "type": "group",
+      "label": "Component 111",
+      "x": 7600,
+      "y": 4960,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_vite_config_ts",
+      "type": "file",
+      "file": "vite.config.ts_1.md",
+      "x": 7620,
+      "y": 5040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g112",
+      "type": "group",
+      "label": "Component 112",
+      "x": 8340,
+      "y": 4960,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_vitest_config_ts",
+      "type": "file",
+      "file": "vitest.config.ts_1.md",
+      "x": 8360,
+      "y": 5040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g113",
+      "type": "group",
+      "label": "Component 113",
+      "x": 9080,
+      "y": 4960,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_vite_env_d_ts",
+      "type": "file",
+      "file": "vite-env.d.ts_1.md",
+      "x": 9100,
+      "y": 5040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g114",
+      "type": "group",
+      "label": "Component 114",
+      "x": 9820,
+      "y": 4960,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_navlink_tsx",
+      "type": "file",
+      "file": "NavLink.tsx_1.md",
+      "x": 9840,
+      "y": 5040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g115",
+      "type": "group",
+      "label": "Component 115",
+      "x": 10560,
+      "y": 4960,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_layout_appsidebar_tsx",
+      "type": "file",
+      "file": "AppSidebar.tsx_1.md",
+      "x": 10580,
+      "y": 5040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g116",
+      "type": "group",
+      "label": "Component 116",
+      "x": 11300,
+      "y": 4960,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_testbuddy_statcard_tsx",
+      "type": "file",
+      "file": "StatCard.tsx_1.md",
+      "x": 11320,
+      "y": 5040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g117",
+      "type": "group",
+      "label": "Component 117",
+      "x": 0,
+      "y": 5440,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_accordion_tsx",
+      "type": "file",
+      "file": "accordion.tsx_1.md",
+      "x": 20,
+      "y": 5520,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g118",
+      "type": "group",
+      "label": "Component 118",
+      "x": 1620,
+      "y": 5440,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_alert_dialog_tsx",
+      "type": "file",
+      "file": "alert-dialog.tsx_1.md",
+      "x": 1640,
+      "y": 5520,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g119",
+      "type": "group",
+      "label": "Component 119",
+      "x": 3020,
+      "y": 5440,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_alert_tsx",
+      "type": "file",
+      "file": "alert.tsx_1.md",
+      "x": 3040,
+      "y": 5520,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g120",
+      "type": "group",
+      "label": "Component 120",
+      "x": 3980,
+      "y": 5440,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_aspect_ratio_tsx",
+      "type": "file",
+      "file": "aspect-ratio.tsx_1.md",
+      "x": 4000,
+      "y": 5520,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g121",
+      "type": "group",
+      "label": "Component 121",
+      "x": 4940,
+      "y": 5440,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_avatar_tsx",
+      "type": "file",
+      "file": "avatar.tsx_1.md",
+      "x": 4960,
+      "y": 5520,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g122",
+      "type": "group",
+      "label": "Component 122",
+      "x": 5900,
+      "y": 5440,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_badge_tsx",
+      "type": "file",
+      "file": "badge.tsx_1.md",
+      "x": 5920,
+      "y": 5520,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g123",
+      "type": "group",
+      "label": "Component 123",
+      "x": 6860,
+      "y": 5440,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_button_tsx",
+      "type": "file",
+      "file": "button.tsx_1.md",
+      "x": 6880,
+      "y": 5520,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g124",
+      "type": "group",
+      "label": "Component 124",
+      "x": 7600,
+      "y": 5440,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_card_tsx",
+      "type": "file",
+      "file": "card.tsx_1.md",
+      "x": 7620,
+      "y": 5520,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g125",
+      "type": "group",
+      "label": "Component 125",
+      "x": 8340,
+      "y": 5440,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_checkbox_tsx",
+      "type": "file",
+      "file": "checkbox.tsx_1.md",
+      "x": 8360,
+      "y": 5520,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g126",
+      "type": "group",
+      "label": "Component 126",
+      "x": 9080,
+      "y": 5440,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_collapsible_tsx",
+      "type": "file",
+      "file": "collapsible.tsx_1.md",
+      "x": 9100,
+      "y": 5520,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g127",
+      "type": "group",
+      "label": "Component 127",
+      "x": 9820,
+      "y": 5440,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_command_tsx",
+      "type": "file",
+      "file": "command.tsx_1.md",
+      "x": 9840,
+      "y": 5520,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g128",
+      "type": "group",
+      "label": "Component 128",
+      "x": 10560,
+      "y": 5440,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_context_menu_tsx",
+      "type": "file",
+      "file": "context-menu.tsx_1.md",
+      "x": 10580,
+      "y": 5520,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g129",
+      "type": "group",
+      "label": "Component 129",
+      "x": 11300,
+      "y": 5440,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_dialog_tsx",
+      "type": "file",
+      "file": "dialog.tsx_1.md",
+      "x": 11320,
+      "y": 5520,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g130",
+      "type": "group",
+      "label": "Component 130",
+      "x": 0,
+      "y": 5920,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_dropdown_menu_tsx",
+      "type": "file",
+      "file": "dropdown-menu.tsx_1.md",
+      "x": 20,
+      "y": 6000,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g131",
+      "type": "group",
+      "label": "Component 131",
+      "x": 1620,
+      "y": 5920,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_hover_card_tsx",
+      "type": "file",
+      "file": "hover-card.tsx_1.md",
+      "x": 1640,
+      "y": 6000,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g132",
+      "type": "group",
+      "label": "Component 132",
+      "x": 3020,
+      "y": 5920,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_input_otp_tsx",
+      "type": "file",
+      "file": "input-otp.tsx_1.md",
+      "x": 3040,
+      "y": 6000,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g133",
+      "type": "group",
+      "label": "Component 133",
+      "x": 3980,
+      "y": 5920,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_input_tsx",
+      "type": "file",
+      "file": "input.tsx_1.md",
+      "x": 4000,
+      "y": 6000,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g134",
+      "type": "group",
+      "label": "Component 134",
+      "x": 4940,
+      "y": 5920,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_label_tsx",
+      "type": "file",
+      "file": "label.tsx_1.md",
+      "x": 4960,
+      "y": 6000,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g135",
+      "type": "group",
+      "label": "Component 135",
+      "x": 5900,
+      "y": 5920,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_menubar_tsx",
+      "type": "file",
+      "file": "menubar.tsx_1.md",
+      "x": 5920,
+      "y": 6000,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g136",
+      "type": "group",
+      "label": "Component 136",
+      "x": 6860,
+      "y": 5920,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_navigation_menu_tsx",
+      "type": "file",
+      "file": "navigation-menu.tsx_1.md",
+      "x": 6880,
+      "y": 6000,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g137",
+      "type": "group",
+      "label": "Component 137",
+      "x": 7600,
+      "y": 5920,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_popover_tsx",
+      "type": "file",
+      "file": "popover.tsx_1.md",
+      "x": 7620,
+      "y": 6000,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g138",
+      "type": "group",
+      "label": "Component 138",
+      "x": 8340,
+      "y": 5920,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_progress_tsx",
+      "type": "file",
+      "file": "progress.tsx_1.md",
+      "x": 8360,
+      "y": 6000,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g139",
+      "type": "group",
+      "label": "Component 139",
+      "x": 9080,
+      "y": 5920,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_radio_group_tsx",
+      "type": "file",
+      "file": "radio-group.tsx_1.md",
+      "x": 9100,
+      "y": 6000,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g140",
+      "type": "group",
+      "label": "Component 140",
+      "x": 9820,
+      "y": 5920,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_scroll_area_tsx",
+      "type": "file",
+      "file": "scroll-area.tsx_1.md",
+      "x": 9840,
+      "y": 6000,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g141",
+      "type": "group",
+      "label": "Component 141",
+      "x": 10560,
+      "y": 5920,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_select_tsx",
+      "type": "file",
+      "file": "select.tsx_1.md",
+      "x": 10580,
+      "y": 6000,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g142",
+      "type": "group",
+      "label": "Component 142",
+      "x": 11300,
+      "y": 5920,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_separator_tsx",
+      "type": "file",
+      "file": "separator.tsx_1.md",
+      "x": 11320,
+      "y": 6000,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g143",
+      "type": "group",
+      "label": "Component 143",
+      "x": 0,
+      "y": 6400,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_sheet_tsx",
+      "type": "file",
+      "file": "sheet.tsx_1.md",
+      "x": 20,
+      "y": 6480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g144",
+      "type": "group",
+      "label": "Component 144",
+      "x": 1620,
+      "y": 6400,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_skeleton_tsx",
+      "type": "file",
+      "file": "skeleton.tsx_1.md",
+      "x": 1640,
+      "y": 6480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g145",
+      "type": "group",
+      "label": "Component 145",
+      "x": 3020,
+      "y": 6400,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_slider_tsx",
+      "type": "file",
+      "file": "slider.tsx_1.md",
+      "x": 3040,
+      "y": 6480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g146",
+      "type": "group",
+      "label": "Component 146",
+      "x": 3980,
+      "y": 6400,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_switch_tsx",
+      "type": "file",
+      "file": "switch.tsx_1.md",
+      "x": 4000,
+      "y": 6480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g147",
+      "type": "group",
+      "label": "Component 147",
+      "x": 4940,
+      "y": 6400,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_table_tsx",
+      "type": "file",
+      "file": "table.tsx_1.md",
+      "x": 4960,
+      "y": 6480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g148",
+      "type": "group",
+      "label": "Component 148",
+      "x": 5900,
+      "y": 6400,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_tabs_tsx",
+      "type": "file",
+      "file": "tabs.tsx_1.md",
+      "x": 5920,
+      "y": 6480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g149",
+      "type": "group",
+      "label": "Component 149",
+      "x": 6860,
+      "y": 6400,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_textarea_tsx",
+      "type": "file",
+      "file": "textarea.tsx_1.md",
+      "x": 6880,
+      "y": 6480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g150",
+      "type": "group",
+      "label": "Component 150",
+      "x": 7600,
+      "y": 6400,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_toast_tsx",
+      "type": "file",
+      "file": "toast.tsx_1.md",
+      "x": 7620,
+      "y": 6480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g151",
+      "type": "group",
+      "label": "Component 151",
+      "x": 8340,
+      "y": 6400,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_toggle_group_tsx",
+      "type": "file",
+      "file": "toggle-group.tsx_1.md",
+      "x": 8360,
+      "y": 6480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g152",
+      "type": "group",
+      "label": "Component 152",
+      "x": 9080,
+      "y": 6400,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_toggle_tsx",
+      "type": "file",
+      "file": "toggle.tsx_1.md",
+      "x": 9100,
+      "y": 6480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g153",
+      "type": "group",
+      "label": "Component 153",
+      "x": 9820,
+      "y": 6400,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_tooltip_tsx",
+      "type": "file",
+      "file": "tooltip.tsx_1.md",
+      "x": 9840,
+      "y": 6480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g154",
+      "type": "group",
+      "label": "Component 154",
+      "x": 10560,
+      "y": 6400,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_use_toast_ts",
+      "type": "file",
+      "file": "use-toast.ts_2.md",
+      "x": 10580,
+      "y": 6480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g155",
+      "type": "group",
+      "label": "Component 155",
+      "x": 11300,
+      "y": 6400,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_data_mock_ts",
+      "type": "file",
+      "file": "mock.ts_1.md",
+      "x": 11320,
+      "y": 6480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g156",
+      "type": "group",
+      "label": "Component 156",
+      "x": 0,
+      "y": 6880,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_pages_dashboard_tsx",
+      "type": "file",
+      "file": "Dashboard.tsx_1.md",
+      "x": 20,
+      "y": 6960,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g157",
+      "type": "group",
+      "label": "Component 157",
+      "x": 1620,
+      "y": 6880,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_pages_index_tsx",
+      "type": "file",
+      "file": "Index.tsx_1.md",
+      "x": 1640,
+      "y": 6960,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g158",
+      "type": "group",
+      "label": "Component 158",
+      "x": 3020,
+      "y": 6880,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_pages_insights_tsx",
+      "type": "file",
+      "file": "Insights.tsx_1.md",
+      "x": 3040,
+      "y": 6960,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g159",
+      "type": "group",
+      "label": "Component 159",
+      "x": 3980,
+      "y": 6880,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_pages_settings_tsx",
+      "type": "file",
+      "file": "Settings.tsx_1.md",
+      "x": 4000,
+      "y": 6960,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g160",
+      "type": "group",
+      "label": "Component 160",
+      "x": 4940,
+      "y": 6880,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_store_appstore_ts",
+      "type": "file",
+      "file": "appStore.ts_1.md",
+      "x": 4960,
+      "y": 6960,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g161",
+      "type": "group",
+      "label": "Component 161",
+      "x": 5900,
+      "y": 6880,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_test_example_test_ts",
+      "type": "file",
+      "file": "example.test.ts_1.md",
+      "x": 5920,
+      "y": 6960,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g162",
+      "type": "group",
+      "label": "Component 162",
+      "x": 6860,
+      "y": 6880,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_test_setup_ts",
+      "type": "file",
+      "file": "setup.ts_1.md",
+      "x": 6880,
+      "y": 6960,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g163",
+      "type": "group",
+      "label": "Component 163",
+      "x": 7600,
+      "y": 6880,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_frontend_robots",
+      "type": "file",
+      "file": "robots.txt (Crawler Policy).md",
+      "x": 7620,
+      "y": 6960,
+      "width": 180,
+      "height": 60
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_aiapitesterapplication_java_aiapitesterapplication_aiapitesterapplication",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_aiapitesterapplication_java",
+      "toNode": "n_aiapitesterapplication_aiapitesterapplication",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_aiapitesterapplication_aiapitesterapplication_aiapitesterapplication_aiapitesterapplication_main",
+      "fromNode": "n_aiapitesterapplication_aiapitesterapplication",
+      "toNode": "n_aiapitesterapplication_aiapitesterapplication_main",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_aiapitesterapplication_aiapitesterapplication_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_aiapitesterapplication_java",
+      "fromNode": "n_aiapitesterapplication_aiapitesterapplication",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_aiapitesterapplication_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_config_webclientconfig_java_webclientconfig_webclientconfig",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_config_webclientconfig_java",
+      "toNode": "n_webclientconfig_webclientconfig",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_webclientconfig_webclientconfig_webclientconfig_webclientconfig_webclient",
+      "fromNode": "n_webclientconfig_webclientconfig",
+      "toNode": "n_webclientconfig_webclientconfig_webclient",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_webclientconfig_webclientconfig_webclientconfig_webclientconfig_objectmapper",
+      "fromNode": "n_webclientconfig_webclientconfig",
+      "toNode": "n_webclientconfig_webclientconfig_objectmapper",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_webclientconfig_webclientconfig_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_config_webclientconfig_java",
+      "fromNode": "n_webclientconfig_webclientconfig",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_config_webclientconfig_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_authcontroller_java_authcontroller_authcontroller",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_authcontroller_java",
+      "toNode": "n_authcontroller_authcontroller",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_authcontroller_authcontroller_authcontroller_authcontroller_signup",
+      "fromNode": "n_authcontroller_authcontroller",
+      "toNode": "n_authcontroller_authcontroller_signup",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_authcontroller_authcontroller_authcontroller_authcontroller_signin",
+      "fromNode": "n_authcontroller_authcontroller",
+      "toNode": "n_authcontroller_authcontroller_signin",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_authcontroller_authcontroller_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_authcontroller_java",
+      "fromNode": "n_authcontroller_authcontroller",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_authcontroller_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_authcontroller_authcontroller_signin_userrepository_userrepository_findbyemail",
+      "fromNode": "n_authcontroller_authcontroller_signin",
+      "toNode": "n_userrepository_userrepository_findbyemail",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_insightcontroller_java_insightcontroller_insightcontroller",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_insightcontroller_java",
+      "toNode": "n_insightcontroller_insightcontroller",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_insightcontroller_insightcontroller_insightcontroller_insightcontroller_explain",
+      "fromNode": "n_insightcontroller_insightcontroller",
+      "toNode": "n_insightcontroller_insightcontroller_explain",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_insightcontroller_insightcontroller_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_insightcontroller_java",
+      "fromNode": "n_insightcontroller_insightcontroller",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_insightcontroller_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_insightcontroller_insightcontroller_explain_api_explainfailure",
+      "fromNode": "n_insightcontroller_insightcontroller_explain",
+      "toNode": "n_api_explainfailure",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_insightcontroller_insightcontroller_explain_apiresponse_apiresponse_ok",
+      "fromNode": "n_insightcontroller_insightcontroller_explain",
+      "toNode": "n_apiresponse_apiresponse_ok",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_insightcontroller_insightcontroller_explain_apiresponse_apiresponse_error",
+      "fromNode": "n_insightcontroller_insightcontroller_explain",
+      "toNode": "n_apiresponse_apiresponse_error",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_speccontroller_java_speccontroller_speccontroller",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_speccontroller_java",
+      "toNode": "n_speccontroller_speccontroller",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_speccontroller_speccontroller_speccontroller_speccontroller_uploadspec",
+      "fromNode": "n_speccontroller_speccontroller",
+      "toNode": "n_speccontroller_speccontroller_uploadspec",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_speccontroller_speccontroller_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_speccontroller_java",
+      "fromNode": "n_speccontroller_speccontroller",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_speccontroller_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_speccontroller_speccontroller_uploadspec_specparserservice_specparserservice_parsespec",
+      "fromNode": "n_speccontroller_speccontroller_uploadspec",
+      "toNode": "n_specparserservice_specparserservice_parsespec",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_speccontroller_speccontroller_uploadspec_apiresponse_apiresponse_ok",
+      "fromNode": "n_speccontroller_speccontroller_uploadspec",
+      "toNode": "n_apiresponse_apiresponse_ok",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_speccontroller_speccontroller_uploadspec_apiresponse_apiresponse_error",
+      "fromNode": "n_speccontroller_speccontroller_uploadspec",
+      "toNode": "n_apiresponse_apiresponse_error",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_testcontroller_java_testcontroller_testcontroller",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_testcontroller_java",
+      "toNode": "n_testcontroller_testcontroller",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_testcontroller_testcontroller_generatetests",
+      "fromNode": "n_testcontroller_testcontroller",
+      "toNode": "n_testcontroller_testcontroller_generatetests",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_testcontroller_testcontroller_runtests",
+      "fromNode": "n_testcontroller_testcontroller",
+      "toNode": "n_testcontroller_testcontroller_runtests",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_testcontroller_testcontroller_getresults",
+      "fromNode": "n_testcontroller_testcontroller",
+      "toNode": "n_testcontroller_testcontroller_getresults",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_testcontroller_testcontroller_exportresults",
+      "fromNode": "n_testcontroller_testcontroller",
+      "toNode": "n_testcontroller_testcontroller_exportresults",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_testcontroller_testcontroller_tojsonsafe",
+      "fromNode": "n_testcontroller_testcontroller",
+      "toNode": "n_testcontroller_testcontroller_tojsonsafe",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_testcontroller_testcontroller_parseuuidsafe",
+      "fromNode": "n_testcontroller_testcontroller",
+      "toNode": "n_testcontroller_testcontroller_parseuuidsafe",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_testcontroller_java",
+      "fromNode": "n_testcontroller_testcontroller",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_controller_testcontroller_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_generatetests_testcontroller_testcontroller_tojsonsafe",
+      "fromNode": "n_testcontroller_testcontroller_generatetests",
+      "toNode": "n_testcontroller_testcontroller_tojsonsafe",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_generatetests_testcontroller_testcontroller_parseuuidsafe",
+      "fromNode": "n_testcontroller_testcontroller_generatetests",
+      "toNode": "n_testcontroller_testcontroller_parseuuidsafe",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_generatetests_specparserservice_specparserservice_parsespeccontent",
+      "fromNode": "n_testcontroller_testcontroller_generatetests",
+      "toNode": "n_specparserservice_specparserservice_parsespeccontent",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_generatetests_claudeservice_claudeservice_generatetestcases",
+      "fromNode": "n_testcontroller_testcontroller_generatetests",
+      "toNode": "n_claudeservice_claudeservice_generatetestcases",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_generatetests_apiresponse_apiresponse_ok",
+      "fromNode": "n_testcontroller_testcontroller_generatetests",
+      "toNode": "n_apiresponse_apiresponse_ok",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_generatetests_apiresponse_apiresponse_error",
+      "fromNode": "n_testcontroller_testcontroller_generatetests",
+      "toNode": "n_apiresponse_apiresponse_error",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_runtests_testexecutorservice_testexecutorservice_executetests",
+      "fromNode": "n_testcontroller_testcontroller_runtests",
+      "toNode": "n_testexecutorservice_testexecutorservice_executetests",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_runtests_apiresponse_apiresponse_ok",
+      "fromNode": "n_testcontroller_testcontroller_runtests",
+      "toNode": "n_apiresponse_apiresponse_ok",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_runtests_apiresponse_apiresponse_error",
+      "fromNode": "n_testcontroller_testcontroller_runtests",
+      "toNode": "n_apiresponse_apiresponse_error",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_getresults_testresultrepository_testresultrepository_findbyrunid",
+      "fromNode": "n_testcontroller_testcontroller_getresults",
+      "toNode": "n_testresultrepository_testresultrepository_findbyrunid",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_getresults_apiresponse_apiresponse_error",
+      "fromNode": "n_testcontroller_testcontroller_getresults",
+      "toNode": "n_apiresponse_apiresponse_error",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_getresults_apiresponse_apiresponse_ok",
+      "fromNode": "n_testcontroller_testcontroller_getresults",
+      "toNode": "n_apiresponse_apiresponse_ok",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_exportresults_testresultrepository_testresultrepository_findbyrunid",
+      "fromNode": "n_testcontroller_testcontroller_exportresults",
+      "toNode": "n_testresultrepository_testresultrepository_findbyrunid",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_exportresults_excelexportservice_excelexportservice_generatereport",
+      "fromNode": "n_testcontroller_testcontroller_exportresults",
+      "toNode": "n_excelexportservice_excelexportservice_generatereport",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_exportresults_apiresponse_apiresponse_ok",
+      "fromNode": "n_testcontroller_testcontroller_exportresults",
+      "toNode": "n_apiresponse_apiresponse_ok",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_exportresults_apiresponse_apiresponse_error",
+      "fromNode": "n_testcontroller_testcontroller_exportresults",
+      "toNode": "n_apiresponse_apiresponse_error",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_testcontroller_testcontroller_tojsonsafe_apiresponse_apiresponse_error",
+      "fromNode": "n_testcontroller_testcontroller_tojsonsafe",
+      "toNode": "n_apiresponse_apiresponse_error",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_apiresponse_java_apiresponse_apiresponse",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_apiresponse_java",
+      "toNode": "n_apiresponse_apiresponse",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_apiresponse_apiresponse_apiresponse_apiresponse_ok",
+      "fromNode": "n_apiresponse_apiresponse",
+      "toNode": "n_apiresponse_apiresponse_ok",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_apiresponse_apiresponse_apiresponse_apiresponse_error",
+      "fromNode": "n_apiresponse_apiresponse",
+      "toNode": "n_apiresponse_apiresponse_error",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_apiresponse_apiresponse_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_apiresponse_java",
+      "fromNode": "n_apiresponse_apiresponse",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_apiresponse_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_apiresponse_apiresponse_error_claudeservice_claudeservice_generatetestcases",
+      "fromNode": "n_apiresponse_apiresponse_error",
+      "toNode": "n_claudeservice_claudeservice_generatetestcases",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_apiresponse_apiresponse_error_claudeservice_claudeservice_explainfailure",
+      "fromNode": "n_apiresponse_apiresponse_error",
+      "toNode": "n_claudeservice_claudeservice_explainfailure",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_apiresponse_apiresponse_error_claudeservice_claudeservice_callclaude",
+      "fromNode": "n_apiresponse_apiresponse_error",
+      "toNode": "n_claudeservice_claudeservice_callclaude",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_apiresponse_apiresponse_error_excelexportservice_excelexportservice_generatereport",
+      "fromNode": "n_apiresponse_apiresponse_error",
+      "toNode": "n_excelexportservice_excelexportservice_generatereport",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_apiresponse_apiresponse_error_specparserservice_specparserservice_parsespec",
+      "fromNode": "n_apiresponse_apiresponse_error",
+      "toNode": "n_specparserservice_specparserservice_parsespec",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_apiresponse_apiresponse_error_specparserservice_specparserservice_parsespeccontent",
+      "fromNode": "n_apiresponse_apiresponse_error",
+      "toNode": "n_specparserservice_specparserservice_parsespeccontent",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_apiresponse_apiresponse_error_testexecutorservice_testexecutorservice_tojsonsafe",
+      "fromNode": "n_apiresponse_apiresponse_error",
+      "toNode": "n_testexecutorservice_testexecutorservice_tojsonsafe",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_apiresponse_apiresponse_error_results_handleexport",
+      "fromNode": "n_apiresponse_apiresponse_error",
+      "toNode": "n_results_handleexport",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_apiresponse_apiresponse_error_results_handleexplainfailure",
+      "fromNode": "n_apiresponse_apiresponse_error",
+      "toNode": "n_results_handleexplainfailure",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_apiresponse_apiresponse_error_testcases_runall",
+      "fromNode": "n_apiresponse_apiresponse_error",
+      "toNode": "n_testcases_runall",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_apiresponse_apiresponse_error_testcases_runsingle",
+      "fromNode": "n_apiresponse_apiresponse_error",
+      "toNode": "n_testcases_runsingle",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_apiresponse_apiresponse_error_uploadapi_handlegenerate",
+      "fromNode": "n_apiresponse_apiresponse_error",
+      "toNode": "n_uploadapi_handlegenerate",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_generaterequest_java_generaterequest_generaterequest",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_generaterequest_java",
+      "toNode": "n_generaterequest_generaterequest",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_generaterequest_generaterequest_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_generaterequest_java",
+      "fromNode": "n_generaterequest_generaterequest",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_generaterequest_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_insightrequest_java_insightrequest_insightrequest",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_insightrequest_java",
+      "toNode": "n_insightrequest_insightrequest",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_insightrequest_insightrequest_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_insightrequest_java",
+      "fromNode": "n_insightrequest_insightrequest",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_insightrequest_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_insightresponse_java_insightresponse_insightresponse",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_insightresponse_java",
+      "toNode": "n_insightresponse_insightresponse",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_insightresponse_insightresponse_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_insightresponse_java",
+      "fromNode": "n_insightresponse_insightresponse",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_insightresponse_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_resultssummarydto_java_resultssummarydto_resultssummarydto",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_resultssummarydto_java",
+      "toNode": "n_resultssummarydto_resultssummarydto",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_resultssummarydto_resultssummarydto_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_resultssummarydto_java",
+      "fromNode": "n_resultssummarydto_resultssummarydto",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_resultssummarydto_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_runtestsrequest_java_runtestsrequest_runtestsrequest",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_runtestsrequest_java",
+      "toNode": "n_runtestsrequest_runtestsrequest",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_runtestsrequest_runtestsrequest_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_runtestsrequest_java",
+      "fromNode": "n_runtestsrequest_runtestsrequest",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_runtestsrequest_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_testcasedto_java_testcasedto_testcasedto",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_testcasedto_java",
+      "toNode": "n_testcasedto_testcasedto",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_testcasedto_testcasedto_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_testcasedto_java",
+      "fromNode": "n_testcasedto_testcasedto",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_testcasedto_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_testresultdto_java_testresultdto_testresultdto",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_testresultdto_java",
+      "toNode": "n_testresultdto_testresultdto",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_testresultdto_testresultdto_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_testresultdto_java",
+      "fromNode": "n_testresultdto_testresultdto",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_dto_testresultdto_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_entity_user_java_user_user",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_entity_user_java",
+      "toNode": "n_user_user",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_user_user_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_entity_user_java",
+      "fromNode": "n_user_user",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_entity_user_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_model_testcase_java_testcase_testcase",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_model_testcase_java",
+      "toNode": "n_testcase_testcase",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_testcase_testcase_testcase_testcase_prepersist",
+      "fromNode": "n_testcase_testcase",
+      "toNode": "n_testcase_testcase_prepersist",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testcase_testcase_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_model_testcase_java",
+      "fromNode": "n_testcase_testcase",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_model_testcase_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_model_testresult_java_testresult_testresult",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_model_testresult_java",
+      "toNode": "n_testresult_testresult",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_testresult_testresult_testresult_testresult_prepersist",
+      "fromNode": "n_testresult_testresult",
+      "toNode": "n_testresult_testresult_prepersist",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testresult_testresult_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_model_testresult_java",
+      "fromNode": "n_testresult_testresult",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_model_testresult_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_model_testrun_java_testrun_testrun",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_model_testrun_java",
+      "toNode": "n_testrun_testrun",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_testrun_testrun_testrun_testrun_prepersist",
+      "fromNode": "n_testrun_testrun",
+      "toNode": "n_testrun_testrun_prepersist",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testrun_testrun_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_model_testrun_java",
+      "fromNode": "n_testrun_testrun",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_model_testrun_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_testcaserepository_java_testcaserepository_testcaserepository",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_testcaserepository_java",
+      "toNode": "n_testcaserepository_testcaserepository",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_testcaserepository_testcaserepository_testcaserepository_testcaserepository_findbyrunid",
+      "fromNode": "n_testcaserepository_testcaserepository",
+      "toNode": "n_testcaserepository_testcaserepository_findbyrunid",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testcaserepository_testcaserepository_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_testcaserepository_java",
+      "fromNode": "n_testcaserepository_testcaserepository",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_testcaserepository_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_testresultrepository_java_testresultrepository_testresultrepository",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_testresultrepository_java",
+      "toNode": "n_testresultrepository_testresultrepository",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_testresultrepository_testresultrepository_testresultrepository_testresultrepository_findbyrunid",
+      "fromNode": "n_testresultrepository_testresultrepository",
+      "toNode": "n_testresultrepository_testresultrepository_findbyrunid",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testresultrepository_testresultrepository_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_testresultrepository_java",
+      "fromNode": "n_testresultrepository_testresultrepository",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_testresultrepository_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_testrunrepository_java_testrunrepository_testrunrepository",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_testrunrepository_java",
+      "toNode": "n_testrunrepository_testrunrepository",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_testrunrepository_testrunrepository_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_testrunrepository_java",
+      "fromNode": "n_testrunrepository_testrunrepository",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_testrunrepository_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_userrepository_java_userrepository_userrepository",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_userrepository_java",
+      "toNode": "n_userrepository_userrepository",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_userrepository_userrepository_userrepository_userrepository_findbyemail",
+      "fromNode": "n_userrepository_userrepository",
+      "toNode": "n_userrepository_userrepository_findbyemail",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_userrepository_userrepository_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_userrepository_java",
+      "fromNode": "n_userrepository_userrepository",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_repository_userrepository_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_claudeservice_java_claudeservice_claudeservice",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_claudeservice_java",
+      "toNode": "n_claudeservice_claudeservice",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_claudeservice_claudeservice_claudeservice_claudeservice_generatetestcases",
+      "fromNode": "n_claudeservice_claudeservice",
+      "toNode": "n_claudeservice_claudeservice_generatetestcases",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_claudeservice_claudeservice_claudeservice_claudeservice_explainfailure",
+      "fromNode": "n_claudeservice_claudeservice",
+      "toNode": "n_claudeservice_claudeservice_explainfailure",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_claudeservice_claudeservice_claudeservice_claudeservice_callclaude",
+      "fromNode": "n_claudeservice_claudeservice",
+      "toNode": "n_claudeservice_claudeservice_callclaude",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_claudeservice_claudeservice_claudeservice_claudeservice_stripmarkdownfences",
+      "fromNode": "n_claudeservice_claudeservice",
+      "toNode": "n_claudeservice_claudeservice_stripmarkdownfences",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_claudeservice_claudeservice_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_claudeservice_java",
+      "fromNode": "n_claudeservice_claudeservice",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_claudeservice_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_claudeservice_claudeservice_generatetestcases_claudeservice_claudeservice_callclaude",
+      "fromNode": "n_claudeservice_claudeservice_generatetestcases",
+      "toNode": "n_claudeservice_claudeservice_callclaude",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_claudeservice_claudeservice_generatetestcases_claudeservice_claudeservice_stripmarkdownfences",
+      "fromNode": "n_claudeservice_claudeservice_generatetestcases",
+      "toNode": "n_claudeservice_claudeservice_stripmarkdownfences",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_claudeservice_claudeservice_explainfailure_claudeservice_claudeservice_callclaude",
+      "fromNode": "n_claudeservice_claudeservice_explainfailure",
+      "toNode": "n_claudeservice_claudeservice_callclaude",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_claudeservice_claudeservice_explainfailure_claudeservice_claudeservice_stripmarkdownfences",
+      "fromNode": "n_claudeservice_claudeservice_explainfailure",
+      "toNode": "n_claudeservice_claudeservice_stripmarkdownfences",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_excelexportservice_java_excelexportservice_excelexportservice",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_excelexportservice_java",
+      "toNode": "n_excelexportservice_excelexportservice",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_excelexportservice_excelexportservice_excelexportservice_excelexportservice_generatereport",
+      "fromNode": "n_excelexportservice_excelexportservice",
+      "toNode": "n_excelexportservice_excelexportservice_generatereport",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_excelexportservice_excelexportservice_excelexportservice_excelexportservice_createcell",
+      "fromNode": "n_excelexportservice_excelexportservice",
+      "toNode": "n_excelexportservice_excelexportservice_createcell",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_excelexportservice_excelexportservice_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_excelexportservice_java",
+      "fromNode": "n_excelexportservice_excelexportservice",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_excelexportservice_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_excelexportservice_excelexportservice_generatereport_excelexportservice_excelexportservice_createcell",
+      "fromNode": "n_excelexportservice_excelexportservice_generatereport",
+      "toNode": "n_excelexportservice_excelexportservice_createcell",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_specparserservice_java_specparserservice_specparserservice",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_specparserservice_java",
+      "toNode": "n_specparserservice_specparserservice",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_specparserservice_specparserservice_specparserservice_specparserservice_parsespec",
+      "fromNode": "n_specparserservice_specparserservice",
+      "toNode": "n_specparserservice_specparserservice_parsespec",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_specparserservice_specparserservice_specparserservice_specparserservice_parsespeccontent",
+      "fromNode": "n_specparserservice_specparserservice",
+      "toNode": "n_specparserservice_specparserservice_parsespeccontent",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_specparserservice_specparserservice_specparserservice_specparserservice_extractoperations",
+      "fromNode": "n_specparserservice_specparserservice",
+      "toNode": "n_specparserservice_specparserservice_extractoperations",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_specparserservice_specparserservice_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_specparserservice_java",
+      "fromNode": "n_specparserservice_specparserservice",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_specparserservice_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_specparserservice_specparserservice_parsespec_specparserservice_specparserservice_parsespeccontent",
+      "fromNode": "n_specparserservice_specparserservice_parsespec",
+      "toNode": "n_specparserservice_specparserservice_parsespeccontent",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_specparserservice_specparserservice_parsespeccontent_specparserservice_specparserservice_extractoperations",
+      "fromNode": "n_specparserservice_specparserservice_parsespeccontent",
+      "toNode": "n_specparserservice_specparserservice_extractoperations",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_testexecutorservice_java_testexecutorservice_testexecutorservice",
+      "fromNode": "n_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_testexecutorservice_java",
+      "toNode": "n_testexecutorservice_testexecutorservice",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_testexecutorservice_testexecutorservice_executetests",
+      "fromNode": "n_testexecutorservice_testexecutorservice",
+      "toNode": "n_testexecutorservice_testexecutorservice_executetests",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_testexecutorservice_testexecutorservice_executesingletest",
+      "fromNode": "n_testexecutorservice_testexecutorservice",
+      "toNode": "n_testexecutorservice_testexecutorservice_executesingletest",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_testexecutorservice_testexecutorservice_buildfailedresult",
+      "fromNode": "n_testexecutorservice_testexecutorservice",
+      "toNode": "n_testexecutorservice_testexecutorservice_buildfailedresult",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_testexecutorservice_testexecutorservice_isbodymethod",
+      "fromNode": "n_testexecutorservice_testexecutorservice",
+      "toNode": "n_testexecutorservice_testexecutorservice_isbodymethod",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_testexecutorservice_testexecutorservice_normalizeurl",
+      "fromNode": "n_testexecutorservice_testexecutorservice",
+      "toNode": "n_testexecutorservice_testexecutorservice_normalizeurl",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_testexecutorservice_testexecutorservice_parseresponsebody",
+      "fromNode": "n_testexecutorservice_testexecutorservice",
+      "toNode": "n_testexecutorservice_testexecutorservice_parseresponsebody",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_testexecutorservice_testexecutorservice_extractidfromresponse",
+      "fromNode": "n_testexecutorservice_testexecutorservice",
+      "toNode": "n_testexecutorservice_testexecutorservice_extractidfromresponse",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_testexecutorservice_testexecutorservice_tojsonsafe",
+      "fromNode": "n_testexecutorservice_testexecutorservice",
+      "toNode": "n_testexecutorservice_testexecutorservice_tojsonsafe",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_testexecutorservice_testexecutorservice_substituteid",
+      "fromNode": "n_testexecutorservice_testexecutorservice",
+      "toNode": "n_testexecutorservice_testexecutorservice_substituteid",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_testexecutorservice_testexecutorservice_parseuuidsafe",
+      "fromNode": "n_testexecutorservice_testexecutorservice",
+      "toNode": "n_testexecutorservice_testexecutorservice_parseuuidsafe",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_testexecutorservice_java",
+      "fromNode": "n_testexecutorservice_testexecutorservice",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_main_java_com_testai_ai_api_tester_service_testexecutorservice_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_executetests_testexecutorservice_testexecutorservice_extractidfromresponse",
+      "fromNode": "n_testexecutorservice_testexecutorservice_executetests",
+      "toNode": "n_testexecutorservice_testexecutorservice_extractidfromresponse",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_executetests_testexecutorservice_testexecutorservice_substituteid",
+      "fromNode": "n_testexecutorservice_testexecutorservice_executetests",
+      "toNode": "n_testexecutorservice_testexecutorservice_substituteid",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_executetests_testexecutorservice_testexecutorservice_normalizeurl",
+      "fromNode": "n_testexecutorservice_testexecutorservice_executetests",
+      "toNode": "n_testexecutorservice_testexecutorservice_normalizeurl",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_executetests_testexecutorservice_testexecutorservice_executesingletest",
+      "fromNode": "n_testexecutorservice_testexecutorservice_executetests",
+      "toNode": "n_testexecutorservice_testexecutorservice_executesingletest",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_executetests_testexecutorservice_testexecutorservice_parseuuidsafe",
+      "fromNode": "n_testexecutorservice_testexecutorservice_executetests",
+      "toNode": "n_testexecutorservice_testexecutorservice_parseuuidsafe",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_executetests_testexecutorservice_testexecutorservice_tojsonsafe",
+      "fromNode": "n_testexecutorservice_testexecutorservice_executetests",
+      "toNode": "n_testexecutorservice_testexecutorservice_tojsonsafe",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_executesingletest_testexecutorservice_testexecutorservice_isbodymethod",
+      "fromNode": "n_testexecutorservice_testexecutorservice_executesingletest",
+      "toNode": "n_testexecutorservice_testexecutorservice_isbodymethod",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_executesingletest_testexecutorservice_testexecutorservice_buildfailedresult",
+      "fromNode": "n_testexecutorservice_testexecutorservice_executesingletest",
+      "toNode": "n_testexecutorservice_testexecutorservice_buildfailedresult",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_testexecutorservice_testexecutorservice_executesingletest_testexecutorservice_testexecutorservice_parseresponsebody",
+      "fromNode": "n_testexecutorservice_testexecutorservice_executesingletest",
+      "toNode": "n_testexecutorservice_testexecutorservice_parseresponsebody",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_backend_ai_api_tester_src_test_java_com_testai_ai_api_tester_aiapitesterapplicationtests_java_aiapitesterapplicationtests_aiapitesterapplicationtests",
+      "fromNode": "n_backend_ai_api_tester_src_test_java_com_testai_ai_api_tester_aiapitesterapplicationtests_java",
+      "toNode": "n_aiapitesterapplicationtests_aiapitesterapplicationtests",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_aiapitesterapplicationtests_aiapitesterapplicationtests_aiapitesterapplicationtests_aiapitesterapplicationtests_contextloads",
+      "fromNode": "n_aiapitesterapplicationtests_aiapitesterapplicationtests",
+      "toNode": "n_aiapitesterapplicationtests_aiapitesterapplicationtests_contextloads",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_aiapitesterapplicationtests_aiapitesterapplicationtests_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_test_java_com_testai_ai_api_tester_aiapitesterapplicationtests_java",
+      "fromNode": "n_aiapitesterapplicationtests_aiapitesterapplicationtests",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_backend_ai_api_tester_src_test_java_com_testai_ai_api_tester_aiapitesterapplicationtests_java",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_app_tsx_frontend_src_pages_notfound_tsx",
+      "fromNode": "n_frontend_src_app_tsx",
+      "toNode": "n_frontend_src_pages_notfound_tsx",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_app_tsx_frontend_src_main_tsx",
+      "fromNode": "n_frontend_src_app_tsx",
+      "toNode": "n_frontend_src_main_tsx",
+      "label": "imports_from [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_layout_appheader_tsx_appheader_handlesignout",
+      "fromNode": "n_frontend_src_components_layout_appheader_tsx",
+      "toNode": "n_appheader_handlesignout",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_appheader_handlesignout_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_layout_appheader_tsx",
+      "fromNode": "n_appheader_handlesignout",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_layout_appheader_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_layout_applayout_tsx_applayout_applayout",
+      "fromNode": "n_frontend_src_components_layout_applayout_tsx",
+      "toNode": "n_applayout_applayout",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_applayout_applayout_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_layout_applayout_tsx",
+      "fromNode": "n_applayout_applayout",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_layout_applayout_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_layout_protectedoutlet_tsx_protectedoutlet_protectedoutlet",
+      "fromNode": "n_frontend_src_components_layout_protectedoutlet_tsx",
+      "toNode": "n_protectedoutlet_protectedoutlet",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_protectedoutlet_protectedoutlet_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_layout_protectedoutlet_tsx",
+      "fromNode": "n_protectedoutlet_protectedoutlet",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_layout_protectedoutlet_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_testbuddy_methodbadge_tsx_methodbadge_methodbadge",
+      "fromNode": "n_frontend_src_components_testbuddy_methodbadge_tsx",
+      "toNode": "n_methodbadge_methodbadge",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_methodbadge_methodbadge_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_testbuddy_methodbadge_tsx",
+      "fromNode": "n_methodbadge_methodbadge",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_testbuddy_methodbadge_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_testbuddy_statusbadge_tsx_statusbadge_statusbadge",
+      "fromNode": "n_frontend_src_components_testbuddy_statusbadge_tsx",
+      "toNode": "n_statusbadge_statusbadge",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_statusbadge_statusbadge_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_testbuddy_statusbadge_tsx",
+      "fromNode": "n_statusbadge_statusbadge",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_testbuddy_statusbadge_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_theme_themeprovider_tsx_themeprovider_getinitialtheme",
+      "fromNode": "n_frontend_src_components_theme_themeprovider_tsx",
+      "toNode": "n_themeprovider_getinitialtheme",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_theme_themeprovider_tsx_themeprovider_themeprovider",
+      "fromNode": "n_frontend_src_components_theme_themeprovider_tsx",
+      "toNode": "n_themeprovider_themeprovider",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_themeprovider_getinitialtheme_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_theme_themeprovider_tsx",
+      "fromNode": "n_themeprovider_getinitialtheme",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_theme_themeprovider_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_themeprovider_themeprovider_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_theme_themeprovider_tsx",
+      "fromNode": "n_themeprovider_themeprovider",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_theme_themeprovider_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_breadcrumb_tsx_breadcrumb_breadcrumbseparator",
+      "fromNode": "n_frontend_src_components_ui_breadcrumb_tsx",
+      "toNode": "n_breadcrumb_breadcrumbseparator",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_breadcrumb_tsx_breadcrumb_breadcrumbellipsis",
+      "fromNode": "n_frontend_src_components_ui_breadcrumb_tsx",
+      "toNode": "n_breadcrumb_breadcrumbellipsis",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_breadcrumb_breadcrumbseparator_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_breadcrumb_tsx",
+      "fromNode": "n_breadcrumb_breadcrumbseparator",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_breadcrumb_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_breadcrumb_breadcrumbellipsis_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_breadcrumb_tsx",
+      "fromNode": "n_breadcrumb_breadcrumbellipsis",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_breadcrumb_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_calendar_tsx_calendar_calendar",
+      "fromNode": "n_frontend_src_components_ui_calendar_tsx",
+      "toNode": "n_calendar_calendar",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_calendar_calendar_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_calendar_tsx",
+      "fromNode": "n_calendar_calendar",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_calendar_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_carousel_tsx_carousel_usecarousel",
+      "fromNode": "n_frontend_src_components_ui_carousel_tsx",
+      "toNode": "n_carousel_usecarousel",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_carousel_usecarousel_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_carousel_tsx",
+      "fromNode": "n_carousel_usecarousel",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_carousel_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_chart_tsx_chart_usechart",
+      "fromNode": "n_frontend_src_components_ui_chart_tsx",
+      "toNode": "n_chart_usechart",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_chart_usechart_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_chart_tsx",
+      "fromNode": "n_chart_usechart",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_chart_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_drawer_tsx_drawer_drawer",
+      "fromNode": "n_frontend_src_components_ui_drawer_tsx",
+      "toNode": "n_drawer_drawer",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_drawer_tsx_drawer_drawerheader",
+      "fromNode": "n_frontend_src_components_ui_drawer_tsx",
+      "toNode": "n_drawer_drawerheader",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_drawer_tsx_drawer_drawerfooter",
+      "fromNode": "n_frontend_src_components_ui_drawer_tsx",
+      "toNode": "n_drawer_drawerfooter",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_drawer_drawer_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_drawer_tsx",
+      "fromNode": "n_drawer_drawer",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_drawer_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_drawer_drawerheader_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_drawer_tsx",
+      "fromNode": "n_drawer_drawerheader",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_drawer_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_drawer_drawerfooter_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_drawer_tsx",
+      "fromNode": "n_drawer_drawerfooter",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_drawer_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_form_tsx_form_useformfield",
+      "fromNode": "n_frontend_src_components_ui_form_tsx",
+      "toNode": "n_form_useformfield",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_form_useformfield_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_form_tsx",
+      "fromNode": "n_form_useformfield",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_form_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_pagination_tsx_pagination_pagination",
+      "fromNode": "n_frontend_src_components_ui_pagination_tsx",
+      "toNode": "n_pagination_pagination",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_pagination_tsx_pagination_paginationlink",
+      "fromNode": "n_frontend_src_components_ui_pagination_tsx",
+      "toNode": "n_pagination_paginationlink",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_pagination_tsx_pagination_paginationprevious",
+      "fromNode": "n_frontend_src_components_ui_pagination_tsx",
+      "toNode": "n_pagination_paginationprevious",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_pagination_tsx_pagination_paginationnext",
+      "fromNode": "n_frontend_src_components_ui_pagination_tsx",
+      "toNode": "n_pagination_paginationnext",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_pagination_tsx_pagination_paginationellipsis",
+      "fromNode": "n_frontend_src_components_ui_pagination_tsx",
+      "toNode": "n_pagination_paginationellipsis",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_pagination_pagination_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_pagination_tsx",
+      "fromNode": "n_pagination_pagination",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_pagination_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_pagination_paginationlink_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_pagination_tsx",
+      "fromNode": "n_pagination_paginationlink",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_pagination_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_pagination_paginationprevious_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_pagination_tsx",
+      "fromNode": "n_pagination_paginationprevious",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_pagination_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_pagination_paginationnext_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_pagination_tsx",
+      "fromNode": "n_pagination_paginationnext",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_pagination_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_pagination_paginationellipsis_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_pagination_tsx",
+      "fromNode": "n_pagination_paginationellipsis",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_pagination_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_resizable_tsx_resizable_resizablepanelgroup",
+      "fromNode": "n_frontend_src_components_ui_resizable_tsx",
+      "toNode": "n_resizable_resizablepanelgroup",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_resizable_resizablepanelgroup_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_resizable_tsx",
+      "fromNode": "n_resizable_resizablepanelgroup",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_resizable_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_sidebar_tsx_sidebar_usesidebar",
+      "fromNode": "n_frontend_src_components_ui_sidebar_tsx",
+      "toNode": "n_sidebar_usesidebar",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_sidebar_tsx_sidebar_handlekeydown",
+      "fromNode": "n_frontend_src_components_ui_sidebar_tsx",
+      "toNode": "n_sidebar_handlekeydown",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_sidebar_tsx_sidebar_cn",
+      "fromNode": "n_frontend_src_components_ui_sidebar_tsx",
+      "toNode": "n_sidebar_cn",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_sidebar_usesidebar_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_sidebar_tsx",
+      "fromNode": "n_sidebar_usesidebar",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_sidebar_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_sidebar_handlekeydown_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_sidebar_tsx",
+      "fromNode": "n_sidebar_handlekeydown",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_sidebar_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_sidebar_cn_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_sidebar_tsx",
+      "fromNode": "n_sidebar_cn",
+      "toNode": "n_c_users_yashb_pictures_projects_testbuddy_frontend_src_components_ui_sidebar_tsx",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_frontend_src_components_ui_sonner_tsx_sonner_toaster",
+      "fromNode": "n_frontend_src_components_ui_sonner_tsx",
+      "toNode": "n_sonner_toaster",
+      "label": "contains [EXTRACTED]"
+    }
+  ]
+}

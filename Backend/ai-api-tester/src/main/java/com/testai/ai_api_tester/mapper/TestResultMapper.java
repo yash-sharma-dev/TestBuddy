@@ -21,6 +21,7 @@ public class TestResultMapper {
                 .responseTimeMs(result.getResponseTimeMs())
                 .passed(result.getPassed())
                 .errorMessage(result.getErrorMessage())
+                .schemaValid(result.getSchemaValid())
                 .build();
     }
 }

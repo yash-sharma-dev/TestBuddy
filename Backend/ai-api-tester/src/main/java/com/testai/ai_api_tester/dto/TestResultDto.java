@@ -22,4 +22,5 @@ public class TestResultDto {
     private Long responseTimeMs;
     private Boolean passed;
     private String errorMessage;
+    private Boolean schemaValid;
 }

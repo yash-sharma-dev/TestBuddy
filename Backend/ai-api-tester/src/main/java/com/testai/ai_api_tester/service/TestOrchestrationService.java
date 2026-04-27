@@ -101,10 +101,10 @@ public class TestOrchestrationService {
                 .map(TestResult::getTestCaseId)
                 .filter(Objects::nonNull)
                 .collect(Collectors.toSet());
-        Map<UUID, TestCase> casesMap = pageTestCaseIds.isEmpty()
-                ? Map.of()
-                : testCaseRepository.findAllById(pageTestCaseIds).stream()
-                        .collect(Collectors.toMap(TestCase::getId, tc -> tc));
+        Map<UUID, TestCase> casesMap = new HashMap<>();
+        if (!pageTestCaseIds.isEmpty()) {
+            testCaseRepository.findAllById(pageTestCaseIds).forEach(tc -> casesMap.put(tc.getId(), tc));
+        }
 
         List<TestResultDto> results = page.getContent().stream()
                 .map(r -> testResultMapper.toDto(r, casesMap.get(r.getTestCaseId())))
@@ -159,7 +159,7 @@ public class TestOrchestrationService {
                 .orElse(0.0);
 
         Map<String, Object> summary = new LinkedHashMap<>();
-        summary.put("total", results.size());
+        summary.put("total", (long) results.size());
         summary.put("passed", passed);
         summary.put("failed", failed);
         summary.put("avgResponseTime", Math.round(avgResponseTime));

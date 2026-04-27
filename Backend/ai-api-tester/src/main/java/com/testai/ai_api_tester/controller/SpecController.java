@@ -1,11 +1,14 @@
 package com.testai.ai_api_tester.controller;
 
 import com.testai.ai_api_tester.dto.ApiResponse;
+import com.testai.ai_api_tester.model.User;
 import com.testai.ai_api_tester.model.TestRun;
 import com.testai.ai_api_tester.repository.TestRunRepository;
+import com.testai.ai_api_tester.repository.UserRepository;
 import com.testai.ai_api_tester.service.SpecParserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,6 +23,7 @@ public class SpecController {
 
     private final SpecParserService specParserService;
     private final TestRunRepository testRunRepository;
+    private final UserRepository userRepository;
 
     @PostMapping("/upload")
     public ApiResponse<Map<String, Object>> uploadSpec(
@@ -31,10 +35,14 @@ public class SpecController {
 
         Map<String, Object> parsedSpec = specParserService.parseSpec(file);
 
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        Long userId = userRepository.findByEmail(email).map(User::getId).orElse(null);
+
         TestRun testRun = TestRun.builder()
                 .specFilename(file.getOriginalFilename())
                 .environment(environment)
                 .status("SPEC_UPLOADED")
+                .userId(userId)
                 .build();
         testRun = testRunRepository.save(testRun);
 

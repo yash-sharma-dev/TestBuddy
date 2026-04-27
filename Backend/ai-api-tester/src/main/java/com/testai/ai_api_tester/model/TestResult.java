@@ -44,6 +44,9 @@ public class TestResult {
     @Column(name = "error_message", columnDefinition = "TEXT")
     private String errorMessage;
 
+    @Column(name = "schema_valid")
+    private Boolean schemaValid;
+
     @Column(name = "executed_at")
     private OffsetDateTime executedAt;
 

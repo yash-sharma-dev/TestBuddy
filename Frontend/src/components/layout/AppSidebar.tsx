@@ -19,6 +19,7 @@ const items = [
   { title: "Test Cases", url: "/test-cases", icon: ListChecks },
   { title: "Results", url: "/results", icon: BarChart3 },
   { title: "AI Insights", url: "/insights", icon: Sparkles },
+  { title: "Token Usage", url: "/usage", icon: LayoutDashboard },
 ];
 
 export function AppSidebar() {

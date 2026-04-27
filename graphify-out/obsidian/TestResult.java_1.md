@@ -1,0 +1,17 @@
+---
+source_file: "C:\Users\yashb\Pictures\Projects\TestBuddy\Backend\ai-api-tester\src\main\java\com\testai\ai_api_tester\model\TestResult.java"
+type: "code"
+community: "TestRun Domain Model"
+location: "L1"
+tags:
+  - graphify/code
+  - graphify/EXTRACTED
+  - community/TestRun_Domain_Model
+---
+
+# TestResult.java
+
+## Connections
+- [[TestResult]] - `contains` [EXTRACTED]
+
+#graphify/code #graphify/EXTRACTED #community/TestRun_Domain_Model

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker build *)",
+      "Bash(docker-compose -f C:/Users/yashb/Pictures/Projects/TestBuddy/docker-compose.yml up -d --build backend)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}

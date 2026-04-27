@@ -16,6 +16,8 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
@@ -79,7 +81,7 @@ class TestOrchestrationServiceTest {
         when(specParserService.parseSpecContent(any())).thenReturn(java.util.Map.of());
         when(claudeService.generateTestCases(any(), any())).thenReturn(List.of());
         when(testCaseRepository.saveAll(any())).thenReturn(List.of());
-        when(objectMapper.writeValueAsString(any())).thenReturn("{}");
+        // when(objectMapper.writeValueAsString(any())).thenReturn("{}"); // Removed - unnecessary stubbing as list is empty
 
         GenerateRequest request = GenerateRequest.builder()
                 .runId(runId.toString())
@@ -109,7 +111,7 @@ class TestOrchestrationServiceTest {
         when(specParserService.parseSpecContent(any())).thenReturn(java.util.Map.of());
         when(claudeService.generateTestCases(any(), any())).thenReturn(List.of(dto));
         when(testCaseRepository.saveAll(any())).thenReturn(List.of(savedEntity));
-        when(objectMapper.writeValueAsString(any())).thenReturn("{}");
+        // when(objectMapper.writeValueAsString(any())).thenReturn("{}"); // Removed - unnecessary stubbing
 
         GenerateRequest request = GenerateRequest.builder()
                 .runId(runId.toString())
@@ -163,7 +165,7 @@ class TestOrchestrationServiceTest {
 
         ResultsSummaryDto result = service.runTests(request);
 
-        assertThat(result.getSummary()).containsEntry("total", 2);
+        assertThat(result.getSummary()).containsEntry("total", 2L);
         assertThat(result.getSummary()).containsEntry("passed", 1L);
         assertThat(result.getSummary()).containsEntry("failed", 1L);
     }
@@ -172,37 +174,53 @@ class TestOrchestrationServiceTest {
 
     @Test
     void getResults_throwsIllegalArgumentException_onInvalidRunId() {
-        assertThatThrownBy(() -> service.getResults("bad-uuid"))
+        assertThatThrownBy(() -> service.getResults("bad-uuid", Pageable.ofSize(50)))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void getResults_returnsEmptySummary_whenNoResultsExist() {
         UUID runId = UUID.randomUUID();
-        when(testResultRepository.findByRunId(runId)).thenReturn(List.of());
-        when(testCaseRepository.findByRunId(runId)).thenReturn(List.of());
+        when(testResultRepository.findByRunId(any(UUID.class), any(Pageable.class)))
+                .thenReturn(new PageImpl<>(List.of()));
+        when(testResultRepository.countByRunIdAndPassed(any(UUID.class), eq(true)))
+                .thenReturn(0L);
 
-        ResultsSummaryDto result = service.getResults(runId.toString());
+        ResultsSummaryDto result = service.getResults(runId.toString(), Pageable.ofSize(50));
 
         assertThat(result.getResults()).isEmpty();
-        assertThat(result.getSummary()).containsEntry("total", 0);
+        assertThat(result.getSummary()).containsEntry("total", 0L);
         assertThat(result.getSummary()).containsEntry("passed", 0L);
     }
 
     @Test
     void getResults_calculatesAverageResponseTime() {
         UUID runId = UUID.randomUUID();
-        TestResult r1 = TestResult.builder().passed(true).responseTimeMs(100L).build();
-        TestResult r2 = TestResult.builder().passed(true).responseTimeMs(300L).build();
+        TestResult r1 = TestResult.builder().testCaseId(UUID.randomUUID()).passed(true).responseTimeMs(100L).build();
+        TestResult r2 = TestResult.builder().testCaseId(UUID.randomUUID()).passed(true).responseTimeMs(300L).build();
 
-        when(testResultRepository.findByRunId(runId)).thenReturn(List.of(r1, r2));
-        when(testCaseRepository.findByRunId(runId)).thenReturn(List.of());
+        when(testResultRepository.findByRunId(any(UUID.class), any(Pageable.class)))
+                .thenReturn(new PageImpl<>(List.of(r1, r2)));
+        when(testResultRepository.countByRunIdAndPassed(any(UUID.class), eq(true)))
+                .thenReturn(2L);
+        when(testResultRepository.findAvgResponseTimeByRunId(any(UUID.class)))
+                .thenReturn(200.0);
         when(testResultMapper.toDto(eq(r1), any()))
                 .thenReturn(TestResultDto.builder().passed(true).responseTimeMs(100L).build());
         when(testResultMapper.toDto(eq(r2), any()))
                 .thenReturn(TestResultDto.builder().passed(true).responseTimeMs(300L).build());
+        
+        // Ensure casesMap contains the IDs to avoid NPE in getResults
+        // (already handled by when(testCaseRepository.findAllById(any())).thenReturn(List.of(...)) if needed)
+        // Actually, the service code uses:
+        // testCaseRepository.findAllById(pageTestCaseIds).forEach(tc -> casesMap.put(tc.getId(), tc));
+        // So we need to mock testCaseRepository.findAllById
+        when(testCaseRepository.findAllById(any())).thenReturn(List.of(
+            TestCase.builder().id(r1.getTestCaseId()).build(),
+            TestCase.builder().id(r2.getTestCaseId()).build()
+        ));
 
-        ResultsSummaryDto result = service.getResults(runId.toString());
+        ResultsSummaryDto result = service.getResults(runId.toString(), Pageable.ofSize(50));
 
         assertThat(result.getSummary()).containsEntry("avgResponseTime", 200L);
     }

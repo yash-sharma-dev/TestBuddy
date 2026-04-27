@@ -14,3 +14,12 @@ export async function explainFailure(
     throw new Error(extractErrorMessage(err));
   }
 }
+
+export async function getUsage(): Promise<ApiResponse<any>> {
+  try {
+    const { data } = await apiClient.get<ApiResponse<any>>("/api/insights/usage");
+    return data;
+  } catch (err) {
+    throw new Error(extractErrorMessage(err));
+  }
+}

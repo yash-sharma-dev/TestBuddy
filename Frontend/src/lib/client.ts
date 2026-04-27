@@ -44,6 +44,7 @@ export interface TestResult {
   responseTimeMs: number;
   passed: boolean;
   errorMessage: string | null;
+  schemaValid: boolean | null;
 }
 
 export interface ResultSummary {

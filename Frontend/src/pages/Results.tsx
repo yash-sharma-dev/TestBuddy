@@ -188,6 +188,7 @@ export default function Results() {
                 <TableHead>Test Name</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead>Response</TableHead>
+                <TableHead>Schema</TableHead>
                 <TableHead>Time</TableHead>
                 <TableHead>Error</TableHead>
                 <TableHead>Why</TableHead>
@@ -205,6 +206,19 @@ export default function Results() {
                         <span className={`font-mono text-xs font-semibold ${r.actualStatus >= 400 ? "text-destructive" : "text-success"}`}>
                           {r.actualStatus}
                         </span>
+                      </TableCell>
+                      <TableCell>
+                        {r.schemaValid === true && (
+                          <div className="flex items-center gap-1 text-[10px] font-medium text-success">
+                            <div className="h-1.5 w-1.5 rounded-full bg-success" /> Valid
+                          </div>
+                        )}
+                        {r.schemaValid === false && (
+                          <div className="flex items-center gap-1 text-[10px] font-medium text-destructive">
+                            <div className="h-1.5 w-1.5 rounded-full bg-destructive" /> Invalid
+                          </div>
+                        )}
+                        {r.schemaValid === null && <span className="text-muted-foreground">—</span>}
                       </TableCell>
                       <TableCell className="text-xs text-muted-foreground">{r.responseTimeMs}ms</TableCell>
                       <TableCell className="max-w-md truncate text-xs text-muted-foreground" title={r.errorMessage ?? undefined}>

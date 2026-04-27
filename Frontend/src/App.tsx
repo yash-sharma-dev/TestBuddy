@@ -9,6 +9,7 @@ import UploadApi from "./pages/UploadApi";
 import TestCases from "./pages/TestCases";
 import Results from "./pages/Results";
 import Insights from "./pages/Insights";
+import Usage from "./pages/Usage";
 import NotFound from "./pages/NotFound.tsx";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
@@ -35,6 +36,7 @@ const App = () => (
               <Route path="/test-cases" element={<TestCases />} />
               <Route path="/results" element={<Results />} />
               <Route path="/insights" element={<Insights />} />
+              <Route path="/usage" element={<Usage />} />
               <Route element={<ProtectedOutlet />}>
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/settings" element={<Settings />} />

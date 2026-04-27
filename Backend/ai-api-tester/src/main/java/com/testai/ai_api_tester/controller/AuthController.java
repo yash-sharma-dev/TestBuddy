@@ -2,7 +2,7 @@ package com.testai.ai_api_tester.controller;
 
 import com.testai.ai_api_tester.config.JwtUtil;
 import com.testai.ai_api_tester.dto.ApiResponse;
-import com.testai.ai_api_tester.entity.User;
+import com.testai.ai_api_tester.model.User;
 import com.testai.ai_api_tester.repository.UserRepository;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;

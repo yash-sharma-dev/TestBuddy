@@ -1,6 +1,6 @@
 package com.testai.ai_api_tester.repository;
 
-import com.testai.ai_api_tester.entity.User;
+import com.testai.ai_api_tester.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

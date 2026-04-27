@@ -33,6 +33,9 @@ public class TestRun {
     @Column(length = 50)
     private String status;
 
+    @Column(name = "user_id")
+    private Long userId;
+
     @Column(name = "created_at")
     private OffsetDateTime createdAt;
 
